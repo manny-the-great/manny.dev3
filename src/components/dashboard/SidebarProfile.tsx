@@ -96,6 +96,22 @@ export const SidebarProfile = () => {
           </button>
         </div>
 
+        {/* Achievements */}
+        <div className="flex flex-col gap-2 mt-4">
+          <h3 className="text-sm font-semibold text-white">Achievements</h3>
+          <div className="flex gap-2">
+            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-white/10 transition-colors">
+              <img src="https://github.githubassets.com/images/modules/profile/badge-pull-shark-64.png" alt="Pull Shark" className="w-full h-full object-contain filter group-hover:brightness-110" />
+            </div>
+            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-white/10 transition-colors">
+              <img src="https://github.githubassets.com/images/modules/profile/badge-yolo-64.png" alt="YOLO" className="w-full h-full object-contain filter group-hover:brightness-110" />
+            </div>
+            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-white/10 transition-colors">
+              <img src="https://github.githubassets.com/images/modules/profile/badge-quickdraw-64.png" alt="Quickdraw" className="w-full h-full object-contain filter group-hover:brightness-110" />
+            </div>
+          </div>
+        </div>
+
         {/* Details */}
         <div className="flex flex-col gap-3 mt-4 text-sm text-foreground/70">
           {profile?.location && (
