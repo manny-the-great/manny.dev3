@@ -13,6 +13,18 @@ export const ContributionGraph = () => {
     return Array.from({ length: weeks * daysPerWeek }, () => Math.floor(Math.random() * 5));
   }, []);
 
+  const getDayDetails = (weekIndex: number, dayIndex: number) => {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 is Sunday, 1 is Monday...
+    const diffToLastSaturday = dayOfWeek === 6 ? 0 : -(dayOfWeek + 1);
+    
+    // Total days to go back from the last Saturday in the grid
+    const daysBack = ((weeks - 1 - weekIndex) * 7) + (6 - dayIndex);
+    const date = new Date();
+    date.setDate(today.getDate() + diffToLastSaturday - daysBack);
+    return date;
+  };
+
   const getColor = (level: number) => {
     switch (level) {
       case 0: return 'bg-[#161b22]'; // None
@@ -54,22 +66,23 @@ export const ContributionGraph = () => {
           </div>
 
           {/* Grid */}
-          <div className="flex gap-1 flex-1">
+          <div className="flex gap-[3px] flex-1">
             {Array.from({ length: weeks }).map((_, weekIndex) => (
-              <div key={weekIndex} className="flex flex-col gap-1">
+              <div key={weekIndex} className="flex flex-col gap-[3px]">
                 {Array.from({ length: daysPerWeek }).map((_, dayIndex) => {
                   const level = contributions[weekIndex * 7 + dayIndex];
+                  const date = getDayDetails(weekIndex, dayIndex);
                   return (
                     <motion.div
                       key={dayIndex}
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: (weekIndex * 7 + dayIndex) * 0.001 }}
-                      whileHover={{ scale: 1.2, zIndex: 10 }}
-                      className={`w-3 h-3 rounded-sm ${getColor(level)} transition-colors cursor-pointer relative group`}
+                      transition={{ delay: (weekIndex * 7 + dayIndex) * 0.0005 }}
+                      whileHover={{ scale: 1.3, zIndex: 10 }}
+                      className={`w-[11px] h-[11px] rounded-[2px] ${getColor(level)} transition-colors cursor-pointer relative group`}
                     >
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-[10px] text-white rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50">
-                        {level} contributions on {new Date(2025, 0, (weekIndex * 7 + dayIndex)).toLocaleDateString()}
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-[#161b22] border border-white/10 text-[10px] text-white rounded shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 transition-opacity">
+                        <span className="font-bold">{level === 0 ? 'No' : level} contributions</span> on {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                       </div>
                     </motion.div>
                   );
