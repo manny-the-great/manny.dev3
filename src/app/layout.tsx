@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={inter.className}>
         <div className="fixed inset-0 -z-10 bg-black" />
-        <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_50%,rgba(56,189,248,0.05),transparent_50%)]" />
+        <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_50%,rgba(217,255,0,0.05),transparent_50%)]" />
         {children}
       </body>
     </html>

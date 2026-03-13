@@ -12,11 +12,11 @@ const config: Config = {
         background: "#000000",
         foreground: "#C9D1D9",
         primary: {
-          DEFAULT: "#38bdf8",
+          DEFAULT: "#D9FF00",
           foreground: "#000000",
         },
         secondary: {
-          DEFAULT: "#22c55e",
+          DEFAULT: "#A3FF2E",
           foreground: "#000000",
         },
         card: "rgba(255, 255, 255, 0.05)",

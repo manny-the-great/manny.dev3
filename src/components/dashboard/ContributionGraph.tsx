@@ -28,10 +28,10 @@ export const ContributionGraph = () => {
   const getColor = (level: number) => {
     switch (level) {
       case 0: return 'bg-[#111111]'; // None
-      case 1: return 'bg-[#0e4429]'; // Low
-      case 2: return 'bg-[#006d32]'; // Medium-Low
-      case 3: return 'bg-[#26a641]'; // Medium-High
-      case 4: return 'bg-[#39d353]'; // High
+      case 1: return 'bg-[#3E4A00]'; // Low
+      case 2: return 'bg-[#8DA800]'; // Medium-Low
+      case 3: return 'bg-[#BDE400]'; // Medium-High
+      case 4: return 'bg-[#D9FF00]'; // High
       default: return 'bg-[#111111]';
     }
   };
@@ -96,10 +96,10 @@ export const ContributionGraph = () => {
       <div className="flex items-center justify-end gap-2 mt-4 text-[10px] text-foreground/40">
         <span>Less</span>
         <div className="w-3 h-3 rounded-sm bg-[#111111]"></div>
-        <div className="w-3 h-3 rounded-sm bg-[#0e4429]"></div>
-        <div className="w-3 h-3 rounded-sm bg-[#006d32]"></div>
-        <div className="w-3 h-3 rounded-sm bg-[#26a641]"></div>
-        <div className="w-3 h-3 rounded-sm bg-[#39d353]"></div>
+        <div className="w-3 h-3 rounded-sm bg-[#3E4A00]"></div>
+        <div className="w-3 h-3 rounded-sm bg-[#8DA800]"></div>
+        <div className="w-3 h-3 rounded-sm bg-[#BDE400]"></div>
+        <div className="w-3 h-3 rounded-sm bg-[#D9FF00]"></div>
         <span>More</span>
       </div>
     </div>
