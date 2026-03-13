@@ -39,7 +39,7 @@ export const SidebarProfile = () => {
         <motion.div 
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="relative w-full aspect-square rounded-full overflow-hidden border-2 border-white/10 glass-card"
+          className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-white/10 glass-card"
         >
           <img 
             src={profile?.avatar_url || "https://avatars.githubusercontent.com/u/manny-the-great"} 
@@ -49,21 +49,21 @@ export const SidebarProfile = () => {
         </motion.div>
 
         {/* Name & Username */}
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center lg:items-start">
           <h1 className="text-2xl font-bold text-white">{profile?.name || "Manny D' Great"}</h1>
           <p className="text-xl text-foreground/60 font-medium">{profile?.login || "manny-the-great"}</p>
         </div>
 
         {/* Title */}
-        <p className="text-foreground/90 font-semibold">{staticInfo.title}</p>
+        <p className="text-foreground/90 font-semibold text-center lg:text-left">{staticInfo.title}</p>
 
         {/* Description */}
-        <p className="text-foreground/70 text-sm leading-relaxed">
+        <p className="text-foreground/70 text-sm leading-relaxed text-center lg:text-left">
           {profile?.bio || staticInfo.description}
         </p>
 
         {/* Stats */}
-        <div className="flex gap-4 text-sm text-foreground/60">
+        <div className="flex justify-center lg:justify-start gap-4 text-sm text-foreground/60">
           <div className="flex items-center gap-1">
             <span className="font-bold text-white">{profile?.followers || 0}</span>
             <span>followers</span>
@@ -75,7 +75,7 @@ export const SidebarProfile = () => {
         </div>
 
         {/* Tech Stack Badges */}
-        <div className="flex flex-wrap gap-2 mt-2">
+        <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-2">
           {staticInfo.skills.map((skill) => (
             <span 
               key={skill}

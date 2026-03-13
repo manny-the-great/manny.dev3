@@ -9,15 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0D1117",
+        background: "#000000",
         foreground: "#C9D1D9",
         primary: {
           DEFAULT: "#38bdf8",
-          foreground: "#0D1117",
+          foreground: "#000000",
         },
         secondary: {
           DEFAULT: "#22c55e",
-          foreground: "#0D1117",
+          foreground: "#000000",
         },
         card: "rgba(255, 255, 255, 0.05)",
         border: "rgba(255, 255, 255, 0.1)",

@@ -27,12 +27,12 @@ export const ContributionGraph = () => {
 
   const getColor = (level: number) => {
     switch (level) {
-      case 0: return 'bg-[#161b22]'; // None
+      case 0: return 'bg-[#111111]'; // None
       case 1: return 'bg-[#0e4429]'; // Low
       case 2: return 'bg-[#006d32]'; // Medium-Low
       case 3: return 'bg-[#26a641]'; // Medium-High
       case 4: return 'bg-[#39d353]'; // High
-      default: return 'bg-[#161b22]';
+      default: return 'bg-[#111111]';
     }
   };
 
@@ -81,7 +81,7 @@ export const ContributionGraph = () => {
                       whileHover={{ scale: 1.3, zIndex: 10 }}
                       className={`w-[11px] h-[11px] rounded-[2px] ${getColor(level)} transition-colors cursor-pointer relative group`}
                     >
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-[#161b22] border border-white/10 text-[10px] text-white rounded shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 transition-opacity">
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-[#111111] border border-white/10 text-[10px] text-white rounded shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 transition-opacity">
                         <span className="font-bold">{level === 0 ? 'No' : level} contributions</span> on {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                       </div>
                     </motion.div>
@@ -95,7 +95,7 @@ export const ContributionGraph = () => {
 
       <div className="flex items-center justify-end gap-2 mt-4 text-[10px] text-foreground/40">
         <span>Less</span>
-        <div className="w-3 h-3 rounded-sm bg-[#161b22]"></div>
+        <div className="w-3 h-3 rounded-sm bg-[#111111]"></div>
         <div className="w-3 h-3 rounded-sm bg-[#0e4429]"></div>
         <div className="w-3 h-3 rounded-sm bg-[#006d32]"></div>
         <div className="w-3 h-3 rounded-sm bg-[#26a641]"></div>

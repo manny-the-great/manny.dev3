@@ -65,7 +65,7 @@ export const ActivityTimeline = () => {
           )}
           
           {/* Node */}
-          <div className="absolute left-0 top-1 w-9 h-9 rounded-full bg-[#161b22] border border-white/10 flex items-center justify-center z-10">
+          <div className="absolute left-0 top-1 w-9 h-9 rounded-full bg-[#111111] border border-white/10 flex items-center justify-center z-10">
             {getIcon(event.type)}
           </div>
 
