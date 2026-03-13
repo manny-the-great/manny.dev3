@@ -51,11 +51,11 @@ export const TerminalContact = () => {
           </div>
           <div className="grid grid-cols-[100px_1fr] gap-2">
             <span className="text-foreground/40">Twitter:</span>
-            <a href="https://x.com/mannythegreat_" target="_blank" className="text-primary hover:underline">@mannythegreat_</a>
+            <a href="https://x.com/_mannythegreat_" target="_blank" className="text-primary hover:underline">@_mannythegreat_</a>
           </div>
           <div className="grid grid-cols-[100px_1fr] gap-2">
             <span className="text-foreground/40">LinkedIn:</span>
-            <a href="https://linkedin.com/in/emmanuel-johnson" target="_blank" className="text-primary hover:underline">Emmanuel Johnson</a>
+            <a href="https://www.linkedin.com/in/emmanuel-johnson-623a69266/" target="_blank" className="text-primary hover:underline">Emmanuel Johnson</a>
           </div>
           <div className="grid grid-cols-[100px_1fr] gap-2">
             <span className="text-foreground/40">Email:</span>

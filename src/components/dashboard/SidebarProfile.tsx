@@ -124,13 +124,13 @@ export const SidebarProfile = () => {
             <Github size={16} />
             <span>{profile?.login || 'manny-the-great'}</span>
           </a>
-          <a href="https://x.com/mannythegreat_" target="_blank" className="flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+          <a href="https://x.com/_mannythegreat_" target="_blank" className="flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
             <Twitter size={16} />
-            <span>@mannythegreat_</span>
+            <span>@_mannythegreat_</span>
           </a>
-          <a href="https://linkedin.com/in/emmanuel-johnson" target="_blank" className="flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+          <a href="https://www.linkedin.com/in/emmanuel-johnson-623a69266/" target="_blank" className="flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
             <Linkedin size={16} />
-            <span>emmanuel-johnson</span>
+            <span>emmanuel-johnson-623a69266</span>
           </a>
         </div>
       </div>
