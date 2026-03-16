@@ -4,13 +4,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const techs = [
-  { name: "Solidity", icon: "https://cdn.simpleicons.org/solidity", description: "Smart contract development and security." },
-  { name: "Ethereum", icon: "https://cdn.simpleicons.org/ethereum", description: "Decentralized applications and protocols." },
+  { name: "Solidity", icon: "https://cdn.simpleicons.org/solidity/white", description: "Smart contract development and security." },
+  { name: "Ethereum", icon: "https://cdn.simpleicons.org/ethereum/white", description: "Decentralized applications and protocols." },
   { name: "Chainlink", icon: "https://cdn.simpleicons.org/chainlink", description: "Oracle integration and data feeds." },
   { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript", description: "Fullstack development and scripting." },
   { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript", description: "Type-safe application architecture." },
   { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs", description: "Scalable backend services." },
-  { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs", description: "Performant frontend experiences." },
+  { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/white", description: "Performant frontend experiences." },
   { name: "Hardhat", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hardhat/hardhat-original.svg", description: "Ethereum development environment." },
   { name: "TailwindCSS", icon: "https://cdn.simpleicons.org/tailwindcss", description: "Utility-first modern styling." },
 ];
