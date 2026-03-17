@@ -45,11 +45,11 @@ export const ProjectCard: React.FC<ProjectProps> = ({
         </div>
         <div className="flex gap-3">
           {demoUrl && demoUrl !== "#" && (
-            <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-white transition-colors">
+            <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-foreground transition-colors">
               <ExternalLink size={18} />
             </a>
           )}
-          <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-white transition-colors">
+          <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-foreground transition-colors">
             <Github size={18} />
           </a>
         </div>
@@ -61,7 +61,7 @@ export const ProjectCard: React.FC<ProjectProps> = ({
 
       <div className="flex flex-wrap gap-2 relative z-10">
         {tags.map((tag) => (
-          <span key={tag} className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-white/5 border border-white/10 text-foreground/60 backdrop-blur-md">
+          <span key={tag} className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-foreground/5 border border-foreground/10 text-foreground/60 backdrop-blur-md">
             {tag}
           </span>
         ))}
@@ -73,11 +73,11 @@ export const ProjectCard: React.FC<ProjectProps> = ({
             <div className={`w-3 h-3 rounded-full shadow-[0_0_5px_currentColor]`} style={{ backgroundColor: languageColor, color: languageColor }}></div>
             <span>{language}</span>
           </div>
-          <div className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
+          <div className="flex items-center gap-1 hover:text-foreground transition-colors cursor-pointer">
             <Star size={14} className="group-hover:text-yellow-500 transition-colors" />
             <span>{stars}</span>
           </div>
-          <div className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
+          <div className="flex items-center gap-1 hover:text-foreground transition-colors cursor-pointer">
             <GitFork size={14} />
             <span>{forks}</span>
           </div>

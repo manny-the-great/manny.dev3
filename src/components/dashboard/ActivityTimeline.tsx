@@ -21,9 +21,9 @@ export const ActivityTimeline = () => {
     switch (type) {
       case 'PushEvent': return <GitCommit size={14} className="text-secondary" />;
       case 'PullRequestEvent': return <GitPullRequest size={14} className="text-primary" />;
-      case 'WatchEvent': return <Star size={14} className="text-[#e3b341]" />;
+      case 'WatchEvent': return <Star size={14} className="text-foreground" />;
       case 'CreateEvent': return <Plus size={14} className="text-secondary" />;
-      case 'IssueCommentEvent': return <GitMerge size={14} className="text-[#a371f7]" />;
+      case 'IssueCommentEvent': return <GitMerge size={14} className="text-foreground" />;
       default: return <GitCommit size={14} />;
     }
   };
@@ -61,11 +61,11 @@ export const ActivityTimeline = () => {
         <div key={event.id} className="relative pl-10 group">
           {/* Vertical Line */}
           {index !== events.length - 1 && (
-            <div className="absolute left-[17px] top-[30px] bottom-[-20px] w-[2px] bg-white/10" />
+            <div className="absolute left-[17px] top-[30px] bottom-[-20px] w-[2px] bg-foreground/10" />
           )}
           
           {/* Node */}
-          <div className="absolute left-0 top-1 w-9 h-9 rounded-full bg-[#111111] border border-white/10 flex items-center justify-center z-10">
+          <div className="absolute left-0 top-1 w-9 h-9 rounded-full bg-background border border-foreground/10 flex items-center justify-center z-10">
             {getIcon(event.type)}
           </div>
 

@@ -39,7 +39,7 @@ export const SidebarProfile = () => {
         <motion.div 
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-white/10 glass-card"
+          className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-foreground/10 glass-card"
         >
           <img 
             src={profile?.avatar_url || "https://avatars.githubusercontent.com/u/manny-the-great"} 
@@ -50,7 +50,7 @@ export const SidebarProfile = () => {
 
         {/* Name & Username */}
         <div className="flex flex-col items-center lg:items-start">
-          <h1 className="text-2xl font-bold text-white">{profile?.name || "Manny D' Great"}</h1>
+          <h1 className="text-2xl font-bold text-foreground">{profile?.name || "Manny D' Great"}</h1>
           <p className="text-xl text-foreground/60 font-medium">{profile?.login || "manny-the-great"}</p>
         </div>
 
@@ -65,11 +65,11 @@ export const SidebarProfile = () => {
         {/* Stats */}
         <div className="flex justify-center lg:justify-start gap-4 text-sm text-foreground/60">
           <div className="flex items-center gap-1">
-            <span className="font-bold text-white">{profile?.followers || 0}</span>
+            <span className="font-bold text-foreground">{profile?.followers || 0}</span>
             <span>followers</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="font-bold text-white">{profile?.following || 0}</span>
+            <span className="font-bold text-foreground">{profile?.following || 0}</span>
             <span>following</span>
           </div>
         </div>
@@ -88,7 +88,7 @@ export const SidebarProfile = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col gap-2 mt-4">
-          <button className="w-full py-2 bg-white/10 hover:bg-white/15 border border-white/10 rounded-lg text-sm font-semibold transition-colors">
+          <button className="w-full py-2 bg-foreground/10 hover:bg-foreground/15 border border-foreground/10 rounded-lg text-sm font-semibold transition-colors">
             View Resume
           </button>
           <button className="w-full py-2 bg-primary hover:bg-primary/90 border border-primary/20 rounded-lg text-sm font-semibold text-background transition-colors">
@@ -98,15 +98,15 @@ export const SidebarProfile = () => {
 
         {/* Achievements */}
         <div className="flex flex-col gap-2 mt-4">
-          <h3 className="text-sm font-semibold text-white">Achievements</h3>
+          <h3 className="text-sm font-semibold text-foreground">Achievements</h3>
           <div className="flex gap-2">
-            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-white/10 transition-colors">
+            <div className="w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-foreground/10 transition-colors">
               <img src="https://github.githubassets.com/images/modules/profile/badge-pull-shark-64.png" alt="Pull Shark" className="w-full h-full object-contain filter group-hover:brightness-110" />
             </div>
-            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-white/10 transition-colors">
+            <div className="w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-foreground/10 transition-colors">
               <img src="https://github.githubassets.com/images/modules/profile/badge-yolo-64.png" alt="YOLO" className="w-full h-full object-contain filter group-hover:brightness-110" />
             </div>
-            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-white/10 transition-colors">
+            <div className="w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-foreground/10 transition-colors">
               <img src="https://github.githubassets.com/images/modules/profile/badge-quickdraw-64.png" alt="Quickdraw" className="w-full h-full object-contain filter group-hover:brightness-110" />
             </div>
           </div>

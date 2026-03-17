@@ -19,7 +19,7 @@ export const TerminalContact = () => {
 
   return (
     <div className="w-full glass-card overflow-hidden font-mono text-sm">
-      <div className="bg-white/10 px-4 py-2 flex items-center gap-2">
+      <div className="bg-foreground/10 px-4 py-2 flex items-center gap-2">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
           <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
@@ -31,7 +31,7 @@ export const TerminalContact = () => {
         <div className="flex items-center gap-2">
           <span className="text-secondary">➜</span>
           <span className="text-primary">~</span>
-          <span className="text-white">{text}</span>
+          <span className="text-foreground">{text}</span>
           <motion.span
             animate={{ opacity: [1, 0] }}
             transition={{ duration: 0.8, repeat: Infinity }}

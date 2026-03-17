@@ -27,12 +27,12 @@ export const ContributionGraph = () => {
 
   const getColor = (level: number) => {
     switch (level) {
-      case 0: return 'bg-[#111111]'; // None
-      case 1: return 'bg-[#3E4A00]'; // Low
-      case 2: return 'bg-[#8DA800]'; // Medium-Low
-      case 3: return 'bg-[#BDE400]'; // Medium-High
-      case 4: return 'bg-[#D9FF00]'; // High
-      default: return 'bg-[#111111]';
+      case 0: return 'bg-black/5 dark:bg-white/5'; // None
+      case 1: return 'bg-black/20 dark:bg-white/20'; // Low
+      case 2: return 'bg-black/40 dark:bg-white/40'; // Medium-Low
+      case 3: return 'bg-black/60 dark:bg-white/60'; // Medium-High
+      case 4: return 'bg-black dark:bg-white'; // High
+      default: return 'bg-black/5 dark:bg-white/5';
     }
   };
 
@@ -41,7 +41,7 @@ export const ContributionGraph = () => {
   return (
     <div className="glass-card p-6 w-full overflow-hidden">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-semibold text-white">1,248 contributions in the last year</h3>
+        <h3 className="text-sm font-semibold text-foreground">1,248 contributions in the last year</h3>
         <div className="text-xs text-foreground/50">Total activity</div>
       </div>
 
@@ -81,7 +81,7 @@ export const ContributionGraph = () => {
                       whileHover={{ scale: 1.3, zIndex: 10 }}
                       className={`w-[11px] h-[11px] rounded-[2px] ${getColor(level)} transition-colors cursor-pointer relative group`}
                     >
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-[#111111] border border-white/10 text-[10px] text-white rounded shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 transition-opacity">
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-background border border-foreground/10 text-[10px] text-foreground rounded shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 transition-opacity">
                         <span className="font-bold">{level === 0 ? 'No' : level} contributions</span> on {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                       </div>
                     </motion.div>
@@ -95,11 +95,11 @@ export const ContributionGraph = () => {
 
       <div className="flex items-center justify-end gap-2 mt-4 text-[10px] text-foreground/40">
         <span>Less</span>
-        <div className="w-3 h-3 rounded-sm bg-[#111111]"></div>
-        <div className="w-3 h-3 rounded-sm bg-[#3E4A00]"></div>
-        <div className="w-3 h-3 rounded-sm bg-[#8DA800]"></div>
-        <div className="w-3 h-3 rounded-sm bg-[#BDE400]"></div>
-        <div className="w-3 h-3 rounded-sm bg-[#D9FF00]"></div>
+        <div className="w-3 h-3 rounded-sm bg-black/5 dark:bg-white/5"></div>
+        <div className="w-3 h-3 rounded-sm bg-black/20 dark:bg-white/20"></div>
+        <div className="w-3 h-3 rounded-sm bg-black/40 dark:bg-white/40"></div>
+        <div className="w-3 h-3 rounded-sm bg-black/60 dark:bg-white/60"></div>
+        <div className="w-3 h-3 rounded-sm bg-black dark:bg-white"></div>
         <span>More</span>
       </div>
     </div>
