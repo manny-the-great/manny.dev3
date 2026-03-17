@@ -28,10 +28,10 @@ export const ContributionGraph = () => {
   const getColor = (level: number) => {
     switch (level) {
       case 0: return 'bg-black/5 dark:bg-white/5'; // None
-      case 1: return 'bg-black/20 dark:bg-white/20'; // Low
-      case 2: return 'bg-black/40 dark:bg-white/40'; // Medium-Low
-      case 3: return 'bg-black/60 dark:bg-white/60'; // Medium-High
-      case 4: return 'bg-black dark:bg-white'; // High
+      case 1: return 'bg-[#0e4429]'; // Low
+      case 2: return 'bg-[#006d32]'; // Medium-Low
+      case 3: return 'bg-[#26a641]'; // Medium-High
+      case 4: return 'bg-[#39d353]'; // High
       default: return 'bg-black/5 dark:bg-white/5';
     }
   };
@@ -96,10 +96,10 @@ export const ContributionGraph = () => {
       <div className="flex items-center justify-end gap-2 mt-4 text-[10px] text-foreground/40">
         <span>Less</span>
         <div className="w-3 h-3 rounded-sm bg-black/5 dark:bg-white/5"></div>
-        <div className="w-3 h-3 rounded-sm bg-black/20 dark:bg-white/20"></div>
-        <div className="w-3 h-3 rounded-sm bg-black/40 dark:bg-white/40"></div>
-        <div className="w-3 h-3 rounded-sm bg-black/60 dark:bg-white/60"></div>
-        <div className="w-3 h-3 rounded-sm bg-black dark:bg-white"></div>
+        <div className="w-3 h-3 rounded-sm bg-[#0e4429]"></div>
+        <div className="w-3 h-3 rounded-sm bg-[#006d32]"></div>
+        <div className="w-3 h-3 rounded-sm bg-[#26a641]"></div>
+        <div className="w-3 h-3 rounded-sm bg-[#39d353]"></div>
         <span>More</span>
       </div>
     </div>
