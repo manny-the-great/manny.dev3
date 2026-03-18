@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { MapPin, Twitter, Github, Linkedin, Loader2 } from 'lucide-react';
+import { MapPin, Twitter, Github, Linkedin, Loader2, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getGithubProfile } from '@/lib/github';
 import { LagosClock } from './LagosClock';
@@ -138,22 +138,18 @@ export const SidebarProfile = () => {
         </div>
 
         <div className="flex flex-col gap-2 mt-4">
-          <h3 className="text-sm font-semibold text-foreground">Achievements</h3>
-          <div className="flex gap-2">
-            {[
-              { id: 'quickdraw', name: 'Quickdraw', desc: 'Awarded for rapid response to an issue' },
-              { id: 'yolo', name: 'YOLO', desc: 'Awarded for merging without code review' },
-              { id: 'pull-shark', name: 'Pull Shark', desc: 'Awarded for merging pull requests' },
-            ].map((achievement) => (
+          <h3 className="text-sm font-semibold text-foreground">RATING</h3>
+          <div className="flex gap-1.5">
+            {[1, 2, 3, 4, 5].map((star) => (
               <div 
-                key={achievement.id}
-                className="w-10 h-10 rounded-full bg-foreground/5 border border-black/10 dark:border-white/30 flex items-center justify-center p-2 group cursor-pointer hover:bg-foreground/10 transition-colors"
-                title={`${achievement.name}: ${achievement.desc}`}
+                key={star}
+                className="w-10 h-10 rounded-full bg-foreground/5 border border-black/10 dark:border-white/30 flex items-center justify-center group cursor-pointer hover:bg-foreground/10 transition-colors"
+                title={`Rating: 5/5`}
               >
-                <img 
-                  src={`/assets/achievements/${achievement.id}.png`} 
-                  alt={achievement.name} 
-                  className="w-full h-full object-contain filter group-hover:brightness-110" 
+                <Star 
+                  size={18}
+                  fill="currentColor"
+                  className="text-primary filter group-hover:brightness-110 transition-all duration-300 group-hover:scale-110" 
                 />
               </div>
             ))}
