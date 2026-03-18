@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, Twitter, Github, Linkedin, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getGithubProfile } from '@/lib/github';
+import { LagosClock } from './LagosClock';
 
 export const SidebarProfile = () => {
   const [profile, setProfile] = useState<any>(null);
@@ -40,6 +41,16 @@ export const SidebarProfile = () => {
       className="w-full lg:w-80 flex flex-col gap-6"
     >
       <div className="flex flex-col gap-4">
+        {/* Local Time Clock */}
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          className="w-full flex justify-center lg:justify-start"
+        >
+          <LagosClock />
+        </motion.div>
+
         {/* Avatar */}
         <motion.div 
           initial={{ scale: 0.9, opacity: 0 }}
@@ -131,13 +142,13 @@ export const SidebarProfile = () => {
           <h3 className="text-sm font-semibold text-foreground">Achievements</h3>
           <div className="flex gap-2">
             <div className="w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-foreground/10 transition-colors">
-              <img src="https://github.githubassets.com/images/modules/profile/badge-pull-shark-64.png" alt="Pull Shark" className="w-full h-full object-contain filter group-hover:brightness-110" />
+              <img src="/assets/achievements/quickdraw.png" alt="Quickdraw" className="w-full h-full object-contain filter group-hover:brightness-110" title="Quickdraw: Awarded for rapid response to an issue" />
             </div>
             <div className="w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-foreground/10 transition-colors">
-              <img src="https://github.githubassets.com/images/modules/profile/badge-yolo-64.png" alt="YOLO" className="w-full h-full object-contain filter group-hover:brightness-110" />
+              <img src="/assets/achievements/yolo.png" alt="YOLO" className="w-full h-full object-contain filter group-hover:brightness-110" title="YOLO: Awarded for merging without code review" />
             </div>
             <div className="w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-foreground/10 transition-colors">
-              <img src="https://github.githubassets.com/images/modules/profile/badge-quickdraw-64.png" alt="Quickdraw" className="w-full h-full object-contain filter group-hover:brightness-110" />
+              <img src="/assets/achievements/pull-shark.png" alt="Pull Shark" className="w-full h-full object-contain filter group-hover:brightness-110" title="Pull Shark: Awarded for merging pull requests" />
             </div>
           </div>
         </div>
