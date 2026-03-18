@@ -137,19 +137,26 @@ export const SidebarProfile = () => {
           </button>
         </div>
 
-        {/* Achievements */}
         <div className="flex flex-col gap-2 mt-4">
           <h3 className="text-sm font-semibold text-foreground">Achievements</h3>
           <div className="flex gap-2">
-            <div className="w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-foreground/10 transition-colors">
-              <img src="/assets/achievements/quickdraw.png" alt="Quickdraw" className="w-full h-full object-contain filter group-hover:brightness-110" title="Quickdraw: Awarded for rapid response to an issue" />
-            </div>
-            <div className="w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-foreground/10 transition-colors">
-              <img src="/assets/achievements/yolo.png" alt="YOLO" className="w-full h-full object-contain filter group-hover:brightness-110" title="YOLO: Awarded for merging without code review" />
-            </div>
-            <div className="w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center p-1 group cursor-pointer hover:bg-foreground/10 transition-colors">
-              <img src="/assets/achievements/pull-shark.png" alt="Pull Shark" className="w-full h-full object-contain filter group-hover:brightness-110" title="Pull Shark: Awarded for merging pull requests" />
-            </div>
+            {[
+              { id: 'quickdraw', name: 'Quickdraw', desc: 'Awarded for rapid response to an issue' },
+              { id: 'yolo', name: 'YOLO', desc: 'Awarded for merging without code review' },
+              { id: 'pull-shark', name: 'Pull Shark', desc: 'Awarded for merging pull requests' },
+            ].map((achievement) => (
+              <div 
+                key={achievement.id}
+                className="w-10 h-10 rounded-full bg-foreground/5 border border-black/10 dark:border-white/30 flex items-center justify-center p-2 group cursor-pointer hover:bg-foreground/10 transition-colors"
+                title={`${achievement.name}: ${achievement.desc}`}
+              >
+                <img 
+                  src={`/assets/achievements/${achievement.id}.png`} 
+                  alt={achievement.name} 
+                  className="w-full h-full object-contain filter group-hover:brightness-110" 
+                />
+              </div>
+            ))}
           </div>
         </div>
 

@@ -26,7 +26,13 @@ export const LagosClock = () => {
 
   return (
     <div className="flex items-center gap-2 px-3 py-1.5 glass-card rounded-full text-xs font-mono font-medium text-foreground/80">
-      <Clock size={14} className="text-primary animate-pulse" />
+      <div className="flex items-center gap-1.5">
+        <div className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+        </div>
+        <Clock size={14} className="text-primary" />
+      </div>
       <span>Lagos, NG: <span className="text-primary">{time}</span></span>
     </div>
   );
