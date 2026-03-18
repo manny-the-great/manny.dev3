@@ -3,6 +3,7 @@
 import React from 'react';
 import { Star, Circle, Loader2 } from 'lucide-react';
 import { getGithubRepos, GithubRepo } from '@/lib/github';
+import { motion } from 'framer-motion';
 
 export const RepositoryTable = () => {
   const [repos, setRepos] = React.useState<GithubRepo[]>([]);
@@ -37,9 +38,25 @@ export const RepositoryTable = () => {
           View all repositories
         </a>
       </div>
-      <div className="divide-y divide-foreground/10">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.1
+            }
+          }
+        }}
+        className="divide-y divide-foreground/10"
+      >
         {repos.length > 0 ? repos.map((repo) => (
-          <a 
+          <motion.a 
+            variants={{
+              hidden: { opacity: 0, x: -10 },
+              visible: { opacity: 1, x: 0 }
+            }}
             key={repo.name} 
             href={repo.html_url}
             target="_blank"
@@ -64,13 +81,13 @@ export const RepositoryTable = () => {
               </div>
               <span>Updated {new Date(repo.updated_at).toLocaleDateString()}</span>
             </div>
-          </a>
+          </motion.a>
         )) : (
           <div className="p-8 text-center text-sm text-foreground/40">
             No repositories found.
           </div>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 };

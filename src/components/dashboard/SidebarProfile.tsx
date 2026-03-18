@@ -33,12 +33,18 @@ export const SidebarProfile = () => {
   }
 
   return (
-    <div className="w-full lg:w-80 flex flex-col gap-6">
+    <motion.div 
+      initial={{ x: -50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="w-full lg:w-80 flex flex-col gap-6"
+    >
       <div className="flex flex-col gap-4">
         {/* Avatar */}
         <motion.div 
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2 }}
           className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-foreground/10 glass-card"
         >
           <img 
@@ -49,21 +55,43 @@ export const SidebarProfile = () => {
         </motion.div>
 
         {/* Name & Username */}
-        <div className="flex flex-col items-center lg:items-start">
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col items-center lg:items-start"
+        >
           <h1 className="text-2xl font-bold text-foreground">{profile?.name || "Manny D' Great"}</h1>
           <p className="text-xl text-foreground/60 font-medium">{profile?.login || "manny-the-great"}</p>
-        </div>
+        </motion.div>
 
         {/* Title */}
-        <p className="text-foreground/90 font-semibold text-center lg:text-left">{staticInfo.title}</p>
+        <motion.p 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="text-foreground/90 font-semibold text-center lg:text-left"
+        >
+          {staticInfo.title}
+        </motion.p>
 
         {/* Description */}
-        <p className="text-foreground/70 text-sm leading-relaxed text-center lg:text-left">
+        <motion.p 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="text-foreground/70 text-sm leading-relaxed text-center lg:text-left"
+        >
           {profile?.bio || staticInfo.description}
-        </p>
+        </motion.p>
 
         {/* Stats */}
-        <div className="flex justify-center lg:justify-start gap-4 text-sm text-foreground/60">
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="flex justify-center lg:justify-start gap-4 text-sm text-foreground/60"
+        >
           <div className="flex items-center gap-1">
             <span className="font-bold text-foreground">{profile?.followers || 0}</span>
             <span>followers</span>
@@ -72,7 +100,9 @@ export const SidebarProfile = () => {
             <span className="font-bold text-foreground">{profile?.following || 0}</span>
             <span>following</span>
           </div>
-        </div>
+        </motion.div>
+
+        {/* ... rest of the content ... */}
 
         {/* Tech Stack Badges */}
         <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-2">
@@ -134,6 +164,6 @@ export const SidebarProfile = () => {
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

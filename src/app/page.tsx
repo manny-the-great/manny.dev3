@@ -11,6 +11,8 @@ import { TechStackGrid } from '@/components/dashboard/TechStackGrid';
 import { TerminalContact } from '@/components/dashboard/TerminalContact';
 import { motion } from 'framer-motion';
 import { LayoutGrid, BookOpen, Activity, Cpu, Mail, Star, GitBranch, Layers } from 'lucide-react';
+import { ScrollReveal } from '@/components/animations/ScrollReveal';
+import { PageLoader } from '@/components/animations/PageLoader';
 
 const pinnedProjects = [
   {
@@ -70,6 +72,7 @@ const pinnedProjects = [
 export default function Home() {
   return (
     <main className="min-h-screen p-4 md:p-8 lg:p-12 max-w-[1440px] mx-auto overflow-hidden relative">
+      <PageLoader />
       {/* Decorative Background Elements */}
       <div className="fixed top-0 left-0 w-full h-full -z-20 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-80 h-80 bg-primary/10 rounded-full blur-[100px] animate-pulse" />
@@ -107,122 +110,138 @@ export default function Home() {
           </div>
 
           {/* Quick Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform">
-                <GitBranch size={40} />
+          <ScrollReveal delay={0.1}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform">
+                  <GitBranch size={40} />
+                </div>
+                <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Repositories</span>
+                <span className="text-2xl font-bold text-foreground">37</span>
               </div>
-              <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Repositories</span>
-              <span className="text-2xl font-bold text-foreground">37</span>
-            </div>
-            <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-secondary">
-                <Activity size={40} />
+              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-secondary">
+                  <Activity size={40} />
+                </div>
+                <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Total Commits</span>
+                <span className="text-2xl font-bold text-foreground">1,482</span>
               </div>
-              <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Total Commits</span>
-              <span className="text-2xl font-bold text-foreground">1,482</span>
-            </div>
-            <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-primary">
-                <Layers size={40} />
+              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-primary">
+                  <Layers size={40} />
+                </div>
+                <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Projects Built</span>
+                <span className="text-2xl font-bold text-foreground">15+</span>
               </div>
-              <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Projects Built</span>
-              <span className="text-2xl font-bold text-foreground">15+</span>
-            </div>
-            <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-foreground">
-                <Cpu size={40} />
+              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-foreground">
+                  <Cpu size={40} />
+                </div>
+                <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Smart Contracts</span>
+                <span className="text-2xl font-bold text-foreground">24</span>
               </div>
-              <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Smart Contracts</span>
-              <span className="text-2xl font-bold text-foreground">24</span>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Contribution Heatmap */}
-          <section>
-            <ContributionGraph />
-          </section>
+          <ScrollReveal delay={0.2}>
+            <section>
+              <ContributionGraph />
+            </section>
+          </ScrollReveal>
 
           {/* Pinned Projects Section */}
-          <section className="flex flex-col gap-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
-                <Star size={18} className="text-primary" />
-                Pinned Projects
-              </h2>
-              <span className="text-xs text-primary cursor-pointer hover:underline">Customize pins</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {pinnedProjects.map((project, i) => (
-                <ProjectCard key={i} {...project} />
-              ))}
-            </div>
-          </section>
-
-          {/* Activity & Repositories Side by Side */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+          <ScrollReveal delay={0.3}>
             <section className="flex flex-col gap-4">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
-                <Activity size={18} className="text-secondary" />
-                Latest Activity
-              </h2>
-              <div className="glass-card p-6">
-                <ActivityTimeline />
+              <div className="flex items-center justify-between">
+                <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+                  <Star size={18} className="text-primary" />
+                  Pinned Projects
+                </h2>
+                <span className="text-xs text-primary cursor-pointer hover:underline">Customize pins</span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {pinnedProjects.map((project, i) => (
+                  <ProjectCard key={i} {...project} />
+                ))}
               </div>
             </section>
-            <section className="flex flex-col gap-4">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
-                <BookOpen size={18} className="text-primary" />
-                Repositories
-              </h2>
-              <RepositoryTable />
-            </section>
-          </div>
+          </ScrollReveal>
+
+          {/* Activity & Repositories Side by Side */}
+          <ScrollReveal delay={0.4}>
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+              <section className="flex flex-col gap-4">
+                <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+                  <Activity size={18} className="text-secondary" />
+                  Latest Activity
+                </h2>
+                <div className="glass-card p-6">
+                  <ActivityTimeline />
+                </div>
+              </section>
+              <section className="flex flex-col gap-4">
+                <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+                  <BookOpen size={18} className="text-primary" />
+                  Repositories
+                </h2>
+                <RepositoryTable />
+              </section>
+            </div>
+          </ScrollReveal>
 
           {/* Skill Matrix */}
-          <section className="flex flex-col gap-4">
-            <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
-              <Cpu size={18} className="text-primary" />
-              Web3 Skill Matrix
-            </h2>
-            <SkillMatrix />
-          </section>
+          <ScrollReveal delay={0.5}>
+            <section className="flex flex-col gap-4">
+              <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+                <Cpu size={18} className="text-primary" />
+                Web3 Skill Matrix
+              </h2>
+              <SkillMatrix />
+            </section>
+          </ScrollReveal>
 
           {/* Tech Stack Grid */}
-          <section className="flex flex-col gap-4">
-            <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
-              <LayoutGrid size={18} className="text-secondary" />
-              Technology Stack
-            </h2>
-            <TechStackGrid />
-          </section>
+          <ScrollReveal delay={0.6}>
+            <section className="flex flex-col gap-4">
+              <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+                <LayoutGrid size={18} className="text-secondary" />
+                Technology Stack
+              </h2>
+              <TechStackGrid />
+            </section>
+          </ScrollReveal>
 
           {/* Terminal Contact */}
-          <section className="flex flex-col gap-4 mb-20">
-            <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
-              <Mail size={18} className="text-primary" />
-              Contact Terminal
-            </h2>
-            <TerminalContact />
-          </section>
+          <ScrollReveal delay={0.7}>
+            <section className="flex flex-col gap-4 mb-20">
+              <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+                <Mail size={18} className="text-primary" />
+                Contact Terminal
+              </h2>
+              <TerminalContact />
+            </section>
+          </ScrollReveal>
 
         </div>
       </div>
       
       {/* Footer */}
-      <footer className="mt-20 border-t border-foreground/10 pt-8 pb-12 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-foreground/40">
-        <div className="flex items-center gap-4">
-          <span>© 2026 Manny D' Great</span>
-          <span className="hover:text-primary cursor-pointer">Terms</span>
-          <span className="hover:text-primary cursor-pointer">Privacy</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <span className="hover:text-primary cursor-pointer">Docs</span>
-          <span className="hover:text-primary cursor-pointer">Support</span>
-          <span className="hover:text-primary cursor-pointer">API</span>
-          <span className="hover:text-primary cursor-pointer">GitHub Status</span>
-        </div>
-      </footer>
+      <ScrollReveal delay={0.8}>
+        <footer className="mt-20 border-t border-foreground/10 pt-8 pb-12 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-foreground/40">
+          <div className="flex items-center gap-4">
+            <span>© 2026 Manny D' Great</span>
+            <span className="hover:text-primary cursor-pointer">Terms</span>
+            <span className="hover:text-primary cursor-pointer">Privacy</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="hover:text-primary cursor-pointer">Docs</span>
+            <span className="hover:text-primary cursor-pointer">Support</span>
+            <span className="hover:text-primary cursor-pointer">API</span>
+            <span className="hover:text-primary cursor-pointer">GitHub Status</span>
+          </div>
+        </footer>
+      </ScrollReveal>
     </main>
   );
 }
