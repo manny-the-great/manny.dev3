@@ -13,6 +13,7 @@ import { motion } from 'framer-motion';
 import { LayoutGrid, BookOpen, Activity, Cpu, Mail, Star, GitBranch, Layers } from 'lucide-react';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { PageLoader } from '@/components/animations/PageLoader';
+import { NumberTicker } from '@/components/animations/NumberTicker';
 
 const pinnedProjects = [
   {
@@ -110,6 +111,7 @@ export default function Home() {
           </div>
 
           {/* Quick Stats Grid */}
+
           <ScrollReveal delay={0.1}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
@@ -117,28 +119,36 @@ export default function Home() {
                   <GitBranch size={40} />
                 </div>
                 <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Repositories</span>
-                <span className="text-2xl font-bold text-foreground">37</span>
+                <span className="text-2xl font-bold text-foreground">
+                  <NumberTicker value={37} delay={2.5} />
+                </span>
               </div>
               <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-secondary">
                   <Activity size={40} />
                 </div>
                 <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Total Commits</span>
-                <span className="text-2xl font-bold text-foreground">1,482</span>
+                <span className="text-2xl font-bold text-foreground">
+                  <NumberTicker value={1482} delay={2.6} />
+                </span>
               </div>
               <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-primary">
                   <Layers size={40} />
                 </div>
                 <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Projects Built</span>
-                <span className="text-2xl font-bold text-foreground">15+</span>
+                <span className="text-2xl font-bold text-foreground">
+                  <NumberTicker value={15} suffix="+" delay={2.7} />
+                </span>
               </div>
               <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-foreground">
                   <Cpu size={40} />
                 </div>
                 <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Smart Contracts</span>
-                <span className="text-2xl font-bold text-foreground">24</span>
+                <span className="text-2xl font-bold text-foreground">
+                  <NumberTicker value={24} delay={2.8} />
+                </span>
               </div>
             </div>
           </ScrollReveal>
