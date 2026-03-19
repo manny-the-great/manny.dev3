@@ -45,7 +45,7 @@ export const PageLoader = () => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.1 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] bg-background flex flex-col items-center justify-center overflow-hidden font-[family-name:var(--font-bricolage)]"
+          className="fixed inset-0 z-[9999] bg-background flex flex-col items-center justify-center overflow-hidden"
         >
           {/* Subtle grid background */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
@@ -63,9 +63,9 @@ export const PageLoader = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl font-extrabold mb-8 tracking-tighter"
+              className="text-4xl font-bold mb-8 tracking-tight text-foreground text-center"
             >
-              MANNY<span className="text-primary italic">.DEV</span>
+              Manny D' Great
             </motion.div>
 
             {/* Neon Bar Loader */}
