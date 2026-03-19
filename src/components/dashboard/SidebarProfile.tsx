@@ -59,7 +59,7 @@ export const SidebarProfile = () => {
           className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-foreground/10 glass-card"
         >
           <img 
-            src={profile?.avatar_url || "https://avatars.githubusercontent.com/u/manny-the-great"} 
+            src={profile?.avatar_url || "/icon.png"} 
             alt={profile?.name || "Manny"}
             className="w-full h-full object-cover"
           />
