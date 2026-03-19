@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -7,6 +7,11 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 const poppins = Poppins({ 
   subsets: ["latin"], 
   weight: ["300", "400", "500", "600", "700", "800"] 
+});
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={poppins.className}>
+      <body className={`${poppins.className} ${bricolage.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
