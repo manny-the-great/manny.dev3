@@ -51,7 +51,7 @@ export const PageLoader = () => {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
           <div className="relative flex flex-col items-center">
-            {/* 3D Cursor-Sensitive Avatar */}
+            {/* Move movement effect to Name */}
             <motion.div
               style={{
                 x: avatarX,
@@ -60,28 +60,9 @@ export const PageLoader = () => {
                 rotateY,
                 perspective: 1000,
               }}
-              initial={{ opacity: 0, scale: 0.5, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ 
-                duration: 1, 
-                ease: [0.16, 1, 0.3, 1],
-                delay: 0.2
-              }}
-              className="w-48 h-48 mb-6 relative group"
-            >
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-[40px] group-hover:bg-primary/30 transition-colors" />
-              <img 
-                src="/assets/loader-avatar.png" 
-                alt="3D Manny" 
-                className="w-full h-full object-contain relative z-10 drop-shadow-[0_20px_50px_rgba(189,255,1,0.3)]"
-              />
-            </motion.div>
-
-            {/* Name */}
-            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.3 }}
               className="text-4xl font-extrabold mb-8 tracking-tighter"
             >
               MANNY<span className="text-primary italic">.DEV</span>
