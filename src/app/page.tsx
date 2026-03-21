@@ -72,7 +72,7 @@ const pinnedProjects = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-4 md:p-8 lg:p-12 max-w-[1440px] mx-auto overflow-hidden relative">
+    <main className="min-h-screen pt-24 pb-8 px-4 md:px-8 lg:px-12 max-w-[1440px] mx-auto overflow-hidden relative">
       <PageLoader />
       {/* Decorative Background Elements */}
       <div className="fixed top-0 left-0 w-full h-full -z-20 overflow-hidden pointer-events-none">
@@ -88,27 +88,6 @@ export default function Home() {
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col gap-10">
           
-          {/* Header Stats / Nav tabs */}
-          <div className="flex items-center gap-6 border-b border-foreground/10 pb-4 overflow-x-auto scrollbar-hide">
-            <div className="flex items-center gap-2 text-primary font-bold border-b-2 border-primary pb-4 -mb-4 px-2">
-              <BookOpen size={18} />
-              <span>Overview</span>
-            </div>
-            <div className="flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors pb-4 -mb-4 px-2 cursor-pointer">
-              <LayoutGrid size={18} />
-              <span>Projects</span>
-              <span className="bg-foreground/10 px-1.5 py-0.5 rounded-full text-[10px]">37</span>
-            </div>
-            <div className="flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors pb-4 -mb-4 px-2 cursor-pointer">
-              <Activity size={18} />
-              <span>Activity</span>
-            </div>
-            <div className="flex items-center gap-2 text-foreground/50 hover:text-foreground transition-colors pb-4 -mb-4 px-2 cursor-pointer">
-              <Star size={18} />
-              <span>Stars</span>
-              <span className="bg-foreground/10 px-1.5 py-0.5 rounded-full text-[10px]">54</span>
-            </div>
-          </div>
 
           {/* Quick Stats Grid */}
 
