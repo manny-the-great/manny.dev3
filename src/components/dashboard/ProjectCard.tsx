@@ -39,7 +39,7 @@ export const ProjectCard: React.FC<ProjectProps> = ({
       <div className="flex items-start justify-between relative z-10">
         <div className="flex items-center gap-2">
           <Github size={18} className="text-foreground/60" />
-          <h3 className="text-lg font-bold text-primary group-hover:underline cursor-pointer">
+          <h3 className="text-lg font-bold text-primary group-hover:underline cursor-pointer font-header">
             {name}
           </h3>
         </div>

@@ -72,7 +72,7 @@ export const SidebarProfile = () => {
           transition={{ delay: 0.3 }}
           className="flex flex-col items-center lg:items-start"
         >
-          <h1 className="text-2xl font-bold text-foreground">{profile?.name || "Manny D' Great"}</h1>
+          <h1 className="text-2xl font-bold text-foreground font-header">{profile?.name || "Manny D' Great"}</h1>
           <p className="text-xl text-foreground/60 font-medium">{profile?.login || "manny-the-great"}</p>
         </motion.div>
 
@@ -138,7 +138,7 @@ export const SidebarProfile = () => {
         </div>
 
         <div className="flex flex-col gap-2 mt-4">
-          <h3 className="text-sm font-semibold text-foreground">RATING</h3>
+          <h3 className="text-sm font-semibold text-foreground font-header">RATING</h3>
           <div className="flex gap-1.5">
             {[1, 2, 3, 4, 5].map((star) => (
               <div 

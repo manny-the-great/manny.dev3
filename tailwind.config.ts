@@ -23,6 +23,9 @@ const config: Config = {
         card: "var(--card)",
         border: "var(--border)",
       },
+      fontFamily: {
+        header: ["var(--font-bricolage)", "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

@@ -143,7 +143,7 @@ export default function Home() {
           <ScrollReveal delay={0.3}>
             <section className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
-                <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+                <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
                   <Star size={18} className="text-primary" />
                   Pinned Projects
                 </h2>
@@ -161,7 +161,7 @@ export default function Home() {
           <ScrollReveal delay={0.4}>
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
               <section className="flex flex-col gap-4">
-                <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+                <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
                   <Activity size={18} className="text-secondary" />
                   Latest Activity
                 </h2>
@@ -170,7 +170,7 @@ export default function Home() {
                 </div>
               </section>
               <section className="flex flex-col gap-4">
-                <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+                <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
                   <BookOpen size={18} className="text-primary" />
                   Repositories
                 </h2>
@@ -182,7 +182,7 @@ export default function Home() {
           {/* Skill Matrix */}
           <ScrollReveal delay={0.5}>
             <section className="flex flex-col gap-4">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+              <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
                 <Cpu size={18} className="text-primary" />
                 Web3 Skill Matrix
               </h2>
@@ -193,7 +193,7 @@ export default function Home() {
           {/* Tech Stack Grid */}
           <ScrollReveal delay={0.6}>
             <section className="flex flex-col gap-4">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+              <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
                 <LayoutGrid size={18} className="text-secondary" />
                 Technology Stack
               </h2>
@@ -204,7 +204,7 @@ export default function Home() {
           {/* Terminal Contact */}
           <ScrollReveal delay={0.7}>
             <section className="flex flex-col gap-4 mb-20">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
+              <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
                 <Mail size={18} className="text-primary" />
                 Contact Terminal
               </h2>

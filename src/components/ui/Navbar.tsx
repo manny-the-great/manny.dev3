@@ -37,7 +37,7 @@ export function Navbar() {
             key={item.id}
             onClick={() => setActiveTab(item.id)}
             className={cn(
-              "relative px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center gap-2 rounded-full outline-none",
+              "relative px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center gap-2 rounded-full outline-none font-header",
               activeTab === item.id 
                 ? "text-primary-foreground" 
                 : "text-foreground/50 hover:text-foreground"

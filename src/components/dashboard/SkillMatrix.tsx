@@ -25,7 +25,7 @@ export const SkillMatrix = () => {
       {skills.map((skill) => (
         <div key={skill.name} className="glass-card p-4">
           <div className="flex justify-between mb-2">
-            <span className="text-sm font-medium text-foreground/80">{skill.name}</span>
+            <span className="text-sm font-medium text-foreground/80 font-header">{skill.name}</span>
             <span className="text-xs text-primary">{skill.level}%</span>
           </div>
           <div className="h-1.5 w-full bg-foreground/5 rounded-full overflow-hidden">

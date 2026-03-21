@@ -32,7 +32,7 @@ export const TechStackGrid = () => {
               className={`w-full h-full object-contain filter group-hover:brightness-125 transition-all ${tech.needsInvert ? 'invert dark:invert-0' : ''}`} 
             />
           </div>
-          <span className="text-xs font-bold text-foreground/80">{tech.name}</span>
+          <span className="text-xs font-bold text-foreground/80 font-header">{tech.name}</span>
           
           <div className="absolute inset-0 flex items-center justify-center bg-background/95 p-2 opacity-0 group-hover:opacity-100 transition-opacity translate-y-full group-hover:translate-y-0 duration-300">
             <p className="text-[10px] text-foreground/70">{tech.description}</p>
