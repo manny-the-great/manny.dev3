@@ -38,7 +38,7 @@ export const SidebarProfile = () => {
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="w-full lg:w-80 flex flex-col gap-6"
+      className="w-full lg:w-80 flex flex-col gap-6 glass-card p-6 h-fit sticky top-24"
     >
       <div className="flex flex-col gap-4">
         {/* Local Time Clock */}
