@@ -86,14 +86,13 @@ export default function Home() {
         <SidebarProfile />
 
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col gap-10">
+        <div className="flex-1 flex flex-col gap-10 glass-card p-6 md:p-10 relative overflow-hidden">
           
-
           {/* Quick Stats Grid */}
 
           <ScrollReveal delay={0.1}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
+              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group bg-background/5">
                 <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform">
                   <GitBranch size={40} />
                 </div>
@@ -102,7 +101,7 @@ export default function Home() {
                   <NumberTicker value={37} delay={2.5} />
                 </span>
               </div>
-              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
+              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group bg-background/5">
                 <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-secondary">
                   <Activity size={40} />
                 </div>
@@ -111,7 +110,7 @@ export default function Home() {
                   <NumberTicker value={1482} delay={2.6} />
                 </span>
               </div>
-              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
+              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group bg-background/5">
                 <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-primary">
                   <Layers size={40} />
                 </div>
@@ -120,7 +119,7 @@ export default function Home() {
                   <NumberTicker value={15} suffix="+" delay={2.7} />
                 </span>
               </div>
-              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group">
+              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group bg-background/5">
                 <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-foreground">
                   <Cpu size={40} />
                 </div>
@@ -165,7 +164,7 @@ export default function Home() {
                   <Activity size={18} className="text-secondary" />
                   Latest Activity
                 </h2>
-                <div className="glass-card p-6">
+                <div className="glass-card p-6 bg-background/5">
                   <ActivityTimeline />
                 </div>
               </section>
@@ -203,7 +202,7 @@ export default function Home() {
 
           {/* Terminal Contact */}
           <ScrollReveal delay={0.7}>
-            <section className="flex flex-col gap-4 mb-20">
+            <section className="flex flex-col gap-4 mb-10">
               <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
                 <Mail size={18} className="text-primary" />
                 Contact Terminal
