@@ -10,11 +10,11 @@
     --primary-foreground: #ffffff;
     --secondary: #333333;
     --secondary-foreground: #ffffff;
-    --card: rgba(255, 255, 255, 0.4);
-    --border: rgba(0, 0, 0, 0.05);
+    --card: #ffffff;
+    --border: rgba(0, 0, 0, 0.08);
     --glow-color: 0, 0, 0;
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
-    --glass-inset: inset 1px 1px 0 0 rgba(255, 255, 255, 0.8), inset -1px -1px 0 0 rgba(0, 0, 0, 0.02);
+    --glass-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --glass-inset: none;
   }
 
   .dark {
@@ -24,11 +24,11 @@
     --primary-foreground: #000000;
     --secondary: #cccccc;
     --secondary-foreground: #000000;
-    --card: rgba(255, 255, 255, 0.02);
-    --border: rgba(255, 255, 255, 0.05);
+    --card: #12131a;
+    --border: rgba(255, 255, 255, 0.08);
     --glow-color: 255, 255, 255;
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-    --glass-inset: inset 1px 1px 0 0 rgba(255, 255, 255, 0.1), inset -1px -1px 0 0 rgba(0, 0, 0, 0.4);
+    --glass-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    --glass-inset: none;
   }
 }
 
@@ -43,8 +43,8 @@ body {
   .glass-card {
     background-color: var(--card);
     border: 1px solid var(--border);
-    box-shadow: var(--glass-shadow), var(--glass-inset);
-    @apply backdrop-blur-xl rounded-xl transition-all duration-300;
+    box-shadow: var(--glass-shadow);
+    @apply rounded-xl transition-all duration-300;
   }
   
   .glass-card-hover {

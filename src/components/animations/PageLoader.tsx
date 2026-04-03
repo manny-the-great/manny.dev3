@@ -69,7 +69,7 @@ export const PageLoader = () => {
             </motion.div>
 
             {/* Neon Bar Loader */}
-            <div className="w-64 h-1.5 bg-foreground/10 rounded-full overflow-hidden relative backdrop-blur-sm">
+            <div className="w-64 h-1.5 bg-foreground/10 rounded-full overflow-hidden relative">
               <motion.div
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}

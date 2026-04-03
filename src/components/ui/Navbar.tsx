@@ -30,7 +30,7 @@ export function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="pointer-events-auto flex items-center gap-1 p-1.5 rounded-full glass-card border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl relative"
+        className="pointer-events-auto flex items-center gap-1 p-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl relative"
       >
         {navItems.map((item) => (
           <button

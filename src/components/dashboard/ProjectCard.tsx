@@ -61,7 +61,7 @@ export const ProjectCard: React.FC<ProjectProps> = ({
 
       <div className="flex flex-wrap gap-2 relative z-10">
         {tags.map((tag) => (
-          <span key={tag} className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-foreground/5 border border-foreground/10 text-foreground/60 backdrop-blur-md">
+          <span key={tag} className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-foreground/5 border border-foreground/10 text-foreground/60">
             {tag}
           </span>
         ))}
