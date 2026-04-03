@@ -4,6 +4,7 @@ import React from 'react';
 import { Star, Circle, Loader2 } from 'lucide-react';
 import { getGithubRepos, GithubRepo } from '@/lib/github';
 import { motion } from 'framer-motion';
+import { getLanguageColor } from '@/lib/languageColors';
 
 export const RepositoryTable = () => {
   const [repos, setRepos] = React.useState<GithubRepo[]>([]);
@@ -76,7 +77,11 @@ export const RepositoryTable = () => {
             </p>
             <div className="flex items-center gap-4 text-[10px] text-foreground/40">
               <div className="flex items-center gap-1">
-                <Circle size={10} className="text-secondary fill-secondary" />
+                <Circle 
+                  size={10} 
+                  style={{ color: getLanguageColor(repo.language), fill: getLanguageColor(repo.language) }}
+                  className="shadow-[0_0_5px_currentColor]" 
+                />
                 <span>{repo.language || "Unknown"}</span>
               </div>
               <span>Updated {new Date(repo.updated_at).toLocaleDateString()}</span>

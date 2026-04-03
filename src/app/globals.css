@@ -18,13 +18,13 @@
   }
 
   .dark {
-    --background: #0a0b10;
+    --background: #000000;
     --foreground: #ffffff;
     --primary: #ffffff;
     --primary-foreground: #000000;
     --secondary: #cccccc;
     --secondary-foreground: #000000;
-    --card: #12131a;
+    --card: #0a0a0a;
     --border: rgba(255, 255, 255, 0.08);
     --glow-color: 255, 255, 255;
     --glass-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);

@@ -72,7 +72,7 @@ const pinnedProjects = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen pt-24 pb-8 px-4 md:px-8 lg:px-12 max-w-[1440px] mx-auto overflow-hidden relative">
+    <main className="min-h-screen pt-20 md:pt-24 pb-8 px-2 md:px-8 lg:px-12 max-w-[1440px] mx-auto overflow-hidden relative">
       <PageLoader />
       {/* Decorative Background Elements */}
       <div className="fixed top-0 left-0 w-full h-full -z-20 overflow-hidden pointer-events-none">
@@ -80,13 +80,13 @@ export default function Home() {
         <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-secondary/10 rounded-full blur-[100px] animate-pulse-glow" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03]" />
       </div>
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
         
         {/* Left Sidebar */}
         <SidebarProfile />
 
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col gap-10 glass-card p-6 md:p-10 relative overflow-hidden">
+        <div className="flex-1 flex flex-col gap-6 md:gap-10 glass-card p-4 md:p-10 relative overflow-hidden">
           
           {/* Quick Stats Grid */}
 

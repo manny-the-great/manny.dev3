@@ -27,12 +27,12 @@ export const ContributionGraph = () => {
 
   const getColor = (level: number) => {
     switch (level) {
-      case 0: return 'bg-black/5 dark:bg-white/5'; // None
+      case 0: return 'bg-black/5 dark:bg-white/10'; // None
       case 1: return 'bg-[#0e4429]'; // Low
       case 2: return 'bg-[#006d32]'; // Medium-Low
       case 3: return 'bg-[#26a641]'; // Medium-High
       case 4: return 'bg-[#39d353]'; // High
-      default: return 'bg-black/5 dark:bg-white/5';
+      default: return 'bg-black/5 dark:bg-white/10';
     }
   };
 
@@ -95,7 +95,7 @@ export const ContributionGraph = () => {
 
       <div className="flex items-center justify-end gap-2 mt-4 text-[10px] text-foreground/40">
         <span>Less</span>
-        <div className="w-3 h-3 rounded-sm bg-black/5 dark:bg-white/5"></div>
+        <div className="w-3 h-3 rounded-sm bg-black/5 dark:bg-white/10"></div>
         <div className="w-3 h-3 rounded-sm bg-[#0e4429]"></div>
         <div className="w-3 h-3 rounded-sm bg-[#006d32]"></div>
         <div className="w-3 h-3 rounded-sm bg-[#26a641]"></div>
