@@ -138,11 +138,11 @@ export const SidebarProfile = () => {
             className="flex gap-4 whitespace-nowrap w-max"
           >
             {[...techIcons, ...techIcons].map((tech, i) => (
-              <div key={i} className="flex-shrink-0 w-10 h-10 rounded-full bg-background/50 border border-foreground/10 flex items-center justify-center relative group" title={tech.name}>
+              <div key={i} className="flex-shrink-0 flex items-center justify-center relative group" title={tech.name}>
                 <img
                   src={tech.icon}
                   alt={tech.name}
-                  className={`w-5 h-5 object-contain opacity-70 group-hover:opacity-100 transition-opacity ${tech.needsInvert ? 'invert dark:invert-0' : ''}`}
+                  className={`w-6 h-6 object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all ${tech.needsInvert ? 'invert dark:invert-0' : ''}`}
                 />
               </div>
             ))}
