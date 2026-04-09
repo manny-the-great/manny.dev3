@@ -1,7 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { MapPin, Twitter, Github, Linkedin, Loader2, Star } from 'lucide-react';
+import { MapPin, Twitter, Github, Linkedin, Loader2, Star, FileText, Send } from 'lucide-react';
+
+const XIcon = ({ size = 16, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="currentColor"/>
+  </svg>
+);
 import { motion } from 'framer-motion';
 import { getGithubProfile } from '@/lib/github';
 import { LagosClock } from './LagosClock';
@@ -24,6 +30,15 @@ export const SidebarProfile = () => {
     description: "Building scalable Web3 infrastructure using JavaScript, Solidity and smart contracts.",
     skills: ["Solidity", "JavaScript", "TypeScript", "Node.js", "Ethereum", "Chainlink"]
   };
+
+  const techIcons = [
+    { name: "Solidity", icon: "https://cdn.simpleicons.org/solidity/white", needsInvert: true },
+    { name: "Ethereum", icon: "https://cdn.simpleicons.org/ethereum/white", needsInvert: true },
+    { name: "Chainlink", icon: "https://cdn.simpleicons.org/chainlink" },
+    { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
+    { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript" },
+    { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs" },
+  ];
 
   if (loading) {
     return (
@@ -115,25 +130,34 @@ export const SidebarProfile = () => {
 
         {/* ... rest of the content ... */}
 
-        {/* Tech Stack Badges */}
-        <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-2">
-          {staticInfo.skills.map((skill) => (
-            <span 
-              key={skill}
-              className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 border border-primary/20 text-primary"
-            >
-              {skill}
-            </span>
-          ))}
+        {/* Tech Stack Scrolling Icons */}
+        <div className="mt-2 w-full overflow-hidden relative" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)' }}>
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
+            className="flex gap-4 whitespace-nowrap w-max"
+          >
+            {[...techIcons, ...techIcons].map((tech, i) => (
+              <div key={i} className="flex-shrink-0 w-10 h-10 rounded-full bg-background/50 border border-foreground/10 flex items-center justify-center relative group" title={tech.name}>
+                <img
+                  src={tech.icon}
+                  alt={tech.name}
+                  className={`w-5 h-5 object-contain opacity-70 group-hover:opacity-100 transition-opacity ${tech.needsInvert ? 'invert dark:invert-0' : ''}`}
+                />
+              </div>
+            ))}
+          </motion.div>
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-col gap-2 mt-4">
-          <button className="w-full py-2 bg-foreground/10 hover:bg-foreground/15 border border-foreground/10 rounded-lg text-sm font-semibold transition-colors">
+          <button className="w-full py-2 bg-foreground/10 hover:bg-foreground/15 border border-foreground/10 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2">
+            <FileText size={16} />
             View Resume
           </button>
-          <button className="w-full py-2 bg-primary hover:bg-primary/90 border border-primary/20 rounded-lg text-sm font-semibold text-background transition-colors">
-            Contact
+          <button className="w-full py-2 bg-primary hover:bg-primary/90 border border-primary/20 rounded-lg text-sm font-semibold text-background transition-colors flex items-center justify-center gap-2">
+            <Send size={16} />
+            Get in touch
           </button>
         </div>
 
@@ -169,7 +193,7 @@ export const SidebarProfile = () => {
             <span>{profile?.login || 'manny-the-great'}</span>
           </a>
           <a href="https://x.com/_mannythegreat_" target="_blank" className="flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
-            <Twitter size={16} />
+            <XIcon size={14} className="opacity-90" />
             <span>@_mannythegreat_</span>
           </a>
           <a href="https://www.linkedin.com/in/emmanuel-johnson-623a69266/" target="_blank" className="flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
