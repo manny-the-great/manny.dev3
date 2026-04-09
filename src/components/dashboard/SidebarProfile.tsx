@@ -32,12 +32,12 @@ export const SidebarProfile = () => {
   };
 
   const techIcons = [
-    { name: "Solidity", icon: "https://cdn.simpleicons.org/solidity/white", needsInvert: true },
-    { name: "Ethereum", icon: "https://cdn.simpleicons.org/ethereum/white", needsInvert: true },
-    { name: "Chainlink", icon: "https://cdn.simpleicons.org/chainlink" },
-    { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
-    { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript" },
-    { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs" },
+    { name: "Solidity", icon: "https://cdn.simpleicons.org/solidity/6366f1" },
+    { name: "Ethereum", icon: "https://cdn.simpleicons.org/ethereum/6366f1" },
+    { name: "Chainlink", icon: "https://cdn.simpleicons.org/chainlink/3b82f6" },
+    { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/eab308" },
+    { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3b82f6" },
+    { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/22c55e" },
   ];
 
   if (loading) {
@@ -131,18 +131,18 @@ export const SidebarProfile = () => {
         {/* ... rest of the content ... */}
 
         {/* Tech Stack Scrolling Icons */}
-        <div className="mt-2 w-full overflow-hidden relative" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)' }}>
+        <div className="mt-2 w-full overflow-hidden relative">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
-            className="flex gap-4 whitespace-nowrap w-max"
+            transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+            className="flex gap-8 whitespace-nowrap w-max px-2"
           >
-            {[...techIcons, ...techIcons].map((tech, i) => (
+            {[...techIcons, ...techIcons, ...techIcons, ...techIcons].map((tech, i) => (
               <div key={i} className="flex-shrink-0 flex items-center justify-center relative group" title={tech.name}>
                 <img
                   src={tech.icon}
                   alt={tech.name}
-                  className={`w-6 h-6 object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all ${tech.needsInvert ? 'invert dark:invert-0' : ''}`}
+                  className="w-6 h-6 object-contain opacity-100 group-hover:scale-110 transition-transform"
                 />
               </div>
             ))}
