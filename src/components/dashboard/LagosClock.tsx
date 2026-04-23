@@ -2,6 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Clock } from 'lucide-react';
+import { VT323 } from "next/font/google";
+
+const pixelFont = VT323({ weight: "400", subsets: ["latin"] });
 
 export const LagosClock = () => {
   const [time, setTime] = useState<string>("");
@@ -33,7 +36,7 @@ export const LagosClock = () => {
         </div>
         <Clock size={14} className="text-primary" />
       </div>
-      <span>Lagos, NG: <span className="text-primary">{time}</span></span>
+      <span className="flex items-center gap-1.5">Lagos, NG: <span className={`text-primary text-sm tracking-wider ${pixelFont.className}`}>{time}</span></span>
     </div>
   );
 };
