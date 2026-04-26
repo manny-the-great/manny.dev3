@@ -8,7 +8,7 @@ import { ActivityTimeline } from '@/components/dashboard/ActivityTimeline';
 import { SkillMatrix } from '@/components/dashboard/SkillMatrix';
 import { BuiltProjects } from '@/components/dashboard/BuiltProjects';
 import { TechStackGrid } from '@/components/dashboard/TechStackGrid';
-import { PixelMarquee } from '@/components/animations/PixelMarquee';
+import { TerminalProfile } from '@/components/dashboard/TerminalProfile';
 import { motion } from 'framer-motion';
 import { LayoutGrid, Hammer, Activity, Cpu, Star, GitBranch, Layers } from 'lucide-react';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
@@ -208,9 +208,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Pixel Marquee — full width outside the card */}
-      <div className="mt-10 py-8 border-y border-foreground/8 overflow-hidden">
-        <PixelMarquee />
+      {/* Terminal Profile */}
+      <div className="mt-10 md:mt-16 w-full pb-8">
+        <TerminalProfile />
       </div>
       
       {/* Footer */}
