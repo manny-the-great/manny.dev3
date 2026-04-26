@@ -8,9 +8,9 @@ import { ActivityTimeline } from '@/components/dashboard/ActivityTimeline';
 import { SkillMatrix } from '@/components/dashboard/SkillMatrix';
 import { BuiltProjects } from '@/components/dashboard/BuiltProjects';
 import { TechStackGrid } from '@/components/dashboard/TechStackGrid';
-import { TerminalContact } from '@/components/dashboard/TerminalContact';
+import { PixelMarquee } from '@/components/animations/PixelMarquee';
 import { motion } from 'framer-motion';
-import { LayoutGrid, Hammer, Activity, Cpu, Mail, Star, GitBranch, Layers } from 'lucide-react';
+import { LayoutGrid, Hammer, Activity, Cpu, Star, GitBranch, Layers } from 'lucide-react';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { PageLoader } from '@/components/animations/PageLoader';
 import { NumberTicker } from '@/components/animations/NumberTicker';
@@ -205,18 +205,12 @@ export default function Home() {
             </section>
           </ScrollReveal>
 
-          {/* Terminal Contact */}
-          <ScrollReveal delay={0.7}>
-            <section className="flex flex-col gap-4 mb-10">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
-                <Mail size={18} className="text-primary" />
-                Contact Terminal
-              </h2>
-              <TerminalContact />
-            </section>
-          </ScrollReveal>
-
         </div>
+      </div>
+
+      {/* Pixel Marquee — full width outside the card */}
+      <div className="mt-10 py-8 border-y border-foreground/8 overflow-hidden">
+        <PixelMarquee />
       </div>
       
       {/* Footer */}

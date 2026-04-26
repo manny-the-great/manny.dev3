@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Bricolage_Grotesque } from "next/font/google";
+import { Poppins, Bricolage_Grotesque, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/ui/Navbar";
@@ -15,6 +15,11 @@ const bricolage = Bricolage_Grotesque({
 });
 
 
+const pressStart2P = Press_Start_2P({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-press-start",
+});
 
 export const metadata: Metadata = {
   title: "Manny D' Great | Blockchain & Backend Engineer",
@@ -35,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className} ${bricolage.variable}`}>
+      <body className={`${poppins.className} ${bricolage.variable} ${pressStart2P.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
