@@ -6,11 +6,11 @@ import { ContributionGraph } from '@/components/dashboard/ContributionGraph';
 import { ProjectCard } from '@/components/dashboard/ProjectCard';
 import { ActivityTimeline } from '@/components/dashboard/ActivityTimeline';
 import { SkillMatrix } from '@/components/dashboard/SkillMatrix';
-import { RepositoryTable } from '@/components/dashboard/RepositoryTable';
+import { BuiltProjects } from '@/components/dashboard/BuiltProjects';
 import { TechStackGrid } from '@/components/dashboard/TechStackGrid';
 import { TerminalContact } from '@/components/dashboard/TerminalContact';
 import { motion } from 'framer-motion';
-import { LayoutGrid, BookOpen, Activity, Cpu, Mail, Star, GitBranch, Layers } from 'lucide-react';
+import { LayoutGrid, Hammer, Activity, Cpu, Mail, Star, GitBranch, Layers } from 'lucide-react';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { PageLoader } from '@/components/animations/PageLoader';
 import { NumberTicker } from '@/components/animations/NumberTicker';
@@ -156,26 +156,31 @@ export default function Home() {
             </section>
           </ScrollReveal>
 
-          {/* Activity & Repositories Side by Side */}
+          {/* Latest Activity */}
           <ScrollReveal delay={0.4}>
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-              <section className="flex flex-col gap-4">
+            <section className="flex flex-col gap-4">
+              <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
+                <Activity size={18} className="text-secondary" />
+                Latest Activity
+              </h2>
+              <div className="glass-card p-6 bg-background/5">
+                <ActivityTimeline />
+              </div>
+            </section>
+          </ScrollReveal>
+
+          {/* Here's What I've Built */}
+          <ScrollReveal delay={0.45}>
+            <section className="flex flex-col gap-4">
+              <div className="flex items-center justify-between">
                 <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
-                  <Activity size={18} className="text-secondary" />
-                  Latest Activity
+                  <Hammer size={18} className="text-primary" />
+                  Here&apos;s What I&apos;ve Built
                 </h2>
-                <div className="glass-card p-6 bg-background/5">
-                  <ActivityTimeline />
-                </div>
-              </section>
-              <section className="flex flex-col gap-4">
-                <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
-                  <BookOpen size={18} className="text-primary" />
-                  Repositories
-                </h2>
-                <RepositoryTable />
-              </section>
-            </div>
+                <span className="text-xs text-foreground/40 tracking-wide">{new Date().getFullYear()} · {4} projects</span>
+              </div>
+              <BuiltProjects />
+            </section>
           </ScrollReveal>
 
           {/* Skill Matrix */}
