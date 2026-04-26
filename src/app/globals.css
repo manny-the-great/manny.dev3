@@ -100,3 +100,63 @@ body {
 .backface-hidden {
   backface-visibility: hidden;
 }
+
+/* Zen Dots font utility */
+.font-zen-dots {
+  font-family: var(--font-zen-dots), monospace;
+}
+
+/* Hero name typewriter cursor */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Gradient shimmer sweep */
+@keyframes shimmer-sweep {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.hero-name-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--foreground) 0%,
+    var(--primary) 40%,
+    #a78bfa 60%,
+    var(--foreground) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-sweep 4s linear infinite;
+}
+
+/* Floating glow pulse under name */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; transform: scaleX(0.8); }
+  50%       { opacity: 0.9; transform: scaleX(1); }
+}
+
+.hero-name-glow::after {
+  content: '';
+  display: block;
+  margin: 4px auto 0;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), #a78bfa, transparent);
+  border-radius: 999px;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Typewriter for subtitle */
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes subtitle-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -85,10 +85,29 @@ export const SidebarProfile = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="flex flex-col items-center lg:items-start"
+          className="flex flex-col items-center lg:items-start gap-1"
         >
-          <h1 className="text-2xl font-bold text-foreground font-header">{profile?.name || "Manny D' Great"}</h1>
-          <p className="text-xl text-foreground/60 font-medium">{profile?.login || "manny-the-great"}</p>
+          {/* Animated hero name */}
+          <div className="hero-name-glow text-center lg:text-left">
+            <h1
+              className="font-zen-dots hero-name-shimmer text-2xl md:text-3xl tracking-widest leading-tight select-none"
+              style={{ letterSpacing: "0.12em" }}
+            >
+              MANNY D&apos; GREAT
+            </h1>
+          </div>
+
+          {/* Typewriter subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="font-zen-dots text-xs tracking-[0.25em] text-foreground/50 uppercase text-center lg:text-left mt-1"
+          >
+            Blockchain Developer
+          </motion.p>
+
+          <p className="text-base text-foreground/50 font-medium mt-1">{profile?.login || "manny-the-great"}</p>
         </motion.div>
 
         {/* Title */}
@@ -151,10 +170,14 @@ export const SidebarProfile = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col gap-2 mt-4">
-          <button className="w-full py-2 bg-foreground/10 hover:bg-foreground/15 border border-foreground/10 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2">
+          <a
+            href="/cv.pdf"
+            download="Manny_DGreat_CV.pdf"
+            className="w-full py-2 bg-foreground/10 hover:bg-foreground/15 border border-foreground/10 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+          >
             <FileText size={16} />
             View Resume
-          </button>
+          </a>
           <button className="w-full py-2 bg-primary hover:bg-primary/90 border border-primary/20 rounded-lg text-sm font-semibold text-background transition-colors flex items-center justify-center gap-2">
             <Send size={16} />
             Get in touch
