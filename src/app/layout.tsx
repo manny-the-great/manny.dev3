@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Bricolage_Grotesque, Zen_Dots } from "next/font/google";
+import { Poppins, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/ui/Navbar";
@@ -14,11 +14,7 @@ const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
 });
 
-const zenDots = Zen_Dots({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-zen-dots",
-});
+
 
 export const metadata: Metadata = {
   title: "Manny D' Great | Blockchain & Backend Engineer",
@@ -39,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className} ${bricolage.variable} ${zenDots.variable}`}>
+      <body className={`${poppins.className} ${bricolage.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

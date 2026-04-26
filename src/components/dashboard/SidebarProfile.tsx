@@ -87,27 +87,8 @@ export const SidebarProfile = () => {
           transition={{ delay: 0.3 }}
           className="flex flex-col items-center lg:items-start gap-1"
         >
-          {/* Animated hero name */}
-          <div className="hero-name-glow text-center lg:text-left">
-            <h1
-              className="font-zen-dots hero-name-shimmer text-2xl md:text-3xl tracking-widest leading-tight select-none"
-              style={{ letterSpacing: "0.12em" }}
-            >
-              MANNY D&apos; GREAT
-            </h1>
-          </div>
-
-          {/* Typewriter subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="font-zen-dots text-xs tracking-[0.25em] text-foreground/50 uppercase text-center lg:text-left mt-1"
-          >
-            Blockchain Developer
-          </motion.p>
-
-          <p className="text-base text-foreground/50 font-medium mt-1">{profile?.login || "manny-the-great"}</p>
+          <h1 className="text-xl font-bold text-foreground text-center lg:text-left">{profile?.name || "Manny D' Great"}</h1>
+          <p className="text-base text-foreground/50 font-medium">{profile?.login || "manny-the-great"}</p>
         </motion.div>
 
         {/* Title */}
