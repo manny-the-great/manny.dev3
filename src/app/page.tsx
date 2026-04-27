@@ -205,12 +205,18 @@ export default function Home() {
             </section>
           </ScrollReveal>
 
-        </div>
-      </div>
+          {/* Terminal Profile */}
+          <ScrollReveal delay={0.7}>
+            <section className="flex flex-col gap-4">
+              <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
+                <LayoutGrid size={18} className="text-primary" />
+                System Terminal
+              </h2>
+              <TerminalProfile />
+            </section>
+          </ScrollReveal>
 
-      {/* Terminal Profile */}
-      <div className="mt-10 md:mt-16 w-full pb-8">
-        <TerminalProfile />
+        </div>
       </div>
       
       {/* Footer */}

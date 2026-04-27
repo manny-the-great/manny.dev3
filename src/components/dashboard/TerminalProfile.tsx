@@ -111,13 +111,13 @@ export const TerminalProfile = () => {
   }, [history, typedText]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto perspective-1000 px-4 md:px-0">
+    <div className="w-full perspective-1000">
       <motion.div 
         initial={{ rotateX: 10, opacity: 0, y: 20 }}
         whileInView={{ rotateX: 0, opacity: 1, y: 0 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
         viewport={{ once: true, margin: "-50px" }}
-        className="glass-card overflow-hidden border border-foreground/10 bg-black/60 backdrop-blur-xl relative shadow-2xl rounded-xl"
+        className="glass-card overflow-hidden relative rounded-xl bg-background/5"
       >
         {/* Terminal Header */}
         <div className="bg-foreground/5 border-b border-foreground/10 px-4 py-3 flex items-center justify-between">
