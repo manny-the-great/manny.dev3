@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: #0D1117;
+    --background: #000000;
     --foreground: #FFFFFF;
     --primary: #22c55e;
     --primary-foreground: #000000;
@@ -21,20 +21,20 @@
   }
 
   .light {
-    --background: #F6F8FA;
-    --foreground: #0D1117;
+    --background: #000000;
+    --foreground: #FFFFFF;
     --primary: #16a34a;
-    --primary-foreground: #FFFFFF;
+    --primary-foreground: #000000;
     --secondary: #0284c7;
     --secondary-foreground: #FFFFFF;
-    --card: #FFFFFF;
-    --card-hover: #F1F5F9;
-    --border: rgba(0, 0, 0, 0.08);
-    --border-hover: rgba(0, 0, 0, 0.16);
-    --muted: #6B7280;
+    --card: #161B22;
+    --card-hover: #1C2128;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.16);
+    --muted: #9CA3AF;
     --glow-green: 22, 163, 74;
     --glow-blue: 2, 132, 199;
-    --glass-shadow: 0 4px 16px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.04);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0,0,0,0.04);
   }
 }
 
@@ -76,7 +76,7 @@ body {
   }
 
   .hero-heading {
-    font-family: var(--font-outfit), system-ui, sans-serif;
+    font-family: var(--font-bricolage), var(--font-poppins), system-ui, sans-serif;
     @apply font-black leading-[0.92] tracking-[-0.03em];
   }
 

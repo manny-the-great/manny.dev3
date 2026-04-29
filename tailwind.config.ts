@@ -28,9 +28,9 @@ const config: Config = {
         muted: "var(--muted)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        heading: ["var(--font-outfit)", "system-ui", "sans-serif"],
-        header: ["var(--font-outfit)", "system-ui", "sans-serif"],
+        sans: ["var(--font-bricolage)", "var(--font-poppins)", "system-ui", "sans-serif"],
+        heading: ["var(--font-bricolage)", "var(--font-poppins)", "system-ui", "sans-serif"],
+        header: ["var(--font-bricolage)", "var(--font-poppins)", "system-ui", "sans-serif"],
         pixel: ["var(--font-press-start)", "monospace"],
         mono: ["'JetBrains Mono'", "Menlo", "monospace"],
       },

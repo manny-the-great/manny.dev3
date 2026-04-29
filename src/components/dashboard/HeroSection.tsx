@@ -61,7 +61,7 @@ export const HeroSection = () => {
         <motion.div variants={itemVariants} className="flex flex-col gap-3">
           <h1
             className="hero-heading text-[clamp(3.5rem,10vw,9rem)] text-white"
-            style={{ fontFamily: 'var(--font-outfit)', fontWeight: 900 }}
+            style={{ fontFamily: 'var(--font-bricolage), var(--font-poppins)', fontWeight: 900 }}
           >
             Hi. I&apos;m Manny.
           </h1>
@@ -76,7 +76,7 @@ export const HeroSection = () => {
                 exit={{ y: -48, opacity: 0 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="hero-heading text-[clamp(2.2rem,6vw,5.5rem)] gradient-text block"
-                style={{ fontFamily: 'var(--font-outfit)', fontWeight: 900 }}
+                style={{ fontFamily: 'var(--font-bricolage), var(--font-poppins)', fontWeight: 900 }}
               >
                 {rotatingTitles[titleIdx]}
               </motion.span>

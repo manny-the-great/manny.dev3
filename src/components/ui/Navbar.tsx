@@ -58,7 +58,7 @@ export function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-2 px-3 mr-1 border-r border-white/10">
           <div className="w-7 h-7 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center">
-            <span className="text-[9px] font-black text-primary leading-none" style={{ fontFamily: 'var(--font-outfit)' }}>M</span>
+            <span className="text-[9px] font-black text-primary leading-none" style={{ fontFamily: 'var(--font-bricolage), var(--font-poppins)' }}>M</span>
           </div>
         </div>
 

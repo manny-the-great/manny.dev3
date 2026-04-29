@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Outfit, Press_Start_2P } from "next/font/google";
+import { Bricolage_Grotesque, Poppins, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/ui/Navbar";
 
-const inter = Inter({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-bricolage",
 });
 
-const outfit = Outfit({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-poppins",
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
@@ -48,8 +48,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${outfit.variable} ${pressStart2P.variable} font-sans antialiased`}
-        style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
+        className={`${bricolage.variable} ${poppins.variable} ${pressStart2P.variable} font-sans antialiased`}
+        style={{ fontFamily: "var(--font-bricolage), var(--font-poppins), system-ui, sans-serif" }}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <div className="fixed inset-0 -z-20 bg-background transition-colors duration-500" />

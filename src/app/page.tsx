@@ -2,18 +2,18 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HeroSection }          from '@/components/dashboard/HeroSection';
+import { HeroSection } from '@/components/dashboard/HeroSection';
 import { ProfileIdentityPanel } from '@/components/dashboard/ProfileIdentityPanel';
-import { ContributionGraph }    from '@/components/dashboard/ContributionGraph';
-import { FeaturedProjects }     from '@/components/dashboard/FeaturedProjects';
-import { BuiltProjects }        from '@/components/dashboard/BuiltProjects';
-import { ActivityTimeline }     from '@/components/dashboard/ActivityTimeline';
-import { StarsDashboard }       from '@/components/dashboard/StarsDashboard';
-import { AboutSection }         from '@/components/dashboard/AboutSection';
-import { TechStackGrid }        from '@/components/dashboard/TechStackGrid';
-import { NotesSection }         from '@/components/dashboard/NotesSection';
-import { TerminalContact }      from '@/components/dashboard/TerminalContact';
-import { PageLoader }           from '@/components/animations/PageLoader';
+import { ContributionGraph } from '@/components/dashboard/ContributionGraph';
+import { FeaturedProjects } from '@/components/dashboard/FeaturedProjects';
+import { BuiltProjects } from '@/components/dashboard/BuiltProjects';
+import { ActivityTimeline } from '@/components/dashboard/ActivityTimeline';
+import { StarsDashboard } from '@/components/dashboard/StarsDashboard';
+import { AboutSection } from '@/components/dashboard/AboutSection';
+import { TechStackGrid } from '@/components/dashboard/TechStackGrid';
+import { NotesSection } from '@/components/dashboard/NotesSection';
+import { TerminalContact } from '@/components/dashboard/TerminalContact';
+import { PageLoader } from '@/components/animations/PageLoader';
 
 /* Reusable section wrapper with scroll-triggered fade-up */
 const Section = ({
@@ -124,10 +124,10 @@ export default function Home() {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="w-7 h-7 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center">
-                <span className="text-[9px] font-black text-primary leading-none" style={{ fontFamily: 'var(--font-outfit)' }}>M</span>
+                <span className="text-[9px] font-black text-primary leading-none" style={{ fontFamily: 'var(--font-bricolage), var(--font-poppins)' }}>M</span>
               </div>
               <span className="text-xs text-muted font-heading">
-                © 2026 Manny D&apos; Great · Built with Next.js & ❤️
+                © MMXXVI Manny D&apos; Great
               </span>
             </div>
             <div className="flex items-center gap-6 text-xs text-muted/60 font-heading">

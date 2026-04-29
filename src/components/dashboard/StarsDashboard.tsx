@@ -92,15 +92,15 @@ export const StarsDashboard = () => (
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.06 }}
-            className="flex items-center justify-between py-3.5 group cursor-pointer"
+            className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 py-3.5 group cursor-pointer items-start"
           >
             <div className="flex items-center gap-3">
               <span className="text-xs text-muted/50 font-mono w-4">{String(i + 1).padStart(2, '0')}</span>
-              <span className="text-sm font-semibold font-mono text-white group-hover:text-primary transition-colors">
+              <span className="text-sm font-semibold font-mono text-white group-hover:text-primary transition-colors truncate">
                 manny-the-great / {repo.name}
               </span>
             </div>
-            <div className="flex items-center gap-5 text-xs text-muted font-heading">
+            <div className="flex items-center gap-5 text-xs text-muted font-heading ml-7 sm:ml-0">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full" style={{ background: repo.langColor }} />
                 {repo.lang}
