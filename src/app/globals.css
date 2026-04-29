@@ -10,8 +10,8 @@
     --primary-foreground: #000000;
     --secondary: #38bdf8;
     --secondary-foreground: #000000;
-    --card: #161B22;
-    --card-hover: #1C2128;
+    --card: rgba(13, 17, 23, 0.4);
+    --card-hover: rgba(13, 17, 23, 0.6);
     --border: rgba(255, 255, 255, 0.08);
     --border-hover: rgba(255, 255, 255, 0.18);
     --muted: #9CA3AF;
@@ -27,8 +27,8 @@
     --primary-foreground: #000000;
     --secondary: #0284c7;
     --secondary-foreground: #FFFFFF;
-    --card: #161B22;
-    --card-hover: #1C2128;
+    --card: rgba(13, 17, 23, 0.4);
+    --card-hover: rgba(13, 17, 23, 0.6);
     --border: rgba(255, 255, 255, 0.08);
     --border-hover: rgba(255, 255, 255, 0.16);
     --muted: #9CA3AF;
@@ -49,6 +49,7 @@ body {
 @layer components {
   .glass-card {
     background-color: var(--card);
+    backdrop-filter: blur(16px);
     border: 1px solid var(--border);
     box-shadow: var(--glass-shadow);
     @apply rounded-2xl transition-all duration-300;

@@ -49,7 +49,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${bricolage.variable} ${poppins.variable} ${pressStart2P.variable} font-sans antialiased`}
-        style={{ fontFamily: "var(--font-bricolage), var(--font-poppins), system-ui, sans-serif" }}
+        style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif" }}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <div className="fixed inset-0 -z-20 bg-background transition-colors duration-500" />

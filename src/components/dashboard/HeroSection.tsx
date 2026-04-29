@@ -92,8 +92,8 @@ export const HeroSection = () => {
           Building scalable{' '}
           <span className="text-white font-medium">Web3 infrastructure</span>,
           developer tools, and modern digital systems with{' '}
-          <span className="text-primary font-medium">JavaScript</span>,{' '}
-          <span className="text-secondary font-medium">Solidity</span>, and
+          <span className="text-[#F7DF1E] font-medium">JavaScript</span>,{' '}
+          <span className="text-[#AA6746] font-medium">Solidity</span>, and
           backend architecture.
         </motion.p>
 
