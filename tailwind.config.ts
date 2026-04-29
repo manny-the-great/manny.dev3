@@ -20,19 +20,36 @@ const config: Config = {
           DEFAULT: "var(--secondary)",
           foreground: "var(--secondary-foreground)",
         },
-        card: "var(--card)",
+        card: {
+          DEFAULT: "var(--card)",
+          hover: "var(--card-hover)",
+        },
         border: "var(--border)",
+        muted: "var(--muted)",
       },
       fontFamily: {
-        header: ["var(--font-bricolage)", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        heading: ["var(--font-outfit)", "system-ui", "sans-serif"],
+        header: ["var(--font-outfit)", "system-ui", "sans-serif"],
+        pixel: ["var(--font-press-start)", "monospace"],
+        mono: ["'JetBrains Mono'", "Menlo", "monospace"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-brand": "linear-gradient(135deg, #22c55e 0%, #38bdf8 100%)",
+      },
+      animation: {
+        "pulse-glow": "pulse-glow 4s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
+      },
+      letterSpacing: {
+        tighter: "-0.03em",
+        tight: "-0.02em",
+        widest: "0.2em",
       },
     },
   },
   plugins: [],
 };
+
 export default config;

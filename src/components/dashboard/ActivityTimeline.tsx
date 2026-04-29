@@ -1,87 +1,126 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { GitCommit, GitPullRequest, GitMerge, Star, Plus, Loader2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { GitCommit, GitPullRequest, Star, Plus, GitMerge, Loader2, ExternalLink } from 'lucide-react';
 import { getGithubEvents } from '@/lib/github';
 
+const iconMap: Record<string, React.ReactNode> = {
+  PushEvent:         <GitCommit  size={13} className="text-primary" />,
+  PullRequestEvent:  <GitPullRequest size={13} className="text-secondary" />,
+  WatchEvent:        <Star       size={13} className="text-yellow-400" />,
+  CreateEvent:       <Plus       size={13} className="text-primary" />,
+  IssueCommentEvent: <GitMerge   size={13} className="text-muted" />,
+};
+
+const colorMap: Record<string, string> = {
+  PushEvent:         'border-primary/30  bg-primary/10',
+  PullRequestEvent:  'border-secondary/30 bg-secondary/10',
+  WatchEvent:        'border-yellow-400/30 bg-yellow-400/10',
+  CreateEvent:       'border-primary/30  bg-primary/10',
+  IssueCommentEvent: 'border-white/10    bg-white/5',
+};
+
+const formatTitle = (e: any) => {
+  const repo = e.repo?.name ?? '';
+  switch (e.type) {
+    case 'PushEvent':         return { action: 'Pushed to',          repo };
+    case 'PullRequestEvent':  return { action: 'Opened PR in',        repo };
+    case 'WatchEvent':        return { action: 'Starred',             repo };
+    case 'CreateEvent':       return { action: `Created ${e.payload?.ref_type || 'repository'} in`, repo };
+    case 'IssueCommentEvent': return { action: 'Commented on issue in', repo };
+    default:                  return { action: e.type.replace('Event','') + ' in', repo };
+  }
+};
+
+const timeAgo = (iso: string) => {
+  const s = Math.floor((Date.now() - new Date(iso).getTime()) / 1000);
+  if (s < 60)   return `${s}s ago`;
+  if (s < 3600) return `${Math.floor(s/60)}m ago`;
+  if (s < 86400) return `${Math.floor(s/3600)}h ago`;
+  return `${Math.floor(s/86400)}d ago`;
+};
+
 export const ActivityTimeline = () => {
-  const [events, setEvents] = useState<any[]>([]);
+  const [events, setEvents]   = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
-      const data = await getGithubEvents('manny-the-great');
+    getGithubEvents('manny-the-great').then(data => {
       setEvents(data);
       setLoading(false);
-    }
-    fetchData();
+    });
   }, []);
 
-  const getIcon = (type: string) => {
-    switch (type) {
-      case 'PushEvent': return <GitCommit size={14} className="text-secondary" />;
-      case 'PullRequestEvent': return <GitPullRequest size={14} className="text-primary" />;
-      case 'WatchEvent': return <Star size={14} className="text-foreground" />;
-      case 'CreateEvent': return <Plus size={14} className="text-secondary" />;
-      case 'IssueCommentEvent': return <GitMerge size={14} className="text-foreground" />;
-      default: return <GitCommit size={14} />;
-    }
-  };
-
-  const formatEventTitle = (event: any) => {
-    switch (event.type) {
-      case 'PushEvent': return `Pushed to ${event.repo.name}`;
-      case 'PullRequestEvent': return `Opened PR in ${event.repo.name}`;
-      case 'WatchEvent': return `Starred ${event.repo.name}`;
-      case 'CreateEvent': return `Created ${event.payload.ref_type || 'repository'} in ${event.repo.name}`;
-      case 'IssueCommentEvent': return `Commented on issue in ${event.repo.name}`;
-      default: return `${event.type.replace('Event', '')} in ${event.repo.name}`;
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center py-10">
-        <Loader2 className="animate-spin text-secondary" size={24} />
-      </div>
-    );
-  }
-
-  if (events.length === 0) {
-    return (
-      <div className="text-center py-10 text-sm text-foreground/40">
-        No recent activity found.
-      </div>
-    );
-  }
-
   return (
-    <div className="flex flex-col gap-6 py-4">
-      {events.map((event, index) => (
-        <div key={event.id} className="relative pl-10 group">
-          {/* Vertical Line */}
-          {index !== events.length - 1 && (
-            <div className="absolute left-[17px] top-[30px] bottom-[-20px] w-[2px] bg-foreground/10" />
-          )}
-          
-          {/* Node */}
-          <div className="absolute left-0 top-1 w-9 h-9 rounded-full bg-background border border-foreground/10 flex items-center justify-center z-10">
-            {getIcon(event.type)}
-          </div>
+    <section id="activity" className="w-full max-w-6xl mx-auto px-6 flex flex-col gap-8">
+      {/* Header */}
+      <div>
+        <div className="section-label mb-2">GitHub Timeline</div>
+        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white tracking-tight">
+          Recent Activity
+        </h2>
+      </div>
 
-          <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-2 text-sm">
-              <span className="text-foreground/90 font-medium">{formatEventTitle(event)}</span>
-              <span className="text-foreground/40 text-xs">
-                {new Date(event.created_at).toLocaleDateString()}
-              </span>
-            </div>
-            <div className="text-xs text-primary/80 hover:underline cursor-pointer">
-              {event.repo.name}
-            </div>
+      <div className="glass-card p-6 md:p-8">
+        {loading ? (
+          <div className="flex items-center justify-center py-16">
+            <Loader2 className="animate-spin text-primary" size={24} />
           </div>
-        </div>
-      ))}
-    </div>
+        ) : events.length === 0 ? (
+          <div className="text-center py-16 text-muted text-sm font-heading">
+            No recent public activity found.
+          </div>
+        ) : (
+          <div className="flex flex-col">
+            {events.map((event, i) => {
+              const { action, repo } = formatTitle(event);
+              const nodeColor = colorMap[event.type] ?? colorMap.IssueCommentEvent;
+              const icon      = iconMap[event.type]  ?? <GitCommit size={13} />;
+
+              return (
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06, duration: 0.45 }}
+                  className="relative flex gap-5 pb-8 last:pb-0"
+                >
+                  {/* Vertical connector */}
+                  {i !== events.length - 1 && (
+                    <div className="absolute left-[19px] top-10 bottom-0 w-px bg-gradient-to-b from-white/10 to-transparent" />
+                  )}
+
+                  {/* Node */}
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center z-10 ${nodeColor}`}>
+                    {icon}
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-col gap-1 pt-1.5 min-w-0">
+                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                      <span className="text-sm text-muted font-heading">{action}</span>
+                      <a
+                        href={`https://github.com/${repo}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-semibold font-mono text-white hover:text-primary transition-colors flex items-center gap-1 group"
+                      >
+                        {repo}
+                        <ExternalLink size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </a>
+                    </div>
+                    <span className="text-xs text-muted/60 font-heading">
+                      {timeAgo(event.created_at)}  ·  {new Date(event.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                    </span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </section>
   );
 };

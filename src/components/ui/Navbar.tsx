@@ -3,63 +3,92 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import { Sun, Moon, LayoutGrid, BookOpen, Activity, Star } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { id: 'overview', label: 'Overview', icon: BookOpen },
-  { id: 'projects', label: 'Projects', icon: LayoutGrid },
-  { id: 'activity', label: 'Activity', icon: Activity },
-  { id: 'stars', label: 'Stars', icon: Star },
+  { id: 'hero',     label: 'Overview' },
+  { id: 'projects', label: 'Projects'  },
+  { id: 'activity', label: 'Activity'  },
+  { id: 'stars',    label: 'Stars'     },
 ];
 
 export function Navbar() {
-  const [activeTab, setActiveTab] = useState('overview');
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [activeTab, setActiveTab]   = useState('hero');
+  const { theme, setTheme }         = useTheme();
+  const [mounted, setMounted]       = useState(false);
+  const [scrolled, setScrolled]     = useState(false);
+
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
-    setMounted(true);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      const pos = window.scrollY + 130;
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const el = document.getElementById(navItems[i].id);
+        if (el && el.offsetTop <= pos) { setActiveTab(navItems[i].id); break; }
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const handleClick = (id: string) => {
+    setActiveTab(id);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   if (!mounted) return null;
 
   return (
-    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+    <div className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
       <motion.nav
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: -24, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="pointer-events-auto flex items-center gap-1 p-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl relative"
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
+        className={cn(
+          'pointer-events-auto flex items-center gap-1 p-1.5 rounded-full border transition-all duration-300',
+          scrolled
+            ? 'bg-[#0D1117]/90 backdrop-blur-2xl border-white/10 shadow-2xl shadow-black/60'
+            : 'bg-white/5 backdrop-blur-xl border-white/8'
+        )}
       >
+        {/* Logo */}
+        <div className="flex items-center gap-2 px-3 mr-1 border-r border-white/10">
+          <div className="w-7 h-7 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center">
+            <span className="text-[9px] font-black text-primary leading-none" style={{ fontFamily: 'var(--font-outfit)' }}>M</span>
+          </div>
+        </div>
+
         {navItems.map((item) => (
           <button
             key={item.id}
-            onClick={() => setActiveTab(item.id)}
+            onClick={() => handleClick(item.id)}
             className={cn(
-              "relative px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center gap-2 rounded-full outline-none font-header",
-              activeTab === item.id 
-                ? "text-primary-foreground" 
-                : "text-foreground/50 hover:text-foreground"
+              'relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full outline-none',
+              'font-heading',
+              activeTab === item.id ? 'text-black' : 'text-white/50 hover:text-white'
             )}
           >
             {activeTab === item.id && (
               <motion.div
-                layoutId="active-pill"
+                layoutId="nav-pill"
                 className="absolute inset-0 bg-primary rounded-full -z-10"
-                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
               />
             )}
-            <item.icon size={16} />
             <span className="hidden sm:inline">{item.label}</span>
+            <span className="sm:hidden">{item.label.slice(0, 3)}</span>
           </button>
         ))}
 
-        <div className="w-[1px] h-4 bg-foreground/10 mx-2" />
+        <div className="w-px h-4 bg-white/10 mx-1" />
 
         <button
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="p-2 rounded-full text-foreground/50 hover:text-foreground transition-colors relative"
+          className="p-2 rounded-full text-white/50 hover:text-white transition-colors"
           aria-label="Toggle theme"
         >
           <AnimatePresence mode="wait">
@@ -70,7 +99,7 @@ export function Navbar() {
               exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
               transition={{ duration: 0.2 }}
             >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
             </motion.div>
           </AnimatePresence>
         </button>

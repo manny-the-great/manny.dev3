@@ -1,240 +1,145 @@
 "use client";
 
 import React from 'react';
-import { SidebarProfile } from '@/components/dashboard/SidebarProfile';
-import { ContributionGraph } from '@/components/dashboard/ContributionGraph';
-import { ProjectCard } from '@/components/dashboard/ProjectCard';
-import { ActivityTimeline } from '@/components/dashboard/ActivityTimeline';
-import { SkillMatrix } from '@/components/dashboard/SkillMatrix';
-import { BuiltProjects } from '@/components/dashboard/BuiltProjects';
-import { TechStackGrid } from '@/components/dashboard/TechStackGrid';
-import { TerminalProfile } from '@/components/dashboard/TerminalProfile';
 import { motion } from 'framer-motion';
-import { LayoutGrid, Hammer, Activity, Cpu, Star, GitBranch, Layers } from 'lucide-react';
-import { ScrollReveal } from '@/components/animations/ScrollReveal';
-import { PageLoader } from '@/components/animations/PageLoader';
-import { NumberTicker } from '@/components/animations/NumberTicker';
+import { HeroSection }          from '@/components/dashboard/HeroSection';
+import { ProfileIdentityPanel } from '@/components/dashboard/ProfileIdentityPanel';
+import { ContributionGraph }    from '@/components/dashboard/ContributionGraph';
+import { FeaturedProjects }     from '@/components/dashboard/FeaturedProjects';
+import { BuiltProjects }        from '@/components/dashboard/BuiltProjects';
+import { ActivityTimeline }     from '@/components/dashboard/ActivityTimeline';
+import { StarsDashboard }       from '@/components/dashboard/StarsDashboard';
+import { AboutSection }         from '@/components/dashboard/AboutSection';
+import { TechStackGrid }        from '@/components/dashboard/TechStackGrid';
+import { NotesSection }         from '@/components/dashboard/NotesSection';
+import { TerminalContact }      from '@/components/dashboard/TerminalContact';
+import { PageLoader }           from '@/components/animations/PageLoader';
 
-const pinnedProjects = [
-  {
-    name: "DegenSim",
-    description: "Crypto trading simulator for practicing trading with virtual funds. Experience market dynamics without risk.",
-    tags: ["Next.js", "TypeScript", "Tailwind"],
-    language: "TypeScript",
-    languageColor: "#3178c6",
-    githubUrl: "#",
-    demoUrl: "#",
-    stars: 124,
-    forks: 32
-  },
-  {
-    name: "SecureChat",
-    description: "AI powered toxic message detection system. Keeps communities safe from harassment and harmful content.",
-    tags: ["Python", "TensorFlow", "React"],
-    language: "JavaScript",
-    languageColor: "#f1e05a",
-    githubUrl: "#",
-    demoUrl: "#",
-    stars: 89,
-    forks: 12
-  },
-  {
-    name: "Chainlink Functions",
-    description: "Smart contracts interacting with external APIs via decentralized oracles. True interoperability for Web3.",
-    tags: ["Solidity", "Chainlink", "Hardhat"],
-    language: "Solidity",
-    languageColor: "#AA6746",
-    githubUrl: "#",
-    stars: 156,
-    forks: 45
-  },
-  {
-    name: "CCIP Experiments",
-    description: "Cross chain messaging using Chainlink CCIP. Enabling seamless token transfers and data across any chain.",
-    tags: ["Solidity", "Cross-chain", "EVM"],
-    language: "Solidity",
-    languageColor: "#AA6746",
-    githubUrl: "#",
-    stars: 42,
-    forks: 8
-  },
-  {
-    name: "JavaScript Course",
-    description: "Personal JavaScript learning projects. A collection of fundamental and advanced JS concepts.",
-    tags: ["JavaScript", "Algorithms", "DOM"],
-    language: "JavaScript",
-    languageColor: "#f1e05a",
-    githubUrl: "#",
-    stars: 25,
-    forks: 5
-  }
-];
+/* Reusable section wrapper with scroll-triggered fade-up */
+const Section = ({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 32 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-60px' }}
+    transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94], delay }}
+  >
+    {children}
+  </motion.div>
+);
 
 export default function Home() {
   return (
-    <main className="min-h-screen pt-20 md:pt-24 pb-8 px-2 md:px-8 lg:px-12 max-w-[1440px] mx-auto overflow-hidden relative">
+    <>
       <PageLoader />
-      {/* Decorative Background Elements */}
-      <div className="fixed top-0 left-0 w-full h-full -z-20 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-primary/10 rounded-full blur-[100px] animate-pulse" />
-        <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-secondary/10 rounded-full blur-[100px] animate-pulse-glow" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03]" />
+
+      {/* Fixed ambient background orbs */}
+      <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[140px] animate-pulse-glow" />
+        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-secondary/5 blur-[140px] animate-pulse-glow" style={{ animationDelay: '3s' }} />
       </div>
-      <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
-        
-        {/* Left Sidebar */}
-        <SidebarProfile />
 
-        {/* Main Content Area */}
-        <div className="flex-1 flex flex-col gap-6 md:gap-10 glass-card p-4 md:p-10 relative overflow-hidden">
-          
-          {/* Quick Stats Grid */}
+      <main className="flex flex-col w-full">
 
-          <ScrollReveal delay={0.1}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group bg-background/5">
-                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform">
-                  <GitBranch size={40} />
-                </div>
-                <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Repositories</span>
-                <span className="text-2xl font-bold text-foreground">
-                  <NumberTicker value={37} delay={2.5} />
-                </span>
-              </div>
-              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group bg-background/5">
-                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-secondary">
-                  <Activity size={40} />
-                </div>
-                <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Total Commits</span>
-                <span className="text-2xl font-bold text-foreground">
-                  <NumberTicker value={1482} delay={2.6} />
-                </span>
-              </div>
-              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group bg-background/5">
-                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-primary">
-                  <Layers size={40} />
-                </div>
-                <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Projects Built</span>
-                <span className="text-2xl font-bold text-foreground">
-                  <NumberTicker value={15} suffix="+" delay={2.7} />
-                </span>
-              </div>
-              <div className="glass-card p-4 flex flex-col gap-1 relative overflow-hidden group bg-background/5">
-                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform text-foreground">
-                  <Cpu size={40} />
-                </div>
-                <span className="text-foreground/40 text-xs font-semibold uppercase tracking-wider">Smart Contracts</span>
-                <span className="text-2xl font-bold text-foreground">
-                  <NumberTicker value={24} delay={2.8} />
-                </span>
-              </div>
-            </div>
-          </ScrollReveal>
+        {/* ─── HERO ──────────────────────────────────────── */}
+        <HeroSection />
 
-          {/* Contribution Heatmap */}
-          <ScrollReveal delay={0.2}>
-            <section>
-              <ContributionGraph />
-            </section>
-          </ScrollReveal>
-
-          {/* Pinned Projects Section */}
-          <ScrollReveal delay={0.3}>
-            <section className="flex flex-col gap-4">
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
-                  <Star size={18} className="text-primary" />
-                  Pinned Projects
-                </h2>
-                <span className="text-xs text-primary cursor-pointer hover:underline">Customize pins</span>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {pinnedProjects.map((project, i) => (
-                  <ProjectCard key={i} {...project} />
-                ))}
-              </div>
-            </section>
-          </ScrollReveal>
-
-          {/* Latest Activity */}
-          <ScrollReveal delay={0.4}>
-            <section className="flex flex-col gap-4">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
-                <Activity size={18} className="text-secondary" />
-                Latest Activity
-              </h2>
-              <div className="glass-card p-6 bg-background/5">
-                <ActivityTimeline />
-              </div>
-            </section>
-          </ScrollReveal>
-
-          {/* Here's What I've Built */}
-          <ScrollReveal delay={0.45}>
-            <section className="flex flex-col gap-4">
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
-                  <Hammer size={18} className="text-primary" />
-                  Here&apos;s What I&apos;ve Built
-                </h2>
-                <span className="text-xs text-foreground/40 tracking-wide">{new Date().getFullYear()} · {4} projects</span>
-              </div>
-              <BuiltProjects />
-            </section>
-          </ScrollReveal>
-
-          {/* Skill Matrix */}
-          <ScrollReveal delay={0.5}>
-            <section className="flex flex-col gap-4">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
-                <Cpu size={18} className="text-primary" />
-                Web3 Skill Matrix
-              </h2>
-              <SkillMatrix />
-            </section>
-          </ScrollReveal>
-
-          {/* Tech Stack Grid */}
-          <ScrollReveal delay={0.6}>
-            <section className="flex flex-col gap-4">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
-                <LayoutGrid size={18} className="text-secondary" />
-                Technology Stack
-              </h2>
-              <TechStackGrid />
-            </section>
-          </ScrollReveal>
-
-          {/* Terminal Profile */}
-          <ScrollReveal delay={0.7}>
-            <section className="flex flex-col gap-4">
-              <h2 className="text-lg font-bold text-foreground flex items-center gap-2 font-header">
-                <LayoutGrid size={18} className="text-primary" />
-                System Terminal
-              </h2>
-              <TerminalProfile />
-            </section>
-          </ScrollReveal>
-
-        </div>
-      </div>
-      
-      {/* Footer */}
-      <ScrollReveal delay={0.8}>
-        <footer className="mt-20 border-t border-foreground/10 pt-8 pb-12 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-foreground/40">
-          <div className="flex items-center gap-4">
-            <span>© 2026 Manny D' Great</span>
-            <span className="hover:text-primary cursor-pointer">Terms</span>
-            <span className="hover:text-primary cursor-pointer">Privacy</span>
+        {/* ─── Profile Identity Bar ──────────────────────── */}
+        <Section delay={0.05}>
+          <div className="pb-16">
+            <ProfileIdentityPanel />
           </div>
-          <div className="flex items-center gap-4">
-            <span className="hover:text-primary cursor-pointer">Docs</span>
-            <span className="hover:text-primary cursor-pointer">Support</span>
-            <span className="hover:text-primary cursor-pointer">API</span>
-            <span className="hover:text-primary cursor-pointer">GitHub Status</span>
+        </Section>
+
+        {/* ─── Contribution Graph ────────────────────────── */}
+        <Section>
+          <div className="w-full max-w-6xl mx-auto px-6 pb-20">
+            <ContributionGraph />
+          </div>
+        </Section>
+
+        {/* ─── Featured Projects ─────────────────────────── */}
+        <Section>
+          <div className="pb-20">
+            <FeaturedProjects />
+          </div>
+        </Section>
+
+        {/* ─── Activity Timeline ─────────────────────────── */}
+        <Section>
+          <div className="pb-20">
+            <ActivityTimeline />
+          </div>
+        </Section>
+
+        {/* ─── Case Studies / Built Projects ─────────────── */}
+        <Section>
+          <div className="pb-20">
+            <BuiltProjects />
+          </div>
+        </Section>
+
+        {/* ─── Stars Dashboard ───────────────────────────── */}
+        <Section>
+          <div className="pb-20">
+            <StarsDashboard />
+          </div>
+        </Section>
+
+        {/* ─── About ─────────────────────────────────────── */}
+        <Section>
+          <div className="pb-20">
+            <AboutSection />
+          </div>
+        </Section>
+
+        {/* ─── Tech Stack ────────────────────────────────── */}
+        <Section>
+          <div className="pb-20">
+            <TechStackGrid />
+          </div>
+        </Section>
+
+        {/* ─── Notes / Insights ──────────────────────────── */}
+        <Section>
+          <div className="pb-20">
+            <NotesSection />
+          </div>
+        </Section>
+
+        {/* ─── Terminal Contact ──────────────────────────── */}
+        <Section>
+          <div className="pb-20">
+            <TerminalContact />
+          </div>
+        </Section>
+
+        {/* ─── Footer ────────────────────────────────────── */}
+        <footer className="w-full border-t border-white/6 py-10 px-6">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-7 h-7 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center">
+                <span className="text-[9px] font-black text-primary leading-none" style={{ fontFamily: 'var(--font-outfit)' }}>M</span>
+              </div>
+              <span className="text-xs text-muted font-heading">
+                © 2026 Manny D&apos; Great · Built with Next.js & ❤️
+              </span>
+            </div>
+            <div className="flex items-center gap-6 text-xs text-muted/60 font-heading">
+              <a href="https://github.com/manny-the-great" target="_blank" rel="noopener noreferrer"
+                className="hover:text-primary transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/emmanuel-johnson-623a69266/" target="_blank" rel="noopener noreferrer"
+                className="hover:text-secondary transition-colors">LinkedIn</a>
+              <a href="/cv.pdf" download className="hover:text-primary transition-colors">Resume</a>
+            </div>
           </div>
         </footer>
-      </ScrollReveal>
-    </main>
+      </main>
+    </>
   );
 }
