@@ -12,21 +12,21 @@ const XIcon = () => (
 );
 
 const techIcons = [
-  { name: "Solidity",    icon: "https://cdn.simpleicons.org/solidity/22c55e" },
-  { name: "Ethereum",    icon: "https://cdn.simpleicons.org/ethereum/9CA3AF" },
-  { name: "Chainlink",   icon: "https://cdn.simpleicons.org/chainlink/375BD2" },
-  { name: "JavaScript",  icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
-  { name: "TypeScript",  icon: "https://cdn.simpleicons.org/typescript/3178c6" },
-  { name: "Node.js",     icon: "https://cdn.simpleicons.org/nodedotjs/22c55e" },
-  { name: "Next.js",     icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
-  { name: "Hardhat",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hardhat/hardhat-original.svg" },
+  { name: "Solidity", icon: "https://cdn.simpleicons.org/solidity/22c55e" },
+  { name: "Ethereum", icon: "https://cdn.simpleicons.org/ethereum/9CA3AF" },
+  { name: "Chainlink", icon: "https://cdn.simpleicons.org/chainlink/375BD2" },
+  { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+  { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178c6" },
+  { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/22c55e" },
+  { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
+  { name: "Hardhat", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hardhat/hardhat-original.svg" },
 ];
 
 const stats = [
   { label: "Repositories", value: "37" },
-  { label: "Commits",      value: "1.4k+" },
-  { label: "Projects",     value: "15+" },
-  { label: "Contracts",    value: "24" },
+  { label: "Commits", value: "1.4k+" },
+  { label: "Projects", value: "15+" },
+  { label: "Contracts", value: "24" },
 ];
 
 export const ProfileIdentityPanel = () => {
@@ -87,13 +87,19 @@ export const ProfileIdentityPanel = () => {
         <div className="hidden lg:block w-px h-20 bg-white/8 flex-shrink-0" />
 
         {/* Scrolling tech icons */}
-        <div className="flex-1 min-w-0 overflow-hidden relative">
-          <div className="pixel-marquee-wrapper">
-            <div className="flex gap-6 marquee-track w-max">
-              {[...techIcons, ...techIcons, ...techIcons].map((t, i) => (
-                <div key={i} className="flex flex-col items-center gap-1.5 flex-shrink-0" title={t.name}>
+        <div className="flex-1 w-full min-w-0 overflow-hidden relative">
+          <div 
+            className="w-full relative"
+            style={{ 
+              maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+            }}
+          >
+            <div className="flex gap-6 marquee-track w-max py-2">
+              {[...techIcons, ...techIcons, ...techIcons, ...techIcons].map((t, i) => (
+                <div key={i} className="flex flex-col items-center gap-1.5 flex-shrink-0 w-16" title={t.name}>
                   <img src={t.icon} alt={t.name} className="w-7 h-7 object-contain" />
-                  <span className="text-[9px] text-muted font-heading uppercase tracking-wide">{t.name}</span>
+                  <span className="text-[9px] text-muted font-heading uppercase tracking-wide truncate w-full text-center">{t.name}</span>
                 </div>
               ))}
             </div>

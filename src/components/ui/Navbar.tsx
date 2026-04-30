@@ -56,9 +56,9 @@ export function Navbar() {
         )}
       >
         {/* Logo */}
-        <div className="flex items-center gap-2 px-3 mr-1 border-r border-white/10">
-          <div className="w-7 h-7 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center">
-            <span className="text-[9px] font-black text-primary leading-none" style={{ fontFamily: 'var(--font-bricolage), var(--font-poppins)' }}>M</span>
+        <div className="flex items-center gap-2 px-2 sm:px-3 mr-0 sm:mr-1 border-r border-white/10 flex-shrink-0">
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-primary/30 overflow-hidden flex items-center justify-center">
+            <img src="https://github.com/manny-the-great.png" alt="Manny" className="w-full h-full object-cover" />
           </div>
         </div>
 
@@ -67,7 +67,7 @@ export function Navbar() {
             key={item.id}
             onClick={() => handleClick(item.id)}
             className={cn(
-              'relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full outline-none',
+              'relative px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-colors duration-200 rounded-full outline-none flex-shrink-0',
               'font-heading',
               activeTab === item.id ? 'text-black' : 'text-white/50 hover:text-white'
             )}
@@ -80,7 +80,7 @@ export function Navbar() {
               />
             )}
             <span className="hidden sm:inline">{item.label}</span>
-            <span className="sm:hidden">{item.label.slice(0, 3)}</span>
+            <span className="sm:hidden">{item.label}</span>
           </button>
         ))}
 
