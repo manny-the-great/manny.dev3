@@ -50,12 +50,12 @@ export const ProfileIdentityPanel = () => {
             <img
               src={profile?.avatar_url || '/icon.png'}
               alt="Manny"
-              className="w-20 h-20 rounded-2xl object-cover border border-white/10"
+              className="w-20 h-20 rounded-2xl object-cover border border-foreground/10"
             />
-            <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-[#0D1117]" />
+            <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-background" />
           </div>
           <div>
-            <h2 className="text-xl font-bold font-heading text-white">
+            <h2 className="text-xl font-bold font-heading text-foreground">
               {profile?.name || "Manny D' Great"}
             </h2>
             <p className="text-muted text-sm font-mono mt-0.5">
@@ -71,20 +71,20 @@ export const ProfileIdentityPanel = () => {
         </div>
 
         {/* Divider */}
-        <div className="hidden lg:block w-px h-20 bg-white/8 flex-shrink-0" />
+        <div className="hidden lg:block w-px h-20 bg-foreground/8 flex-shrink-0" />
 
         {/* Stats */}
         <div className="flex gap-6 md:gap-10 flex-wrap">
           {stats.map(s => (
             <div key={s.label} className="flex flex-col gap-0.5">
-              <span className="text-2xl font-black font-heading text-white">{s.value}</span>
+              <span className="text-2xl font-black font-heading text-foreground">{s.value}</span>
               <span className="text-xs text-muted uppercase tracking-widest font-heading">{s.label}</span>
             </div>
           ))}
         </div>
 
         {/* Divider */}
-        <div className="hidden lg:block w-px h-20 bg-white/8 flex-shrink-0" />
+        <div className="hidden lg:block w-px h-20 bg-foreground/8 flex-shrink-0" />
 
         {/* Scrolling tech icons */}
         <div className="flex-1 w-full min-w-0 overflow-hidden relative">
@@ -107,21 +107,21 @@ export const ProfileIdentityPanel = () => {
         </div>
 
         {/* Divider */}
-        <div className="hidden lg:block w-px h-20 bg-white/8 flex-shrink-0" />
+        <div className="hidden lg:block w-px h-20 bg-foreground/8 flex-shrink-0" />
 
         {/* Social links + CTA */}
         <div className="flex flex-col gap-3 flex-shrink-0">
           <div className="flex items-center gap-3">
             <a href={`https://github.com/${profile?.login || 'manny-the-great'}`} target="_blank" rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-white/10 text-muted hover:text-white hover:border-white/25 transition-all">
+              className="p-2 rounded-lg border border-foreground/10 text-muted hover:text-foreground hover:border-foreground/25 transition-all">
               <Github size={16} />
             </a>
             <a href="https://www.linkedin.com/in/emmanuel-johnson-623a69266/" target="_blank" rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-white/10 text-muted hover:text-secondary hover:border-secondary/40 transition-all">
+              className="p-2 rounded-lg border border-foreground/10 text-muted hover:text-secondary hover:border-secondary/40 transition-all">
               <Linkedin size={16} />
             </a>
             <a href="https://x.com/_mannythegreat_" target="_blank" rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-white/10 text-muted hover:text-white hover:border-white/25 transition-all">
+              className="p-2 rounded-lg border border-foreground/10 text-muted hover:text-foreground hover:border-foreground/25 transition-all">
               <XIcon />
             </a>
             <div className="flex items-center gap-1 text-muted text-xs ml-1">
@@ -131,13 +131,13 @@ export const ProfileIdentityPanel = () => {
           </div>
           <div className="flex gap-2">
             <a href="/cv.pdf" download="Manny_DGreat_CV.pdf"
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-white/10 text-xs font-semibold text-white/70 hover:text-white hover:border-white/25 transition-all font-heading">
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-foreground/10 text-xs font-semibold text-foreground/70 hover:text-foreground hover:border-foreground/25 transition-all font-heading">
               <FileText size={13} />
               Resume
             </a>
             <button
               className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold font-heading transition-all"
-              style={{ background: 'var(--primary)', color: '#000' }}
+              style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}
             >
               <Send size={13} />
               Hire Me

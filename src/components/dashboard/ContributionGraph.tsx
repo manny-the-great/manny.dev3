@@ -44,7 +44,7 @@ export const ContributionGraph = () => {
           <div className="section-label mb-1">Proof of Work</div>
           <div className="flex items-center gap-2">
             <GitCommit size={16} className="text-primary" />
-            <h3 className="font-bold text-white font-heading text-lg">
+            <h3 className="font-bold text-foreground font-heading text-lg">
               {total.toLocaleString()} contributions
               <span className="text-muted font-normal text-sm ml-2">in the last year</span>
             </h3>
@@ -103,7 +103,7 @@ export const ContributionGraph = () => {
                           boxShadow: glow ? `0 0 6px rgba(34,197,94,0.5)` : 'none',
                         }}
                       >
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 rounded-lg border border-white/10 text-[10px] text-white font-heading bg-[#1C2128] opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 transition-opacity shadow-xl">
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 rounded-lg border border-foreground/10 text-[10px] text-foreground font-heading bg-[#1C2128] opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 transition-opacity shadow-xl">
                           <span className="font-semibold text-primary">{level === 0 ? 'No' : level}</span>{' '}
                           {level === 1 ? 'contribution' : 'contributions'}
                           <span className="text-muted ml-1">

@@ -18,7 +18,7 @@ const colorMap: Record<string, string> = {
   PullRequestEvent:  'border-secondary/30 bg-secondary/10',
   WatchEvent:        'border-yellow-400/30 bg-yellow-400/10',
   CreateEvent:       'border-primary/30  bg-primary/10',
-  IssueCommentEvent: 'border-white/10    bg-white/5',
+  IssueCommentEvent: 'border-foreground/10    bg-foreground/5',
 };
 
 const formatTitle = (e: any) => {
@@ -57,7 +57,7 @@ export const ActivityTimeline = () => {
       {/* Header */}
       <div>
         <div className="section-label mb-2">GitHub Timeline</div>
-        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground tracking-tight">
           Recent Activity
         </h2>
       </div>
@@ -105,7 +105,7 @@ export const ActivityTimeline = () => {
                         href={`https://github.com/${repo}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-semibold font-mono text-white hover:text-primary transition-colors flex items-center gap-1 group"
+                        className="text-sm font-semibold font-mono text-foreground hover:text-primary transition-colors flex items-center gap-1 group"
                       >
                         {repo}
                         <ExternalLink size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />

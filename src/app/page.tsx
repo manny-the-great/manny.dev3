@@ -120,7 +120,7 @@ export default function Home() {
         </Section>
 
         {/* ─── Footer ────────────────────────────────────── */}
-        <footer className="w-full border-t border-white/6 py-10 px-6">
+        <footer className="w-full border-t border-foreground/6 py-10 px-6">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="w-7 h-7 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center">

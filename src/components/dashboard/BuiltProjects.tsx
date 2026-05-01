@@ -61,7 +61,7 @@ const projects: BuiltProject[] = [
 const statusConfig = {
   live:          { label: "Live",        dot: "bg-primary",    text: "text-primary",    border: "border-primary/25",    bg: "bg-primary/8" },
   "in-progress": { label: "In Progress", dot: "bg-yellow-400", text: "text-yellow-400", border: "border-yellow-400/25", bg: "bg-yellow-400/8" },
-  private:       { label: "Private",     dot: "bg-muted",      text: "text-muted",      border: "border-white/10",      bg: "bg-white/5" },
+  private:       { label: "Private",     dot: "bg-muted",      text: "text-muted",      border: "border-foreground/10",      bg: "bg-foreground/5" },
 };
 
 export const BuiltProjects: React.FC = () => {
@@ -72,7 +72,7 @@ export const BuiltProjects: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <div className="section-label mb-2">Case Studies</div>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground tracking-tight">
             Here&apos;s What I&apos;ve Built
           </h2>
         </div>
@@ -96,7 +96,7 @@ export const BuiltProjects: React.FC = () => {
               className="glass-card glass-card-hover group flex flex-col overflow-hidden cursor-default relative"
             >
               {/* Image */}
-              <div className="relative w-full h-44 overflow-hidden bg-white/3">
+              <div className="relative w-full h-44 overflow-hidden bg-foreground/3">
                 <motion.img
                   src={project.image}
                   alt={`${project.title} preview`}
@@ -109,14 +109,14 @@ export const BuiltProjects: React.FC = () => {
                   <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
                   {s.label}
                 </span>
-                <span className="absolute top-3 right-3 text-[10px] font-mono px-2.5 py-1 rounded-full bg-black/50 text-white/60 border border-white/10 backdrop-blur-sm">
+                <span className="absolute top-3 right-3 text-[10px] font-mono px-2.5 py-1 rounded-full bg-black/50 text-foreground/60 border border-foreground/10 backdrop-blur-sm">
                   {project.year}
                 </span>
               </div>
 
               {/* Content */}
               <div className="flex flex-col gap-3 p-5 flex-1">
-                <h3 className="text-base font-bold font-heading text-white group-hover:text-primary transition-colors">
+                <h3 className="text-base font-bold font-heading text-foreground group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-sm text-muted leading-relaxed line-clamp-3">
@@ -127,13 +127,13 @@ export const BuiltProjects: React.FC = () => {
                     <span key={tag} className="tech-tag">{tag}</span>
                   ))}
                 </div>
-                <div className="flex items-center gap-4 mt-2 pt-3 border-t border-white/6">
-                  <span className="flex items-center gap-1.5 text-xs font-semibold font-heading text-white/70 hover:text-primary transition-colors cursor-pointer">
+                <div className="flex items-center gap-4 mt-2 pt-3 border-t border-foreground/6">
+                  <span className="flex items-center gap-1.5 text-xs font-semibold font-heading text-foreground/70 hover:text-primary transition-colors cursor-pointer">
                     View Project <ArrowRight size={12} />
                   </span>
                   {project.githubUrl && (
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs text-muted hover:text-white transition-colors ml-auto font-heading">
+                      className="flex items-center gap-1.5 text-xs text-muted hover:text-foreground transition-colors ml-auto font-heading">
                       <Github size={13} /> Source
                     </a>
                   )}

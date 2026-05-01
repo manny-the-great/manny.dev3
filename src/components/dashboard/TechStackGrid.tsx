@@ -37,7 +37,7 @@ export const TechStackGrid = () => {
     <section className="w-full max-w-6xl mx-auto px-6 flex flex-col gap-8">
       <div>
         <div className="section-label mb-2">Technology Stack</div>
-        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground tracking-tight">
           Tools of the Trade
         </h2>
       </div>
@@ -89,7 +89,7 @@ export const TechStackGrid = () => {
                   className={`w-12 h-12 object-contain flex-shrink-0 ${tech.needsInvert ? 'dark:invert-0 invert' : ''}`} />
                 <div className="flex flex-col gap-3 flex-1">
                   <div className="flex items-center gap-3">
-                    <h3 className="text-lg font-bold font-heading text-white">{tech.name}</h3>
+                    <h3 className="text-lg font-bold font-heading text-foreground">{tech.name}</h3>
                     <span className={`text-[10px] font-semibold font-heading px-2.5 py-0.5 rounded-full border ${categoryColor[tech.category]}`}>
                       {tech.category}
                     </span>
@@ -102,7 +102,7 @@ export const TechStackGrid = () => {
                   </div>
                 </div>
                 <button onClick={() => setActive(null)}
-                  className="text-muted hover:text-white transition-colors text-xs font-heading self-start flex-shrink-0">
+                  className="text-muted hover:text-foreground transition-colors text-xs font-heading self-start flex-shrink-0">
                   ✕ close
                 </button>
               </div>

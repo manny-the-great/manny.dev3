@@ -51,12 +51,12 @@ export function Navbar() {
         className={cn(
           'pointer-events-auto flex items-center gap-1 p-1.5 rounded-full border transition-all duration-300',
           scrolled
-            ? 'bg-[#0D1117]/90 backdrop-blur-2xl border-white/10 shadow-2xl shadow-black/60'
-            : 'bg-white/5 backdrop-blur-xl border-white/8'
+            ? 'bg-background/90 backdrop-blur-2xl border-border shadow-2xl shadow-black/60 dark:shadow-black/60'
+            : 'bg-foreground/5 backdrop-blur-xl border-border'
         )}
       >
         {/* Logo */}
-        <div className="flex items-center gap-2 px-2 sm:px-3 mr-0 sm:mr-1 border-r border-white/10 flex-shrink-0">
+        <div className="flex items-center gap-2 px-2 sm:px-3 mr-0 sm:mr-1 border-r border-border flex-shrink-0">
           <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-primary/30 overflow-hidden flex items-center justify-center">
             <img src="https://github.com/manny-the-great.png" alt="Manny" className="w-full h-full object-cover" />
           </div>
@@ -69,7 +69,7 @@ export function Navbar() {
             className={cn(
               'relative px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-colors duration-200 rounded-full outline-none flex-shrink-0',
               'font-heading',
-              activeTab === item.id ? 'text-black' : 'text-white/50 hover:text-white'
+              activeTab === item.id ? 'text-primary-foreground' : 'text-foreground/60 hover:text-foreground'
             )}
           >
             {activeTab === item.id && (
@@ -84,11 +84,11 @@ export function Navbar() {
           </button>
         ))}
 
-        <div className="w-px h-4 bg-white/10 mx-1" />
+        <div className="w-px h-4 bg-border mx-1" />
 
         <button
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="p-2 rounded-full text-white/50 hover:text-white transition-colors"
+          className="p-2 rounded-full text-foreground/60 hover:text-foreground transition-colors"
           aria-label="Toggle theme"
         >
           <AnimatePresence mode="wait">

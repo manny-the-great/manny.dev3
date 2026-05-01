@@ -60,7 +60,7 @@ export const HeroSection = () => {
         {/* Main heading */}
         <motion.div variants={itemVariants} className="flex flex-col gap-3">
           <h1
-            className="hero-heading text-[clamp(3.5rem,10vw,9rem)] text-white"
+            className="hero-heading text-[clamp(3.5rem,10vw,9rem)] text-foreground"
             style={{ fontFamily: 'var(--font-bricolage), var(--font-poppins)', fontWeight: 900 }}
           >
             Hi. I&apos;m Manny.
@@ -90,7 +90,7 @@ export const HeroSection = () => {
           className="text-muted text-[clamp(1rem,2vw,1.25rem)] max-w-2xl leading-relaxed font-light"
         >
           Building scalable{' '}
-          <span className="text-white font-medium">Web3 infrastructure</span>,
+          <span className="text-foreground font-medium">Web3 infrastructure</span>,
           developer tools, and modern digital systems with{' '}
           <span className="text-[#F7DF1E] font-medium">JavaScript</span>,{' '}
           <span className="text-[#AA6746] font-medium">Solidity</span>, and
@@ -102,7 +102,7 @@ export const HeroSection = () => {
           <button
             onClick={() => scrollTo('projects')}
             className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm font-heading transition-all duration-300"
-            style={{ background: 'var(--primary)', color: '#000' }}
+            style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}
           >
             View Projects
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -112,8 +112,8 @@ export const HeroSection = () => {
             href="https://github.com/manny-the-great"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm font-heading border border-white/15 text-white/80 hover:text-white hover:border-white/30 transition-all duration-300 backdrop-blur-sm"
-            style={{ background: 'rgba(255,255,255,0.04)' }}
+            className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm font-heading border border-foreground/15 text-foreground/80 hover:text-foreground hover:border-foreground/30 transition-all duration-300 backdrop-blur-sm"
+            style={{ background: 'rgba(var(--foreground), 0.04)' }}
           >
             <Github size={16} />
             GitHub Profile
@@ -130,9 +130,9 @@ export const HeroSection = () => {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-            className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center pt-1.5"
+            className="w-5 h-8 rounded-full border border-foreground/20 flex items-start justify-center pt-1.5"
           >
-            <div className="w-1 h-2 rounded-full bg-white/50" />
+            <div className="w-1 h-2 rounded-full bg-foreground/50" />
           </motion.div>
         </motion.div>
       </motion.div>

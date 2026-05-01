@@ -11,9 +11,9 @@ const XIcon = () => (
 );
 
 const links = [
-  { label: "GitHub",   href: "https://github.com/manny-the-great",                    icon: <Github size={18} />,   color: "hover:text-white hover:border-white/30" },
+  { label: "GitHub",   href: "https://github.com/manny-the-great",                    icon: <Github size={18} />,   color: "hover:text-foreground hover:border-foreground/30" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/emmanuel-johnson-623a69266/",icon: <Linkedin size={18} />, color: "hover:text-secondary hover:border-secondary/40" },
-  { label: "X / Twitter", href: "https://x.com/_mannythegreat_",                      icon: <XIcon />,              color: "hover:text-white hover:border-white/30" },
+  { label: "X / Twitter", href: "https://x.com/_mannythegreat_",                      icon: <XIcon />,              color: "hover:text-foreground hover:border-foreground/30" },
   { label: "Email",    href: "mailto:contact@manny.dev",                               icon: <Mail size={18} />,     color: "hover:text-primary hover:border-primary/40" },
 ];
 
@@ -37,7 +37,7 @@ export const TerminalContact = () => {
     <section className="w-full max-w-6xl mx-auto px-6 flex flex-col gap-8">
       <div>
         <div className="section-label mb-2">Let&apos;s Connect</div>
-        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground tracking-tight">
           Build Something Meaningful
         </h2>
       </div>
@@ -52,7 +52,7 @@ export const TerminalContact = () => {
           className="glass-card overflow-hidden"
         >
           {/* Terminal bar */}
-          <div className="flex items-center gap-2 px-5 py-3.5 border-b border-white/8 bg-white/3">
+          <div className="flex items-center gap-2 px-5 py-3.5 border-b border-foreground/8 bg-foreground/3">
             <div className="flex gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
@@ -75,8 +75,8 @@ export const TerminalContact = () => {
               >
                 <div className="flex items-center gap-2">
                   <span className="text-primary">❯</span>
-                  <span className="text-white/60">{line.prompt}</span>
-                  <span className="text-white">{line.text}</span>
+                  <span className="text-foreground/60">{line.prompt}</span>
+                  <span className="text-foreground">{line.text}</span>
                 </div>
                 <div className="pl-6 text-muted/80">{line.out}</div>
               </motion.div>
@@ -100,7 +100,7 @@ export const TerminalContact = () => {
                 href={l.href}
                 target={l.href.startsWith('mailto') ? undefined : '_blank'}
                 rel="noopener noreferrer"
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 text-muted text-sm font-heading transition-all duration-200 ${l.color}`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl border border-foreground/10 text-muted text-sm font-heading transition-all duration-200 ${l.color}`}
               >
                 {l.icon}
                 {l.label}
@@ -119,7 +119,7 @@ export const TerminalContact = () => {
           className="glass-card p-8 flex flex-col gap-6 justify-between"
         >
           <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-bold font-heading text-white">
+            <h3 className="text-lg font-bold font-heading text-foreground">
               Have a project in mind?
             </h3>
             <p className="text-muted text-sm leading-relaxed">
@@ -149,7 +149,7 @@ export const TerminalContact = () => {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/4 text-white text-sm font-mono placeholder-muted/40 focus:outline-none focus:border-primary/50 focus:bg-white/6 transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-foreground/10 bg-foreground/4 text-foreground text-sm font-mono placeholder-muted/40 focus:outline-none focus:border-primary/50 focus:bg-foreground/6 transition-all"
                 />
               </div>
               <div className="flex flex-col gap-1.5">
@@ -161,14 +161,14 @@ export const TerminalContact = () => {
                   onChange={e => setMessage(e.target.value)}
                   rows={5}
                   placeholder="Tell me about your project, role, or idea..."
-                  className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/4 text-white text-sm font-mono placeholder-muted/40 focus:outline-none focus:border-primary/50 focus:bg-white/6 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-foreground/10 bg-foreground/4 text-foreground text-sm font-mono placeholder-muted/40 focus:outline-none focus:border-primary/50 focus:bg-foreground/6 transition-all resize-none"
                 />
               </div>
               <button
                 onClick={handleSend}
                 disabled={!email || !message}
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-sm font-heading transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
-                style={{ background: 'var(--primary)', color: '#000' }}
+                style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}
               >
                 <Send size={15} />
                 Send Message

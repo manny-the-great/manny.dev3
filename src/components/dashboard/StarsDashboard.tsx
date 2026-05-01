@@ -51,7 +51,7 @@ export const StarsDashboard = () => (
     {/* Header */}
     <div>
       <div className="section-label mb-2">Recognition & Impact</div>
-      <h2 className="text-3xl md:text-4xl font-bold font-heading text-white tracking-tight">
+      <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground tracking-tight">
         By the Numbers
       </h2>
     </div>
@@ -83,7 +83,7 @@ export const StarsDashboard = () => (
 
     {/* Top Repositories */}
     <div className="glass-card p-6 md:p-8 flex flex-col gap-5">
-      <h3 className="font-bold font-heading text-white text-lg">Top Repositories</h3>
+      <h3 className="font-bold font-heading text-foreground text-lg">Top Repositories</h3>
       <div className="flex flex-col divide-y divide-white/6">
         {topRepos.map((repo, i) => (
           <motion.div
@@ -96,7 +96,7 @@ export const StarsDashboard = () => (
           >
             <div className="flex items-center gap-3">
               <span className="text-xs text-muted/50 font-mono w-4">{String(i + 1).padStart(2, '0')}</span>
-              <span className="text-sm font-semibold font-mono text-white group-hover:text-primary transition-colors truncate">
+              <span className="text-sm font-semibold font-mono text-foreground group-hover:text-primary transition-colors truncate">
                 manny-the-great / {repo.name}
               </span>
             </div>

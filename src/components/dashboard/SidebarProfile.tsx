@@ -171,7 +171,7 @@ export const SidebarProfile = () => {
             {[1, 2, 3, 4, 5].map((star) => (
               <div 
                 key={star}
-                className="w-10 h-10 rounded-full bg-foreground/5 border border-black/10 dark:border-white/30 flex items-center justify-center group cursor-pointer hover:bg-foreground/10 transition-colors"
+                className="w-10 h-10 rounded-full bg-foreground/5 border border-black/10 dark:border-foreground/30 flex items-center justify-center group cursor-pointer hover:bg-foreground/10 transition-colors"
                 title={`Rating: 5/5`}
               >
                 <Star 

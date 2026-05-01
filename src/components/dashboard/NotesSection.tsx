@@ -62,7 +62,7 @@ export const NotesSection = () => (
     <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
       <div>
         <div className="section-label mb-2">Thoughts & Insights</div>
-        <h2 className="text-3xl md:text-4xl font-bold font-heading text-white tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground tracking-tight">
           Notes
         </h2>
       </div>
@@ -90,7 +90,7 @@ export const NotesSection = () => (
           </div>
 
           <div className="flex flex-col gap-2 flex-1">
-            <h3 className="text-sm font-bold font-heading text-white group-hover:text-primary transition-colors leading-snug">
+            <h3 className="text-sm font-bold font-heading text-foreground group-hover:text-primary transition-colors leading-snug">
               {note.title}
             </h3>
             <p className="text-xs text-muted leading-relaxed line-clamp-3">

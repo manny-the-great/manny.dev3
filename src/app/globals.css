@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    --background: #000000;
-    --foreground: #FFFFFF;
-    --primary: #22c55e;
-    --primary-foreground: #000000;
-    --secondary: #38bdf8;
-    --secondary-foreground: #000000;
+    --background: 0, 0, 0;
+    --foreground: 255, 255, 255;
+    --primary: 34, 197, 94;
+    --primary-foreground: 0, 0, 0;
+    --secondary: 56, 189, 248;
+    --secondary-foreground: 0, 0, 0;
     --card: rgba(13, 17, 23, 0.4);
     --card-hover: rgba(13, 17, 23, 0.6);
     --border: rgba(255, 255, 255, 0.08);
@@ -21,26 +21,26 @@
   }
 
   .light {
-    --background: #000000;
-    --foreground: #FFFFFF;
-    --primary: #16a34a;
-    --primary-foreground: #000000;
-    --secondary: #0284c7;
-    --secondary-foreground: #FFFFFF;
-    --card: rgba(13, 17, 23, 0.4);
-    --card-hover: rgba(13, 17, 23, 0.6);
-    --border: rgba(255, 255, 255, 0.08);
-    --border-hover: rgba(255, 255, 255, 0.16);
-    --muted: #9CA3AF;
+    --background: 248, 250, 252;
+    --foreground: 15, 23, 42;
+    --primary: 22, 163, 74;
+    --primary-foreground: 255, 255, 255;
+    --secondary: 2, 132, 199;
+    --secondary-foreground: 255, 255, 255;
+    --card: rgba(255, 255, 255, 0.6);
+    --card-hover: rgba(255, 255, 255, 0.9);
+    --border: rgba(0, 0, 0, 0.1);
+    --border-hover: rgba(0, 0, 0, 0.2);
+    --muted: #64748B;
     --glow-green: 22, 163, 74;
     --glow-blue: 2, 132, 199;
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0,0,0,0.04);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0,0,0,0.05);
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
   overflow-x: hidden;
   transition: background-color 0.4s ease, color 0.4s ease;
   -webkit-font-smoothing: antialiased;
@@ -62,8 +62,7 @@ body {
   }
 
   .glass-nav {
-    @apply backdrop-blur-2xl border border-white/10 rounded-full;
-    background: rgba(13, 17, 23, 0.8);
+    @apply backdrop-blur-2xl border border-foreground/10 rounded-full bg-background/80;
   }
 
   .section-label {
@@ -97,23 +96,23 @@ body {
 
   .tech-tag {
     @apply text-[10px] font-medium px-2 py-0.5 rounded-full border;
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.08);
+    background: rgb(var(--foreground) / 0.04);
+    border-color: rgb(var(--foreground) / 0.08);
     color: var(--muted);
   }
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--background); }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+::-webkit-scrollbar-track { background: rgb(var(--background)); }
+::-webkit-scrollbar-thumb { background: rgb(var(--foreground) / 0.1); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(34,197,94,0.4); }
 
 /* Grid background */
 .bg-grid-pattern {
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    linear-gradient(rgb(var(--foreground) / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--foreground) / 0.04) 1px, transparent 1px);
   background-size: 72px 72px;
 }
 
