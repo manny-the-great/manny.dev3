@@ -24,10 +24,21 @@ const itemVariants = {
 
 export const HeroSection = () => {
   const [titleIdx, setTitleIdx] = useState(0);
+  const [timeStr, setTimeStr] = useState<string>("");
 
   useEffect(() => {
     const t = setInterval(() => setTitleIdx(p => (p + 1) % rotatingTitles.length), 2800);
     return () => clearInterval(t);
+  }, []);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTimeStr(now.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
   }, []);
 
   const scrollTo = (id: string) => {
@@ -53,7 +64,7 @@ export const HeroSection = () => {
         {/* Label */}
         <motion.div variants={itemVariants} className="flex items-center gap-3">
           <div className="w-8 h-px bg-primary/60" />
-          <span className="section-label">Portfolio · 2026</span>
+          <span className="section-label">{timeStr || "Loading..."}</span>
           <div className="w-8 h-px bg-primary/60" />
         </motion.div>
 

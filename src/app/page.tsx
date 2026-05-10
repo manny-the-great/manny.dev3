@@ -13,7 +13,6 @@ import { AboutSection } from '@/components/dashboard/AboutSection';
 import { TechStackGrid } from '@/components/dashboard/TechStackGrid';
 import { NotesSection } from '@/components/dashboard/NotesSection';
 import { TerminalContact } from '@/components/dashboard/TerminalContact';
-import { PageLoader } from '@/components/animations/PageLoader';
 
 /* Reusable section wrapper with scroll-triggered fade-up */
 const Section = ({
@@ -36,7 +35,6 @@ const Section = ({
 export default function Home() {
   return (
     <>
-      <PageLoader />
 
       {/* Fixed ambient background orbs */}
       <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
