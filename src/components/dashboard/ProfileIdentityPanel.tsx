@@ -129,19 +129,26 @@ export const ProfileIdentityPanel = () => {
               <span className="font-mono">{profile?.followers || 0}</span>
             </div>
           </div>
-          <div className="flex gap-2">
-            <a href="/cv.pdf" download="Manny_DGreat_CV.pdf"
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-foreground/10 text-xs font-semibold text-foreground/70 hover:text-foreground hover:border-foreground/25 transition-all font-heading">
-              <FileText size={13} />
-              Resume
-            </a>
-            <button
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold font-heading transition-all"
-              style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}
-            >
-              <Send size={13} />
-              Hire Me
-            </button>
+          <div className="flex gap-3">
+            {/* Resume Capsule */}
+            <div className="p-1 rounded-full border border-foreground/15 bg-background/40 flex items-center justify-center">
+              <a href="/cv.pdf" download="Manny_DGreat_CV.pdf"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-foreground/80 hover:text-foreground hover:bg-foreground/5 transition-all font-heading">
+                <FileText size={13} />
+                Resume
+              </a>
+            </div>
+            
+            {/* Hire Me Capsule */}
+            <div className="p-1 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center">
+              <button
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold font-heading transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+                style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}
+              >
+                <Send size={13} />
+                Hire Me
+              </button>
+            </div>
           </div>
         </div>
       </motion.div>

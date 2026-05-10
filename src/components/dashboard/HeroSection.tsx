@@ -126,15 +126,18 @@ export const HeroSection = () => {
         </motion.p>
 
         {/* CTA buttons */}
-        <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 justify-center">
-          <button
-            onClick={() => scrollTo('projects')}
-            className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm font-heading transition-all duration-300"
-            style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}
-          >
-            View Projects
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </button>
+        <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-5 justify-center">
+          {/* Capsule Wrapper for View Projects */}
+          <div className="p-1.5 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.15)]">
+            <button
+              onClick={() => scrollTo('projects')}
+              className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm font-heading transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+              style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}
+            >
+              View Projects
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
 
           <a
             href="https://github.com/manny-the-great"
