@@ -3,6 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Github } from 'lucide-react';
+import { Share_Tech_Mono } from 'next/font/google';
+
+const shareTechMono = Share_Tech_Mono({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 const rotatingTitles = [
   "Blockchain Engineer.",
@@ -34,7 +40,13 @@ export const HeroSection = () => {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      setTimeStr(now.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+      setTimeStr(now.toLocaleTimeString('en-US', { 
+        timeZone: 'Africa/Lagos',
+        hour12: true, 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit' 
+      }));
     };
     updateTime();
     const timer = setInterval(updateTime, 1000);
@@ -64,7 +76,12 @@ export const HeroSection = () => {
         {/* Label */}
         <motion.div variants={itemVariants} className="flex items-center gap-3">
           <div className="w-8 h-px bg-primary/60" />
-          <span className="section-label">{timeStr || "Loading..."}</span>
+          <span className="section-label flex items-center gap-2">
+            <span className="opacity-80">Lagos, Nigeria ·</span>
+            <span className={`${shareTechMono.className} text-[1.15em] text-primary`} style={{ fontFamily: '"DS-Digital", "Share Tech Mono", monospace', letterSpacing: '0.05em' }}>
+              {timeStr || "00:00:00"}
+            </span>
+          </span>
           <div className="w-8 h-px bg-primary/60" />
         </motion.div>
 
