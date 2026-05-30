@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Poppins, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/ui/Navbar";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -52,10 +53,12 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif" }}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <div className="fixed inset-0 -z-20 bg-background transition-colors duration-500" />
-          <div className="fixed inset-0 -z-10 bg-grid-pattern pointer-events-none" />
-          <Navbar />
-          {children}
+          <SmoothScrollProvider>
+            <div className="fixed inset-0 -z-20 bg-background transition-colors duration-500" />
+            <div className="fixed inset-0 -z-10 bg-grid-pattern pointer-events-none" />
+            <Navbar />
+            {children}
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>
