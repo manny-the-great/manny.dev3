@@ -52,7 +52,7 @@ export default function RootLayout({
         className={`${bricolage.variable} ${poppins.variable} ${pressStart2P.variable} font-sans antialiased`}
         style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif" }}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="manny-theme">
           <SmoothScrollProvider>
             <div className="fixed inset-0 -z-20 bg-background transition-colors duration-500" />
             <div className="fixed inset-0 -z-10 bg-grid-pattern pointer-events-none" />

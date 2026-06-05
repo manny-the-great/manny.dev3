@@ -10,12 +10,12 @@ const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov
 
 const getColor = (level: number) => {
   switch (level) {
-    case 0: return { bg: 'rgba(255,255,255,0.05)', glow: false };
+    case 0: return { bg: 'rgb(var(--foreground) / 0.06)', glow: false };
     case 1: return { bg: '#0e4429', glow: false };
     case 2: return { bg: '#006d32', glow: false };
     case 3: return { bg: '#26a641', glow: true  };
     case 4: return { bg: '#39d353', glow: true  };
-    default: return { bg: 'rgba(255,255,255,0.05)', glow: false };
+    default: return { bg: 'rgb(var(--foreground) / 0.06)', glow: false };
   }
 };
 
@@ -103,7 +103,7 @@ export const ContributionGraph = () => {
                           boxShadow: glow ? `0 0 6px rgba(34,197,94,0.5)` : 'none',
                         }}
                       >
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 rounded-lg border border-foreground/10 text-[10px] text-foreground font-heading bg-[#1C2128] opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 transition-opacity shadow-xl">
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 rounded-lg border border-foreground/10 text-[10px] text-foreground font-heading opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 transition-opacity shadow-xl" style={{ background: 'var(--card)', backdropFilter: 'blur(8px)' }}>
                           <span className="font-semibold text-primary">{level === 0 ? 'No' : level}</span>{' '}
                           {level === 1 ? 'contribution' : 'contributions'}
                           <span className="text-muted ml-1">

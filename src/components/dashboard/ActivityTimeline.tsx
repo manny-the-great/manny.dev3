@@ -89,7 +89,7 @@ export const ActivityTimeline = () => {
                 >
                   {/* Vertical connector */}
                   {i !== events.length - 1 && (
-                    <div className="absolute left-[19px] top-10 bottom-0 w-px bg-gradient-to-b from-white/10 to-transparent" />
+                    <div className="absolute left-[19px] top-10 bottom-0 w-px bg-gradient-to-b from-foreground/10 to-transparent" />
                   )}
 
                   {/* Node */}

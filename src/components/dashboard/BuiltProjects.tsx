@@ -104,12 +104,12 @@ export const BuiltProjects: React.FC = () => {
                   animate={{ scale: hovered === i ? 1.06 : 1 }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#161B22] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
                 <span className={`absolute top-3 left-3 flex items-center gap-1.5 text-[10px] font-semibold font-heading px-2.5 py-1 rounded-full border ${s.bg} ${s.text} ${s.border}`}>
                   <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
                   {s.label}
                 </span>
-                <span className="absolute top-3 right-3 text-[10px] font-mono px-2.5 py-1 rounded-full bg-black/50 text-foreground/60 border border-foreground/10 backdrop-blur-sm">
+                <span className="absolute top-3 right-3 text-[10px] font-mono px-2.5 py-1 rounded-full bg-background/70 text-foreground/60 border border-foreground/10 backdrop-blur-sm">
                   {project.year}
                 </span>
               </div>

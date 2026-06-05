@@ -113,7 +113,7 @@ export const FeaturedProjects = () => {
                   animate={{ scale: hovered === i ? 1.06 : 1 }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#161B22] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
 
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5">
@@ -122,7 +122,7 @@ export const FeaturedProjects = () => {
                     {s.label}
                   </span>
                 </div>
-                <span className="absolute top-3 right-3 text-[10px] font-medium px-2.5 py-1 rounded-full bg-black/50 text-foreground/60 border border-foreground/10 backdrop-blur-sm font-heading">
+                <span className="absolute top-3 right-3 text-[10px] font-medium px-2.5 py-1 rounded-full bg-background/70 text-foreground/60 border border-foreground/10 backdrop-blur-sm font-heading">
                   {project.type}
                 </span>
               </div>

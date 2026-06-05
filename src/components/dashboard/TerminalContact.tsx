@@ -52,7 +52,7 @@ export const TerminalContact = () => {
           className="glass-card overflow-hidden"
         >
           {/* Terminal bar */}
-          <div className="flex items-center gap-2 px-5 py-3.5 border-b border-foreground/8 bg-foreground/3">
+          <div className="flex items-center gap-2 px-5 py-3.5 border-b border-foreground/8" style={{ background: 'var(--terminal-bar)' }}>
             <div className="flex gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
@@ -63,7 +63,7 @@ export const TerminalContact = () => {
           </div>
 
           {/* Terminal body */}
-          <div className="p-6 font-mono text-sm space-y-3">
+          <div className="p-6 font-mono text-sm space-y-3" style={{ background: 'var(--terminal-bg)' }}>
             {terminalLines.map((line, i) => (
               <motion.div
                 key={i}

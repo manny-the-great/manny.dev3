@@ -89,7 +89,7 @@ export const AboutSection = () => (
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="glass-card p-8 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.06) 0%, rgba(56,189,248,0.04) 100%)' }}
+          style={{ background: 'linear-gradient(135deg, rgba(var(--glow-green), 0.06) 0%, rgba(var(--glow-blue), 0.04) 100%)' }}
         >
           <div className="absolute top-4 left-6 text-6xl font-black text-primary/15 leading-none font-heading select-none">
             &ldquo;

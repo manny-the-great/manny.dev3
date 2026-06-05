@@ -84,7 +84,7 @@ export const StarsDashboard = () => (
     {/* Top Repositories */}
     <div className="glass-card p-6 md:p-8 flex flex-col gap-5">
       <h3 className="font-bold font-heading text-foreground text-lg">Top Repositories</h3>
-      <div className="flex flex-col divide-y divide-white/6">
+      <div className="flex flex-col divide-y divide-foreground/8">
         {topRepos.map((repo, i) => (
           <motion.div
             key={repo.name}
