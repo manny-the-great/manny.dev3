@@ -3,48 +3,26 @@
 @tailwind utilities;
 
 @layer base {
-  /* ── LIGHT THEME (default — next-themes applies no class) ──────────────── */
-  :root {
-    --background: 248, 250, 252;
-    --foreground: 15, 23, 42;
-    --primary: 22, 163, 74;
-    --primary-foreground: 255, 255, 255;
-    --secondary: 2, 132, 199;
-    --secondary-foreground: 255, 255, 255;
-    --card: rgba(255, 255, 255, 0.75);
-    --card-hover: rgba(255, 255, 255, 0.95);
-    --border: rgba(15, 23, 42, 0.1);
-    --border-hover: rgba(15, 23, 42, 0.22);
-    --muted: #64748B;
-    --glow-green: 22, 163, 74;
-    --glow-blue: 2, 132, 199;
-    --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(0,0,0,0.05);
-    --section-divider: rgba(15, 23, 42, 0.07);
-    --input-bg: rgba(15, 23, 42, 0.04);
-    --terminal-bg: rgba(248, 250, 252, 0.9);
-    --terminal-bar: rgba(15, 23, 42, 0.05);
-  }
-
-  /* ── DARK THEME (next-themes applies .dark to <html>) ─────────────────── */
-  .dark {
-    --background: 0, 0, 0;
+  /* ── UNIFIED THEME (Black & Neon Green) ──────────────── */
+  :root, .dark {
+    --background: 10, 10, 10;
     --foreground: 255, 255, 255;
-    --primary: 34, 197, 94;
+    --primary: 228, 255, 0;
     --primary-foreground: 0, 0, 0;
-    --secondary: 56, 189, 248;
+    --secondary: 255, 255, 255;
     --secondary-foreground: 0, 0, 0;
-    --card: rgba(13, 17, 23, 0.45);
-    --card-hover: rgba(13, 17, 23, 0.65);
-    --border: rgba(255, 255, 255, 0.08);
-    --border-hover: rgba(255, 255, 255, 0.18);
-    --muted: #9CA3AF;
-    --glow-green: 34, 197, 94;
-    --glow-blue: 56, 189, 248;
+    --card: rgba(255, 255, 255, 0.03);
+    --card-hover: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(255, 255, 255, 0.2);
+    --muted: 161, 161, 170;
+    --glow-green: 228, 255, 0;
+    --glow-blue: 228, 255, 0;
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.04);
-    --section-divider: rgba(255, 255, 255, 0.06);
-    --input-bg: rgba(255, 255, 255, 0.04);
-    --terminal-bg: rgba(13, 17, 23, 0.85);
-    --terminal-bar: rgba(255, 255, 255, 0.03);
+    --section-divider: rgba(255, 255, 255, 0.08);
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --terminal-bg: rgba(10, 10, 10, 0.85);
+    --terminal-bar: rgba(255, 255, 255, 0.05);
   }
 }
 

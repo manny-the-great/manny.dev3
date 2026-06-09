@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import { Sun, Moon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
@@ -15,7 +14,6 @@ const navItems = [
 
 export function Navbar() {
   const [activeTab, setActiveTab]   = useState('hero');
-  const { theme, setTheme }         = useTheme();
   const [mounted, setMounted]       = useState(false);
   const [scrolled, setScrolled]     = useState(false);
 
@@ -83,26 +81,6 @@ export function Navbar() {
             <span className="sm:hidden">{item.label}</span>
           </button>
         ))}
-
-        <div className="w-px h-4 bg-border mx-1" />
-
-        <button
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="p-2 rounded-full text-foreground/60 hover:text-foreground transition-colors"
-          aria-label="Toggle theme"
-        >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={theme}
-              initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
-              animate={{ opacity: 1, rotate: 0, scale: 1 }}
-              exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
-              transition={{ duration: 0.2 }}
-            >
-              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
-            </motion.div>
-          </AnimatePresence>
-        </button>
       </motion.nav>
     </div>
   );
