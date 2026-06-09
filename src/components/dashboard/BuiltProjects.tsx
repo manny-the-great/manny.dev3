@@ -81,63 +81,63 @@ export const BuiltProjects: React.FC = () => {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="flex flex-col gap-4">
         {projects.map((project, i) => {
           const s = statusConfig[project.status];
           return (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
-              onHoverStart={() => setHovered(i)}
-              onHoverEnd={() => setHovered(null)}
-              className="glass-card glass-card-hover group flex flex-col overflow-hidden cursor-default relative"
+              transition={{ delay: i * 0.08, duration: 0.5, ease: 'easeOut' }}
+              className="glass-card glass-card-hover group p-5 md:p-6 flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative overflow-hidden"
             >
-              {/* Image */}
-              <div className="relative w-full h-44 overflow-hidden bg-foreground/3">
-                <motion.img
-                  src={project.image}
-                  alt={`${project.title} preview`}
-                  className="w-full h-full object-cover object-top"
-                  animate={{ scale: hovered === i ? 1.06 : 1 }}
-                  transition={{ duration: 0.5, ease: 'easeOut' }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
-                <span className={`absolute top-3 left-3 flex items-center gap-1.5 text-[10px] font-semibold font-heading px-2.5 py-1 rounded-full border ${s.bg} ${s.text} ${s.border}`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
-                  {s.label}
-                </span>
-                <span className="absolute top-3 right-3 text-[10px] font-mono px-2.5 py-1 rounded-full bg-background/70 text-foreground/60 border border-foreground/10 backdrop-blur-sm">
-                  {project.year}
-                </span>
-              </div>
-
               {/* Content */}
-              <div className="flex flex-col gap-3 p-5 flex-1">
-                <h3 className="text-base font-bold font-heading text-foreground group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted leading-relaxed line-clamp-3">
+              <div className="flex flex-col gap-3 flex-1">
+                <div className="flex flex-wrap items-center gap-3">
+                  <h3 className="text-xl font-bold font-heading text-foreground group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <span className={`flex items-center gap-1.5 text-[10px] font-semibold font-heading px-2 py-0.5 rounded-full border ${s.bg} ${s.text} ${s.border}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
+                    {s.label}
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-foreground/5 text-muted border border-foreground/10">
+                    {project.year}
+                  </span>
+                </div>
+                
+                <p className="text-sm text-muted leading-relaxed max-w-3xl">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-1.5 mt-auto pt-1">
+                
+                <div className="flex flex-wrap gap-1.5 mt-1">
                   {project.tags.map(tag => (
-                    <span key={tag} className="tech-tag">{tag}</span>
+                    <span key={tag} className="tech-tag text-[10px]">{tag}</span>
                   ))}
                 </div>
-                <div className="flex items-center gap-4 mt-2 pt-3 border-t border-foreground/6">
-                  <span className="flex items-center gap-1.5 text-xs font-semibold font-heading text-foreground/70 hover:text-primary transition-colors cursor-pointer">
-                    View Project <ArrowRight size={12} />
-                  </span>
-                  {project.githubUrl && (
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs text-muted hover:text-foreground transition-colors ml-auto font-heading">
-                      <Github size={13} /> Source
-                    </a>
-                  )}
-                </div>
+              </div>
+
+              {/* Capsule Buttons */}
+              <div className="flex items-center gap-3 shrink-0">
+                <a 
+                  href={project.liveUrl} 
+                  className="flex items-center justify-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground font-bold font-heading text-xs rounded-full hover:scale-105 active:scale-95 transition-all duration-200"
+                >
+                  Live Preview <ArrowRight size={14} />
+                </a>
+                
+                {project.githubUrl && (
+                  <a 
+                    href={project.githubUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-5 py-2.5 bg-foreground/5 hover:bg-foreground/10 text-foreground font-bold font-heading text-xs rounded-full border border-foreground/10 hover:border-foreground/20 hover:scale-105 active:scale-95 transition-all duration-200"
+                  >
+                    <Github size={14} /> Source Code
+                  </a>
+                )}
               </div>
             </motion.div>
           );
