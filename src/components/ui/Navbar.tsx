@@ -1,87 +1,129 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from 'next-themes';
-import { cn } from '@/lib/utils';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-const navItems = [
-  { id: 'hero',     label: 'Overview' },
-  { id: 'projects', label: 'Projects'  },
-  { id: 'activity', label: 'Activity'  },
-  { id: 'stars',    label: 'Stars'     },
+const navLinks = [
+  { href: "#hero",     label: "About"    },
+  { href: "#projects", label: "Projects" },
+  { href: "#activity", label: "Activity" },
+  { href: "#contact",  label: "Contact"  },
 ];
 
 export function Navbar() {
-  const [activeTab, setActiveTab]   = useState('hero');
-  const [mounted, setMounted]       = useState(false);
-  const [scrolled, setScrolled]     = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted]   = useState(false);
 
   useEffect(() => { setMounted(true); }, []);
 
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-      const pos = window.scrollY + 130;
-      for (let i = navItems.length - 1; i >= 0; i--) {
-        const el = document.getElementById(navItems[i].id);
-        if (el && el.offsetTop <= pos) { setActiveTab(navItems[i].id); break; }
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const handleClick = (id: string) => {
-    setActiveTab(id);
+  const handleNavClick = (href: string) => {
+    setMenuOpen(false);
+    const id = href.replace("#", "");
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   if (!mounted) return null;
 
   return (
-    <div className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <motion.nav
-        initial={{ y: -24, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
-        className={cn(
-          'pointer-events-auto flex items-center gap-1 p-1.5 rounded-full border transition-all duration-300',
-          scrolled
-            ? 'bg-background/90 backdrop-blur-2xl border-border shadow-xl dark:shadow-black/60 shadow-black/10'
-            : 'bg-background/60 backdrop-blur-xl border-border'
-        )}
-      >
-        {/* Logo */}
-        <div className="flex items-center gap-2 px-2 sm:px-3 mr-0 sm:mr-1 border-r border-border flex-shrink-0">
-          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-primary/30 overflow-hidden flex items-center justify-center">
-            <img src="https://github.com/manny-the-great.png" alt="Manny" className="w-full h-full object-cover" />
-          </div>
-        </div>
-
-        {navItems.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => handleClick(item.id)}
-            className={cn(
-              'relative px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-colors duration-200 rounded-full outline-none flex-shrink-0',
-              'font-heading',
-              activeTab === item.id ? 'text-primary-foreground' : 'text-foreground/60 hover:text-foreground'
-            )}
+    <>
+      {/* ── Floating pill navbar ── */}
+      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[600] pointer-events-none">
+        <div
+          className="pointer-events-auto flex items-center gap-8 px-6 py-3 rounded-full border border-white/10"
+          style={{
+            background: "rgba(18,18,18,0.75)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+          }}
+        >
+          {/* Logo */}
+          <a
+            href="/"
+            className="font-bold text-white select-none"
+            style={{ fontFamily: "var(--font-display), var(--font-bricolage), serif", fontSize: "1.1rem" }}
           >
-            {activeTab === item.id && (
-              <motion.div
-                layoutId="nav-pill"
-                className="absolute inset-0 bg-primary rounded-full -z-10"
-                transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
-              />
-            )}
-            <span className="hidden sm:inline">{item.label}</span>
-            <span className="sm:hidden">{item.label}</span>
+            MJ
+            <span style={{ color: "rgb(144,255,3)" }}>.</span>
+          </a>
+
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-6 text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
+            {navLinks.map((link) => (
+              <button
+                key={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className="hover:text-white transition-colors duration-200 font-medium"
+                style={{ color: "inherit" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "rgb(144,255,3)")}
+                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Hamburger */}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="text-white/70 hover:text-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" height="22" width="22">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
+            </svg>
           </button>
-        ))}
-      </motion.nav>
-    </div>
+        </div>
+      </div>
+
+      {/* ── Mobile overlay ── */}
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            <motion.div
+              key="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[1000]"
+              style={{ background: "rgba(5,5,5,0.8)", backdropFilter: "blur(8px)" }}
+              onClick={() => setMenuOpen(false)}
+            />
+            <motion.div
+              key="drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 260 }}
+              className="fixed top-0 right-0 z-[1100] h-full w-full md:w-[60%]"
+              style={{ background: "#111" }}
+            >
+              <div className="flex flex-col gap-8 px-10 pt-28 text-3xl font-semibold">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.href}
+                    onClick={() => handleNavClick(link.href)}
+                    className="text-left text-white hover:text-[rgb(144,255,3)] transition-colors"
+                  >
+                    {link.label}
+                  </button>
+                ))}
+              </div>
+              <button
+                className="absolute top-6 right-6 text-white/60 hover:text-white transition-colors"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

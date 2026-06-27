@@ -65,7 +65,28 @@ export const HeroSection = () => {
       {/* Ambient glows */}
       <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px] pointer-events-none animate-pulse-glow" />
       <div className="absolute bottom-1/4 -right-40 w-[500px] h-[500px] rounded-full bg-secondary/8 blur-[120px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '2s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/3 blur-[180px] pointer-events-none" />
+      {/* Central green glow — Benjamin style */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{ background: 'rgba(144,255,3,0.08)', filter: 'blur(100px)' }} />
+
+      {/* Giant watermark name — Benjamin style */}
+      <h1
+        aria-hidden="true"
+        className="absolute select-none whitespace-nowrap pointer-events-none font-black"
+        style={{
+          fontFamily: 'var(--font-display), var(--font-bricolage), serif',
+          fontSize: 'clamp(120px, 22vw, 260px)',
+          color: 'rgba(255,255,255,0.04)',
+          lineHeight: 1,
+          letterSpacing: '-0.02em',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 0,
+        }}
+      >
+        MANNY
+      </h1>
 
       <motion.div
         variants={containerVariants}
@@ -85,14 +106,16 @@ export const HeroSection = () => {
           <div className="w-8 h-px bg-primary/60" />
         </motion.div>
 
-        {/* Main heading */}
-        <motion.div variants={itemVariants} className="flex flex-col gap-3">
-          <h1
+          {/* Main heading — Playfair Display (Higuen Serif alternative) */}
+          <motion.div variants={itemVariants} className="flex flex-col gap-3">
+          <h2
             className="hero-heading text-[clamp(3.5rem,10vw,9rem)] text-foreground"
-            style={{ fontFamily: 'var(--font-bricolage), var(--font-poppins)', fontWeight: 900 }}
+            style={{ fontFamily: 'var(--font-display), var(--font-bricolage), serif', fontWeight: 900 }}
           >
-            Hi. I&apos;m Manny.
-          </h1>
+            Software
+            <br />
+            &amp; Blockchain Dev
+          </h2>
 
           {/* Rotating subtitle */}
           <div className="h-[clamp(2.5rem,6vw,5.5rem)] flex items-center justify-center overflow-hidden">

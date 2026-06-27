@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Poppins, Press_Start_2P } from "next/font/google";
+import { Bricolage_Grotesque, Poppins, Press_Start_2P, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/ui/Navbar";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -20,6 +21,13 @@ const pressStart2P = Press_Start_2P({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-press-start",
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "700", "900"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -49,11 +57,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${bricolage.variable} ${poppins.variable} ${pressStart2P.variable} font-sans antialiased`}
+        className={`${bricolage.variable} ${poppins.variable} ${pressStart2P.variable} ${playfairDisplay.variable} font-sans antialiased`}
         style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif" }}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="manny-theme">
           <SmoothScrollProvider>
+            <CustomCursor />
             <div className="fixed inset-0 -z-20 bg-background transition-colors duration-500" />
             <div className="fixed inset-0 -z-10 bg-grid-pattern pointer-events-none" />
             <Navbar />
