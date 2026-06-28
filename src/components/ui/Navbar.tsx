@@ -42,10 +42,10 @@ export function Navbar() {
           <a
             href="/"
             className="font-bold text-white select-none"
-            style={{ fontFamily: "var(--font-display), var(--font-bricolage), serif", fontSize: "1.1rem" }}
+            style={{ fontFamily: "var(--font-bricolage), sans-serif", fontSize: "1.1rem" }}
           >
             MJ
-            <span style={{ color: "rgb(144,255,3)" }}>.</span>
+            <span style={{ color: "#fff", opacity: 0.5 }}>.</span>
           </a>
 
           {/* Desktop links */}
@@ -56,7 +56,7 @@ export function Navbar() {
                 onClick={() => handleNavClick(link.href)}
                 className="hover:text-white transition-colors duration-200 font-medium"
                 style={{ color: "inherit" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "rgb(144,255,3)")}
+                onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
                 onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
               >
                 {link.label}

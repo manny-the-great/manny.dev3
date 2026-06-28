@@ -105,21 +105,21 @@ export default function Home() {
             </div>
           </StackedCard>
 
-          {/* Footer — Benjamin-style green bar */}
-          <footer className="w-full" style={{ background: 'rgb(144,255,3)', color: '#000' }}>
+          {/* Footer — Benjamin-style bar, black & white */}
+          <footer className="w-full" style={{ background: '#fff', color: '#000' }}>
             <div className="h-20 flex items-center">
               <div className="w-full max-w-6xl mx-auto px-6 flex items-center justify-between">
                 {/* Left: logo + name + email */}
                 <div className="flex items-center gap-3">
                   <div
                     className="w-9 h-9 rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0"
-                    style={{ background: '#000', color: 'rgb(144,255,3)' }}
+                    style={{ background: '#000', color: '#fff' }}
                   >
                     MJ.
                   </div>
                   <div>
-                    <p style={{ fontFamily: 'var(--font-display), serif', fontWeight: 700, fontSize: '0.9rem' }}>Manny Johnson</p>
-                    <p className="text-xs opacity-70">mannyjohnson@email.com</p>
+                    <p style={{ fontFamily: 'var(--font-bricolage), sans-serif', fontWeight: 700, fontSize: '0.9rem' }}>Manny Johnson</p>
+                    <p className="text-xs opacity-60">mannyjohnson@email.com</p>
                   </div>
                 </div>
 

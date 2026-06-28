@@ -65,9 +65,9 @@ export const HeroSection = () => {
       {/* Ambient glows */}
       <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px] pointer-events-none animate-pulse-glow" />
       <div className="absolute bottom-1/4 -right-40 w-[500px] h-[500px] rounded-full bg-secondary/8 blur-[120px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '2s' }} />
-      {/* Central green glow — Benjamin style */}
+      {/* Central white glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{ background: 'rgba(144,255,3,0.08)', filter: 'blur(100px)' }} />
+        style={{ background: 'rgba(255,255,255,0.04)', filter: 'blur(100px)' }} />
 
       {/* Giant watermark name — Benjamin style */}
       <h1
@@ -106,11 +106,11 @@ export const HeroSection = () => {
           <div className="w-8 h-px bg-primary/60" />
         </motion.div>
 
-          {/* Main heading — Playfair Display (Higuen Serif alternative) */}
+          {/* Main heading — Bricolage Grotesque */}
           <motion.div variants={itemVariants} className="flex flex-col gap-3">
           <h2
             className="hero-heading text-[clamp(3.5rem,10vw,9rem)] text-foreground"
-            style={{ fontFamily: 'var(--font-display), var(--font-bricolage), serif', fontWeight: 900 }}
+            style={{ fontFamily: 'var(--font-bricolage), sans-serif', fontWeight: 900 }}
           >
             Software
             <br />
