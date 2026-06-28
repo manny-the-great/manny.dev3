@@ -11,11 +11,9 @@ const shareTechMono = Share_Tech_Mono({
 });
 
 const rotatingTitles = [
-  "Blockchain Engineer.",
-  "Web3 Builder.",
-  "Backend Developer.",
-  "Solidity Dev.",
-  "Smart Contract Eng.",
+  "Blockchain Developer.",
+  "Smart Contract Developer",
+  "Software Developer.",
 ];
 
 const containerVariants = {
@@ -24,7 +22,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden:  { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
@@ -40,12 +38,12 @@ export const HeroSection = () => {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      setTimeStr(now.toLocaleTimeString('en-US', { 
+      setTimeStr(now.toLocaleTimeString('en-US', {
         timeZone: 'Africa/Lagos',
-        hour12: true, 
-        hour: '2-digit', 
-        minute: '2-digit', 
-        second: '2-digit' 
+        hour12: true,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
       }));
     };
     updateTime();
@@ -106,8 +104,8 @@ export const HeroSection = () => {
           <div className="w-8 h-px bg-primary/60" />
         </motion.div>
 
-          {/* Main heading — Bricolage Grotesque */}
-          <motion.div variants={itemVariants} className="flex flex-col gap-3">
+        {/* Main heading — Bricolage Grotesque */}
+        <motion.div variants={itemVariants} className="flex flex-col gap-3">
           <h2
             className="hero-heading text-[clamp(3.5rem,10vw,9rem)] text-foreground"
             style={{ fontFamily: 'var(--font-bricolage), sans-serif', fontWeight: 900 }}
