@@ -32,7 +32,7 @@ export default function Home() {
         {/* ─── TECH TICKER — diagonal marquee rows ─── */}
         <TechTicker />
 
-        {/* ─── All other sections flow naturally downward ─── */}}
+        {/* ─── All other sections flow naturally downward ─── */}
         <div className="flex flex-col gap-0 w-full max-w-7xl mx-auto px-4 md:px-6 pb-20">
 
           {/* Profile Identity */}
