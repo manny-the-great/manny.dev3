@@ -76,8 +76,8 @@ export const FeaturedProjects = () => {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <div className="section-label mb-2">Selected Works</div>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground tracking-tight">
-            What I&apos;ve Built
+          <h2 className="text-3xl font-bold tracking-tight mb-2 font-heading">
+            Featured Projects
           </h2>
         </div>
         <p className="text-muted text-sm max-w-xs leading-relaxed">

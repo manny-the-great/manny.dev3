@@ -110,9 +110,7 @@ export const HeroSection = () => {
             className="hero-heading text-[clamp(3.5rem,10vw,9rem)] text-foreground"
             style={{ fontFamily: 'var(--font-bricolage), sans-serif', fontWeight: 900 }}
           >
-            Software
-            <br />
-            &amp; Blockchain Dev
+            Manny Johnson
           </h2>
 
           {/* Rotating subtitle */}

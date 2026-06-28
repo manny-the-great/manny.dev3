@@ -72,8 +72,8 @@ export const BuiltProjects: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <div className="section-label mb-2">Case Studies</div>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground tracking-tight">
-            Here&apos;s What I&apos;ve Built
+          <h2 className="text-3xl font-bold tracking-tight mb-2 font-heading">
+            Selected Projects
           </h2>
         </div>
         <span className="text-xs text-muted font-heading">

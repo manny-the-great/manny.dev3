@@ -10,7 +10,6 @@ import { ActivityTimeline } from '@/components/dashboard/ActivityTimeline';
 import { StarsDashboard } from '@/components/dashboard/StarsDashboard';
 import { AboutSection } from '@/components/dashboard/AboutSection';
 import { TechStackGrid } from '@/components/dashboard/TechStackGrid';
-import { NotesSection } from '@/components/dashboard/NotesSection';
 import { TerminalContact } from '@/components/dashboard/TerminalContact';
 import { StackedCard } from '@/components/ui/StackedCard';
 import { TechTicker } from '@/components/dashboard/TechTicker';
@@ -88,13 +87,6 @@ export default function Home() {
           <StackedCard>
             <div className="w-full py-10">
               <TechStackGrid />
-            </div>
-          </StackedCard>
-
-          {/* Notes / Insights */}
-          <StackedCard>
-            <div className="w-full py-10">
-              <NotesSection />
             </div>
           </StackedCard>
 
