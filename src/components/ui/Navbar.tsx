@@ -1,20 +1,25 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import { Moon, Sun, Command, Sparkles } from "lucide-react";
 
 const navLinks = [
-  { href: "#hero",     label: "About"    },
+  { href: "#home", label: "Home", isActive: true },
   { href: "#projects", label: "Projects" },
-  { href: "#activity", label: "Activity" },
-  { href: "#contact",  label: "Contact"  },
+  { href: "#blog", label: "Blog" },
+  { href: "#resume", label: "Resume" },
+  { href: "#sheet", label: "Sheet" },
 ];
 
 export function Navbar() {
-  const [mounted, setMounted]   = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleNavClick = (href: string) => {
     const id = href.replace("#", "");
@@ -25,44 +30,51 @@ export function Navbar() {
   if (!mounted) return null;
 
   return (
-    <>
-      {/* ── Floating pill navbar ── */}
-      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[600] pointer-events-none">
-        <div
-          className="pointer-events-auto flex items-center gap-8 px-6 py-3 rounded-full border border-white/10"
-          style={{
-            background: "rgba(18,18,18,0.75)",
-            backdropFilter: "blur(16px)",
-            WebkitBackdropFilter: "blur(16px)",
-          }}
-        >
-          {/* Logo */}
-          <a
-            href="/"
-            className="font-bold text-white select-none"
-            style={{ fontFamily: "var(--font-bricolage), sans-serif", fontSize: "1.1rem" }}
-          >
-            MJ
-            <span style={{ color: "#fff", opacity: 0.5 }}>.</span>
-          </a>
-
-          {/* Links */}
-          <div className="flex items-center gap-4 md:gap-6 text-xs md:text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="hover:text-white transition-colors duration-200 font-medium"
-                style={{ color: "inherit" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
-                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
+    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[600]">
+      <div className="flex items-center gap-2 sm:gap-6 px-4 sm:px-6 py-2.5 rounded-full border border-white/10 bg-[#0a0a0a]/90 backdrop-blur-xl shadow-2xl">
+        
+        {/* Navigation Links */}
+        <div className="flex items-center gap-1 sm:gap-2">
+          {navLinks.map((link) => (
+            <button
+              key={link.href}
+              onClick={() => handleNavClick(link.href)}
+              className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                link.isActive
+                  ? "bg-white/10 text-white"
+                  : "text-white/60 hover:text-white hover:bg-white/5"
+              }`}
+            >
+              {link.label}
+            </button>
+          ))}
         </div>
+
+        {/* Divider */}
+        <div className="w-[1px] h-4 bg-white/10 hidden sm:block"></div>
+
+        {/* Action Buttons */}
+        <div className="hidden sm:flex items-center gap-2">
+          <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white hover:bg-white/5 transition-colors">
+            <Command size={14} className="text-white/40" />
+            <span>Search</span>
+          </button>
+          <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white hover:bg-white/5 transition-colors">
+            <Sparkles size={14} className="text-white/40" />
+            <span>Ask me</span>
+          </button>
+        </div>
+
+        {/* Theme Toggle */}
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="ml-2 sm:ml-0 p-1.5 rounded-full text-white/60 hover:text-white hover:bg-white/5 transition-colors"
+          aria-label="Toggle theme"
+        >
+          {theme === "dark" ? <Moon size={16} /> : <Sun size={16} />}
+        </button>
+
       </div>
-    </>
+    </div>
   );
 }
