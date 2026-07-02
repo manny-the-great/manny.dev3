@@ -2,14 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Command, Sparkles } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 
 const navLinks = [
   { href: "#home", label: "Home", isActive: true },
   { href: "#projects", label: "Projects" },
-  { href: "#blog", label: "Blog" },
-  { href: "#resume", label: "Resume" },
-  { href: "#sheet", label: "Sheet" },
 ];
 
 export function Navbar() {
@@ -47,22 +44,20 @@ export function Navbar() {
               {link.label}
             </button>
           ))}
+          
+          {/* Resume Download Link */}
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-colors"
+          >
+            Resume
+          </a>
         </div>
 
         {/* Divider */}
         <div className="w-[1px] h-4 bg-white/10 hidden sm:block"></div>
-
-        {/* Action Buttons */}
-        <div className="hidden sm:flex items-center gap-2">
-          <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white hover:bg-white/5 transition-colors">
-            <Command size={14} className="text-white/40" />
-            <span>Search</span>
-          </button>
-          <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white hover:bg-white/5 transition-colors">
-            <Sparkles size={14} className="text-white/40" />
-            <span>Ask me</span>
-          </button>
-        </div>
 
         {/* Theme Toggle */}
         <button
