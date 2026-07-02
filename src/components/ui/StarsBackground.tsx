@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 export function StarsBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -14,6 +16,8 @@ export function StarsBackground() {
 
     let animationFrameId: number;
     let stars: { x: number; y: number; radius: number; opacity: number; fadeDir: number; speed: number }[] = [];
+
+    const isLight = resolvedTheme === "light";
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -38,7 +42,7 @@ export function StarsBackground() {
 
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#050505"; // very dark background
+      ctx.fillStyle = isLight ? "#fafafa" : "#050505";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       stars.forEach((star) => {
@@ -61,7 +65,9 @@ export function StarsBackground() {
 
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+        ctx.fillStyle = isLight
+          ? `rgba(0, 0, 0, ${star.opacity * 0.5})`
+          : `rgba(255, 255, 255, ${star.opacity})`;
         ctx.fill();
       });
 
@@ -76,13 +82,13 @@ export function StarsBackground() {
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [resolvedTheme]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-50 pointer-events-none"
-      style={{ background: "#050505" }}
+      className="fixed inset-0 -z-50 pointer-events-none transition-colors duration-300"
+      style={{ background: resolvedTheme === "light" ? "#fafafa" : "#050505" }}
     />
   );
 }
