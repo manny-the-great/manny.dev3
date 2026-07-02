@@ -146,11 +146,11 @@ export const HeroSection = () => {
 
         {/* CTA buttons */}
         <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-5 justify-center">
-          {/* Capsule Wrapper for View Projects */}
-          <div className="p-1.5 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.15)]">
+          {/* Tactical Wrapper for View Projects */}
+          <div className="p-1.5 rounded-none border-2 border-primary/40 bg-primary/5 flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.15)]">
             <button
               onClick={() => scrollTo('projects')}
-              className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm font-heading transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+              className="group flex items-center gap-2 px-7 py-3.5 rounded-none font-bold text-sm font-heading transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98] tracking-wider uppercase"
               style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}
             >
               View Projects
@@ -162,7 +162,7 @@ export const HeroSection = () => {
             href="https://github.com/manny-the-great"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm font-heading border border-foreground/15 text-foreground/80 hover:text-foreground hover:border-foreground/30 transition-all duration-300 backdrop-blur-sm"
+            className="group flex items-center gap-2 px-7 py-3.5 rounded-none font-bold text-sm font-heading border-2 border-foreground/15 text-foreground/80 hover:text-foreground hover:border-foreground/40 transition-all duration-300 backdrop-blur-sm tracking-wider uppercase"
             style={{ background: 'rgba(var(--foreground), 0.04)' }}
           >
             <Github size={16} />
@@ -180,9 +180,9 @@ export const HeroSection = () => {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-            className="w-5 h-8 rounded-full border border-foreground/20 flex items-start justify-center pt-1.5"
+            className="w-5 h-8 rounded-sm border-2 border-foreground/30 flex items-start justify-center pt-1.5"
           >
-            <div className="w-1 h-2 rounded-full bg-foreground/50" />
+            <div className="w-1 h-2 rounded-none bg-foreground/50" />
           </motion.div>
         </motion.div>
       </motion.div>

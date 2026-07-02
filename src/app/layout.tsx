@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/ui/Navbar";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
-import { StarsBackground } from "@/components/ui/StarsBackground";
+import { TacticalGridBackground } from "@/components/ui/TacticalGridBackground";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -57,7 +57,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="manny-theme">
           <SmoothScrollProvider>
             <CustomCursor />
-            <StarsBackground />
+            <TacticalGridBackground />
             <Navbar />
             {children}
           </SmoothScrollProvider>

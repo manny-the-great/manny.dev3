@@ -27,7 +27,7 @@ export function Navbar() {
 
   return (
     <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[600]">
-      <div className="flex items-center gap-2 sm:gap-6 px-4 sm:px-6 py-2.5 rounded-full border border-border bg-background/90 backdrop-blur-xl shadow-2xl">
+      <div className="flex items-center gap-2 sm:gap-6 px-4 sm:px-6 py-2.5 rounded-none border-2 border-border bg-background/90 backdrop-blur-xl shadow-2xl uppercase tracking-wider font-heading" style={{ clipPath: 'polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)' }}>
         
         {/* Navigation Links */}
         <div className="flex items-center gap-1 sm:gap-2">
@@ -35,10 +35,10 @@ export function Navbar() {
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
-              className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+              className={`px-3 py-1.5 rounded-none text-xs font-bold transition-colors border ${
                 link.isActive
-                  ? "bg-foreground/10 text-foreground"
-                  : "text-foreground/60 hover:text-foreground hover:bg-foreground/5"
+                  ? "bg-foreground/10 text-foreground border-foreground/20"
+                  : "border-transparent text-foreground/60 hover:text-foreground hover:bg-foreground/5 hover:border-foreground/10"
               }`}
             >
               {link.label}
@@ -50,7 +50,7 @@ export function Navbar() {
             href="/cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-colors"
+            className="px-3 py-1.5 rounded-none text-xs font-bold border border-transparent text-foreground/60 hover:text-foreground hover:bg-foreground/5 hover:border-foreground/10 transition-colors"
           >
             Resume
           </a>
@@ -62,7 +62,7 @@ export function Navbar() {
         {/* Theme Toggle */}
         <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="ml-2 sm:ml-0 p-1.5 rounded-full text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-colors"
+          className="ml-2 sm:ml-0 p-1.5 rounded-none border border-transparent text-foreground/60 hover:text-foreground hover:bg-foreground/5 hover:border-foreground/10 transition-colors"
           aria-label="Toggle theme"
         >
           {theme === "dark" ? <Moon size={16} /> : <Sun size={16} />}
