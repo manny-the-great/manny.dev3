@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Github, Linkedin, FileText, Send, Users } from 'lucide-react';
+import { MapPin, Github, Linkedin, FileText, Send, Users, BadgeCheck, Clock } from 'lucide-react';
 import { getGithubProfile } from '@/lib/github';
 
 const XIcon = () => (
@@ -31,9 +31,26 @@ const stats = [
 
 export const ProfileIdentityPanel = () => {
   const [profile, setProfile] = useState<any>(null);
+  const [timeStr, setTimeStr] = useState<string>("");
 
   useEffect(() => {
     getGithubProfile('manny-the-great').then(setProfile);
+  }, []);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTimeStr(now.toLocaleTimeString('en-US', {
+        timeZone: 'UTC',
+        hour12: true,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      }) + ' UTC');
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -55,15 +72,21 @@ export const ProfileIdentityPanel = () => {
             <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-background" />
           </div>
           <div>
-            <h2 className="text-xl font-bold font-heading text-foreground">
-              {profile?.name || "Manny D' Great"}
-            </h2>
+            <div className="flex items-center gap-2">
+              <h2 className="text-xl font-bold font-heading text-foreground">
+                {profile?.name || "Manny D' Great"}
+              </h2>
+              <BadgeCheck size={20} className="text-blue-500" />
+            </div>
             <p className="text-muted text-sm font-mono mt-0.5">
               @{profile?.login || 'manny-the-great'}
             </p>
-            <div className="flex items-center gap-2 mt-2">
+            <div className="flex flex-wrap items-center gap-2 mt-2">
               <MapPin size={12} className="text-muted" />
-              <span className="text-xs text-muted">{profile?.location || 'Lagos, Nigeria'}</span>
+              <span className="text-xs text-muted">MULTIVERSE</span>
+              <span className="w-1 h-1 rounded-full bg-primary inline-block" />
+              <Clock size={12} className="text-muted" />
+              <span className="text-xs text-muted">{timeStr || "00:00:00 UTC"}</span>
               <span className="w-1 h-1 rounded-full bg-primary inline-block" />
               <span className="text-xs text-primary font-medium">Available for work</span>
             </div>

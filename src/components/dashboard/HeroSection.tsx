@@ -39,12 +39,12 @@ export const HeroSection = () => {
     const updateTime = () => {
       const now = new Date();
       setTimeStr(now.toLocaleTimeString('en-US', {
-        timeZone: 'Africa/Lagos',
+        timeZone: 'UTC',
         hour12: true,
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit'
-      }));
+      }) + ' UTC');
     };
     updateTime();
     const timer = setInterval(updateTime, 1000);
@@ -96,9 +96,9 @@ export const HeroSection = () => {
         <motion.div variants={itemVariants} className="flex items-center gap-3">
           <div className="w-8 h-px bg-primary/60" />
           <span className="section-label flex items-center gap-2">
-            <span className="opacity-80">Lagos, Nigeria ·</span>
+            <span className="opacity-80">MULTIVERSE ·</span>
             <span className={`${shareTechMono.className} text-[1.15em] text-primary`} style={{ fontFamily: '"DS-Digital", "Share Tech Mono", monospace', letterSpacing: '0.05em' }}>
-              {timeStr || "00:00:00"}
+              {timeStr || "00:00:00 UTC"}
             </span>
           </span>
           <div className="w-8 h-px bg-primary/60" />
