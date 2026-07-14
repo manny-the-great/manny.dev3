@@ -36,11 +36,11 @@ export function CustomCursor() {
     >
       {/* Outer ring */}
       <div
-        className="absolute inset-0 rounded-full border border-white/50"
-        style={{ background: "rgba(255,255,255,0.04)" }}
+        className="absolute inset-0 rounded-full border border-foreground/50"
+        style={{ background: "rgba(var(--foreground),0.04)" }}
       />
       {/* Inner dot */}
-      <div className="w-1.5 h-1.5 rounded-full bg-white" />
+      <div className="w-1.5 h-1.5 rounded-full bg-foreground" />
     </div>
   );
 }

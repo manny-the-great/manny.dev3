@@ -63,9 +63,9 @@ export const HeroSection = () => {
       {/* Ambient glows */}
       <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px] pointer-events-none animate-pulse-glow" />
       <div className="absolute bottom-1/4 -right-40 w-[500px] h-[500px] rounded-full bg-secondary/8 blur-[120px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '2s' }} />
-      {/* Central white glow */}
+      {/* Central glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{ background: 'rgba(255,255,255,0.04)', filter: 'blur(100px)' }} />
+        style={{ background: 'rgba(var(--foreground),0.04)', filter: 'blur(100px)' }} />
 
       {/* Giant watermark name — Benjamin style */}
       <h1
@@ -74,7 +74,7 @@ export const HeroSection = () => {
         style={{
           fontFamily: 'var(--font-display), var(--font-bricolage), serif',
           fontSize: 'clamp(120px, 22vw, 260px)',
-          color: 'rgba(255,255,255,0.04)',
+          color: 'rgba(var(--foreground),0.04)',
           lineHeight: 1,
           letterSpacing: '-0.02em',
           top: '50%',

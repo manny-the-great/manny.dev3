@@ -22,8 +22,7 @@ export function TechTicker() {
 
       {/* Row 1 — white background, black text, tilts up-left */}
       <div
-        className="w-full py-4 overflow-hidden -rotate-2 mb-5"
-        style={{ background: "#fff", color: "#000" }}
+        className="w-full py-4 overflow-hidden -rotate-2 mb-5 bg-foreground text-background"
       >
         <div
           className="flex items-center gap-10 font-semibold text-sm md:text-base uppercase tracking-wider"
@@ -37,8 +36,7 @@ export function TechTicker() {
             <div key={i} className="flex items-center gap-3 flex-shrink-0">
               <span>{item}</span>
               <span
-                className="inline-block rounded-full"
-                style={{ width: 5, height: 5, background: "rgba(0,0,0,0.35)", flexShrink: 0 }}
+                className="inline-block rounded-full w-[5px] h-[5px] bg-background/35 shrink-0"
               />
             </div>
           ))}
@@ -47,13 +45,7 @@ export function TechTicker() {
 
       {/* Row 2 — black background, white text, tilts up-right */}
       <div
-        className="w-full py-4 overflow-hidden rotate-2"
-        style={{
-          background: "#050505",
-          color: "#fff",
-          borderTop: "1px solid rgba(255,255,255,0.12)",
-          borderBottom: "1px solid rgba(255,255,255,0.12)",
-        }}
+        className="w-full py-4 overflow-hidden rotate-2 bg-background text-foreground border-y border-foreground/10"
       >
         <div
           className="flex items-center gap-10 font-semibold text-sm md:text-base uppercase tracking-wider"
@@ -67,8 +59,7 @@ export function TechTicker() {
             <div key={i} className="flex items-center gap-3 flex-shrink-0">
               <span>{item}</span>
               <span
-                className="inline-block rounded-full"
-                style={{ width: 5, height: 5, background: "rgba(255,255,255,0.35)", flexShrink: 0 }}
+                className="inline-block rounded-full w-[5px] h-[5px] bg-foreground/35 shrink-0"
               />
             </div>
           ))}

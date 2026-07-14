@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 export function StarsBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -38,8 +40,9 @@ export function StarsBackground() {
 
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#050505"; // very dark background
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const isLight = resolvedTheme === "light";
+      const rgb = isLight ? "10, 10, 10" : "255, 255, 255";
 
       stars.forEach((star) => {
         // Twinkle effect
@@ -61,7 +64,7 @@ export function StarsBackground() {
 
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+        ctx.fillStyle = `rgba(${rgb}, ${star.opacity})`;
         ctx.fill();
       });
 
@@ -76,13 +79,12 @@ export function StarsBackground() {
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [resolvedTheme]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-50 pointer-events-none"
-      style={{ background: "#050505" }}
+      className="fixed inset-0 -z-50 pointer-events-none bg-background"
     />
   );
 }
