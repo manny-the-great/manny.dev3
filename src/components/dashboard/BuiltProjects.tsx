@@ -68,7 +68,7 @@ export const BuiltProjects: React.FC = () => {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 flex flex-col gap-8">
+    <section id="projects" className="w-full max-w-6xl mx-auto px-6 flex flex-col gap-8">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <div className="section-label mb-2">Case Studies</div>

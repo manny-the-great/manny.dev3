@@ -13,19 +13,9 @@ export const ContributionGraph = () => {
       {/* Header */}
       <div className="flex flex-col gap-2">
         <h2 className="text-2xl font-bold font-heading text-foreground">Activity</h2>
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <p className="text-sm text-foreground/60">
-            Real-time GitHub contributions
-          </p>
-          <div className="flex items-center gap-2 text-xs font-medium">
-            <button className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground border border-foreground/10">
-              GITHUB
-            </button>
-            <button className="px-3 py-1.5 rounded-full text-foreground/40 hover:text-foreground hover:bg-foreground/5 transition-colors">
-              LEETCODE
-            </button>
-          </div>
-        </div>
+        <p className="text-sm text-foreground/60">
+          Real-time GitHub contributions
+        </p>
       </div>
 
       {/* Graph Wrapper */}

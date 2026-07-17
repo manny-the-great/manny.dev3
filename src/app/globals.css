@@ -21,8 +21,6 @@
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.04);
     --section-divider: rgba(255, 255, 255, 0.08);
     --input-bg: rgba(255, 255, 255, 0.05);
-    --terminal-bg: rgba(5, 5, 5, 0.9);
-    --terminal-bar: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -161,22 +159,3 @@ body {
 
 /* Contribution neon glow */
 .contrib-glow { filter: drop-shadow(0 0 3px rgba(34, 197, 94, 0.5)); }
-
-/* Pixel font classes */
-.pixel-marquee-wrapper {
-  width: 100%; overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-}
-.pixel-marquee-track {
-  display: flex; width: max-content;
-  animation: marquee-scroll 20s linear infinite; will-change: transform;
-}
-.pixel-marquee-item {
-  font-family: var(--font-press-start), monospace;
-  font-size: clamp(1.6rem, 4vw, 3rem);
-  white-space: nowrap; color: var(--foreground);
-  padding-right: 3rem; display: flex; align-items: center; gap: 1.5rem;
-  -webkit-font-smoothing: none;
-}
-.pixel-marquee-dot { opacity: 0.3; font-size: 0.6em; }

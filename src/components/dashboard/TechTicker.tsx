@@ -21,7 +21,8 @@ export function TechTicker() {
 
       {/* Row 1 — white background, black text, tilts up-left */}
       <div
-        className="w-full py-4 overflow-hidden -rotate-2 mb-5 bg-foreground text-background"
+        className="w-full py-4 overflow-hidden -rotate-2 mb-5"
+        style={{ background: '#ffffff', color: '#000000' }}
       >
         <div
           className="flex items-center gap-10 font-semibold text-sm md:text-base uppercase tracking-wider"
@@ -35,16 +36,18 @@ export function TechTicker() {
             <div key={i} className="flex items-center gap-3 flex-shrink-0">
               <span>{item}</span>
               <span
-                className="inline-block rounded-full w-[5px] h-[5px] bg-background/35 shrink-0"
+                className="inline-block rounded-full w-[5px] h-[5px] shrink-0"
+                style={{ background: 'rgba(0,0,0,0.3)' }}
               />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Row 2 — black background, white text, tilts up-right */}
+      {/* Row 2 — white background, black text, tilts up-right */}
       <div
-        className="w-full py-4 overflow-hidden rotate-2 bg-background text-foreground border-y border-foreground/10"
+        className="w-full py-4 overflow-hidden rotate-2"
+        style={{ background: '#ffffff', color: '#000000' }}
       >
         <div
           className="flex items-center gap-10 font-semibold text-sm md:text-base uppercase tracking-wider"
@@ -58,7 +61,8 @@ export function TechTicker() {
             <div key={i} className="flex items-center gap-3 flex-shrink-0">
               <span>{item}</span>
               <span
-                className="inline-block rounded-full w-[5px] h-[5px] bg-foreground/35 shrink-0"
+                className="inline-block rounded-full w-[5px] h-[5px] shrink-0"
+                style={{ background: 'rgba(0,0,0,0.3)' }}
               />
             </div>
           ))}

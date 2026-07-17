@@ -146,23 +146,20 @@ export const HeroSection = () => {
 
         {/* CTA buttons */}
         <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-5 justify-center">
-          {/* Capsule Wrapper for View Projects */}
-          <div className="p-1.5 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.15)]">
-            <button
-              onClick={() => scrollTo('projects')}
-              className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm font-heading transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
-              style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}
-            >
-              View Projects
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+          <button
+            onClick={() => scrollTo('projects')}
+            className="group flex items-center justify-center gap-2 min-w-[180px] px-8 py-3.5 rounded-full font-bold text-sm font-heading transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+            style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}
+          >
+            View Projects
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </button>
 
           <a
             href="https://github.com/manny-the-great"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm font-heading border border-foreground/15 text-foreground/80 hover:text-foreground hover:border-foreground/30 transition-all duration-300 backdrop-blur-sm"
+            className="group flex items-center justify-center gap-2 min-w-[180px] px-8 py-3.5 rounded-full font-bold text-sm font-heading border border-foreground/15 text-foreground/80 hover:text-foreground hover:border-foreground/30 transition-all duration-300 backdrop-blur-sm"
             style={{ background: 'rgba(var(--foreground), 0.04)' }}
           >
             <Github size={16} />

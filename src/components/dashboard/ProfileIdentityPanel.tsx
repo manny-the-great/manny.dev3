@@ -52,7 +52,11 @@ export const ProfileIdentityPanel = () => {
               alt="Manny"
               className="w-20 h-20 rounded-2xl object-cover border border-foreground/10"
             />
-            <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-background" />
+            <div className="absolute -bottom-1 -right-1 w-5.5 h-5.5 bg-[#1d9bf0] rounded-full border-2 border-background flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+              <svg viewBox="0 0 24 24" className="w-2.5 h-2.5 text-white fill-current">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+            </div>
           </div>
           <div>
             <h2 className="text-xl font-bold font-heading text-foreground">
@@ -113,18 +117,18 @@ export const ProfileIdentityPanel = () => {
         <div className="flex flex-col gap-3 flex-shrink-0">
           <div className="flex items-center gap-3">
             <a href={`https://github.com/${profile?.login || 'manny-the-great'}`} target="_blank" rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-foreground/10 text-muted hover:text-foreground hover:border-foreground/25 transition-all">
+              className="p-2 rounded-lg border border-foreground/15 text-foreground/80 hover:text-foreground hover:border-foreground/30 hover:bg-foreground/5 hover:shadow-[0_0_12px_rgba(255,255,255,0.15)] transition-all duration-300">
               <Github size={16} />
             </a>
             <a href="https://www.linkedin.com/in/emmanuel-johnson-623a69266/" target="_blank" rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-foreground/10 text-muted hover:text-secondary hover:border-secondary/40 transition-all">
+              className="p-2 rounded-lg border border-foreground/15 text-foreground/80 hover:text-foreground hover:border-foreground/30 hover:bg-foreground/5 hover:shadow-[0_0_12px_rgba(255,255,255,0.15)] transition-all duration-300">
               <Linkedin size={16} />
             </a>
             <a href="https://x.com/_mannythegreat_" target="_blank" rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-foreground/10 text-muted hover:text-foreground hover:border-foreground/25 transition-all">
+              className="p-2 rounded-lg border border-foreground/15 text-foreground/80 hover:text-foreground hover:border-foreground/30 hover:bg-foreground/5 hover:shadow-[0_0_12px_rgba(255,255,255,0.15)] transition-all duration-300">
               <XIcon />
             </a>
-            <div className="flex items-center gap-1 text-muted text-xs ml-1">
+            <div className="flex items-center gap-1 text-foreground/80 text-xs ml-1">
               <Users size={12} />
               <span className="font-mono">{profile?.followers || 0}</span>
             </div>

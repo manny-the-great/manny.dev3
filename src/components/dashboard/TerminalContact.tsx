@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ExternalLink, Send, Terminal } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Send } from 'lucide-react';
 
 const XIcon = () => (
   <svg width={16} height={16} viewBox="0 0 1200 1227" fill="none">
@@ -15,13 +15,6 @@ const links = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/emmanuel-johnson-623a69266/",icon: <Linkedin size={18} />, color: "hover:text-secondary hover:border-secondary/40" },
   { label: "X / Twitter", href: "https://x.com/_mannythegreat_",                      icon: <XIcon />,              color: "hover:text-foreground hover:border-foreground/30" },
   { label: "Email",    href: "mailto:contact@manny.dev",                               icon: <Mail size={18} />,     color: "hover:text-primary hover:border-primary/40" },
-];
-
-const terminalLines = [
-  { prompt: "~", text: "whoami",                  out: "manny-the-great"              },
-  { prompt: "~", text: "cat role.txt",            out: "Blockchain & FullStack Engineer" },
-  { prompt: "~", text: "cat status.txt",          out: "Available for new opportunities" },
-  { prompt: "~", text: "echo $STACK",             out: "Solidity · JS · TS · Node · Next" },
 ];
 
 export const TerminalContact = () => {
@@ -43,70 +36,43 @@ export const TerminalContact = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Left — terminal */}
+        {/* Left — Clean Info & Socials */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-card overflow-hidden"
+          className="glass-card p-8 flex flex-col gap-6 justify-between"
         >
-          {/* Terminal bar */}
-          <div className="flex items-center gap-2 px-5 py-3.5 border-b border-foreground/8" style={{ background: 'var(--terminal-bar)' }}>
-            <div className="flex gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-              <span className="w-2.5 h-2.5 rounded-full bg-primary/70" />
-            </div>
-            <span className="text-[11px] text-muted font-mono mx-auto">manny@dev ~ zsh</span>
-            <Terminal size={13} className="text-muted/50" />
-          </div>
-
-          {/* Terminal body */}
-          <div className="p-6 font-mono text-sm space-y-3" style={{ background: 'var(--terminal-bg)' }}>
-            {terminalLines.map((line, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-                className="flex flex-col gap-0.5"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-primary">❯</span>
-                  <span className="text-foreground/60">{line.prompt}</span>
-                  <span className="text-foreground">{line.text}</span>
-                </div>
-                <div className="pl-6 text-muted/80">{line.out}</div>
-              </motion.div>
-            ))}
-            {/* Blinking cursor */}
-            <div className="flex items-center gap-2 mt-2">
-              <span className="text-primary">❯</span>
-              <motion.span
-                animate={{ opacity: [1, 0, 1] }}
-                transition={{ repeat: Infinity, duration: 1 }}
-                className="w-2 h-4 bg-primary inline-block"
-              />
-            </div>
+          <div className="flex flex-col gap-4">
+            <h3 className="text-xl font-bold font-heading text-foreground">
+              Emmanuel Johnson
+            </h3>
+            <p className="text-muted text-sm leading-relaxed">
+              Based in Lagos, Nigeria. Specializing in Web3 engineering, Solidity smart contracts, and backend architectures. Get in touch to collaborate on personal projects, open-source initiatives, or just to chat about tech.
+            </p>
           </div>
 
           {/* Social links */}
-          <div className="px-6 pb-6 flex flex-wrap gap-3">
-            {links.map(l => (
-              <a
-                key={l.label}
-                href={l.href}
-                target={l.href.startsWith('mailto') ? undefined : '_blank'}
-                rel="noopener noreferrer"
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl border border-foreground/10 text-muted text-sm font-heading transition-all duration-200 ${l.color}`}
-              >
-                {l.icon}
-                {l.label}
-                <ExternalLink size={11} className="opacity-50" />
-              </a>
-            ))}
+          <div className="flex flex-col gap-3">
+            <span className="text-xs font-semibold font-heading text-muted uppercase tracking-widest">
+              Find Me On
+            </span>
+            <div className="flex flex-wrap gap-3">
+              {links.map(l => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target={l.href.startsWith('mailto') ? undefined : '_blank'}
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border border-foreground/10 text-foreground/80 hover:text-foreground text-sm font-heading transition-all duration-200 ${l.color}`}
+                >
+                  {l.icon}
+                  {l.label}
+                  <ExternalLink size={11} className="opacity-50" />
+                </a>
+              ))}
+            </div>
           </div>
         </motion.div>
 

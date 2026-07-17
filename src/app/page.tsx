@@ -4,7 +4,6 @@ import React from 'react';
 import { HeroSection } from '@/components/dashboard/HeroSection';
 import { ProfileIdentityPanel } from '@/components/dashboard/ProfileIdentityPanel';
 import { ContributionGraph } from '@/components/dashboard/ContributionGraph';
-import { FeaturedProjects } from '@/components/dashboard/FeaturedProjects';
 import { BuiltProjects } from '@/components/dashboard/BuiltProjects';
 import { ActivityTimeline } from '@/components/dashboard/ActivityTimeline';
 import { StarsDashboard } from '@/components/dashboard/StarsDashboard';
@@ -45,13 +44,6 @@ export default function Home() {
           <StackedCard>
             <div className="w-full max-w-6xl mx-auto py-6 md:py-8 px-2">
               <ContributionGraph />
-            </div>
-          </StackedCard>
-
-          {/* Featured Projects */}
-          <StackedCard>
-            <div className="w-full py-6 md:py-8">
-              <FeaturedProjects />
             </div>
           </StackedCard>
 

@@ -29,20 +29,13 @@ export const AboutSection = () => (
       >
         <div className="flex flex-col gap-5">
           <p className="text-foreground/90 text-base leading-[1.8]">
-            I&apos;m <span className="text-primary font-semibold">Emmanuel Johnson</span> — a self-driven
-            Blockchain & Full-Stack Engineer building at the intersection of
-            decentralised infrastructure and clean product experiences.
+            I&apos;m <span className="text-primary font-semibold">Emmanuel Johnson</span> — a Software Engineering student focused on Backend Development, Blockchain systems, and Web3 technologies.
           </p>
           <p className="text-muted text-base leading-[1.8]">
-            My engineering journey started with curiosity about how systems
-            communicate, which naturally led me into backend architecture, and
-            eventually into the world of smart contracts and on-chain protocols.
-            Every line of Solidity I write carries that same curiosity.
+            My journey is driven by understanding how systems communicate, leading me to explore backend architectures, smart contracts, and decentralized networks. I dedicate my time to building personal projects, tackling problem-solving challenges, and continuous self-directed learning.
           </p>
           <p className="text-muted text-base leading-[1.8]">
-            I care deeply about <span className="text-foreground font-medium">proof of work</span> — not
-            just the consensus mechanism, but the philosophy. Ship things. Learn
-            publicly. Build tools that matter. That&apos;s the mission.
+            I believe in the <span className="text-foreground font-medium">proof of work</span> philosophy: learning in public, contributing to open source, and showing capability through the software I create.
           </p>
         </div>
 
