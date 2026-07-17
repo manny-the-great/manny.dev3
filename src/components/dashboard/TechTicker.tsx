@@ -2,14 +2,13 @@
 
 import React from "react";
 
-// Duplicate items enough times so the track always fills even ultrawide screens
 const row1Base = [
-  "Solidity", "Ethereum", "TypeScript", "Next.js", "Node.js",
-  "Hardhat", "Chainlink", "React", "JavaScript", "PostgreSQL",
+  "JavaScript", "TypeScript", "React", "Python", "Node.js",
+  "Hardhat", "Solidity", "Chainlink", "Ethereum",
 ];
 const row2Base = [
-  "Smart Contracts", "DeFi", "Web3", "API Design",
-  "System Architecture", "CI/CD", "Docker", "REST / GraphQL",
+  "System Architecture", "CI/CD", "Next.js", "API Design",
+  "Web3", "Smart Contracts", "MongoDB", "Firebase",
 ];
 
 // 8 copies ensures seamless fill on any screen width
@@ -18,7 +17,7 @@ const row2Items = Array(8).fill(row2Base).flat();
 
 export function TechTicker() {
   return (
-    <div className="py-16 relative overflow-hidden select-none">
+    <div className="py-6 md:py-10 relative overflow-hidden select-none">
 
       {/* Row 1 — white background, black text, tilts up-left */}
       <div

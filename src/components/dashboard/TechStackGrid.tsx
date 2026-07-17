@@ -9,25 +9,33 @@ interface Tech {
   category: string;
   experience: string;
   usedIn: string[];
-  needsInvert?: boolean;
 }
 
 const techs: Tech[] = [
-  { name: "Solidity",    icon: "https://cdn.simpleicons.org/solidity/22c55e",   category: "Web3",     experience: "1+ yr",  usedIn: ["Chainlink Functions", "CCIP Experiments", "DeFi Contracts"] },
-  { name: "Ethereum",    icon: "https://cdn.simpleicons.org/ethereum/9CA3AF",   category: "Web3",     experience: "1+ yr",  usedIn: ["Smart Contracts", "DApps", "Wallets"] },
-  { name: "Chainlink",   icon: "https://cdn.simpleicons.org/chainlink/375BD2",  category: "Web3",     experience: "1 yr",   usedIn: ["Price Feeds", "Functions", "CCIP"] },
-  { name: "JavaScript",  icon: "https://cdn.simpleicons.org/javascript/F7DF1E", category: "Frontend", experience: "3+ yrs", usedIn: ["DegenSim", "SafeChat", "Portfolio"] },
-  { name: "TypeScript",  icon: "https://cdn.simpleicons.org/typescript/3178c6", category: "Frontend", experience: "2+ yrs", usedIn: ["DegenSim", "manny.dev3", "APIs"] },
-  { name: "Node.js",     icon: "https://cdn.simpleicons.org/nodedotjs/22c55e",  category: "Backend",  experience: "2+ yrs", usedIn: ["SafeChat API", "REST Services", "WebSockets"] },
-  { name: "Next.js",     icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF",  category: "Frontend", experience: "2+ yrs", usedIn: ["manny.dev3", "DegenSim", "CryptoVerse"], needsInvert: true },
+  { name: "JavaScript",  icon: "https://cdn.simpleicons.org/javascript/F7DF1E",  category: "Frontend", experience: "3+ yrs", usedIn: ["DegenSim", "SafeChat", "Portfolio"] },
+  { name: "TypeScript",  icon: "https://cdn.simpleicons.org/typescript/3178C6",  category: "Frontend", experience: "2+ yrs", usedIn: ["DegenSim", "manny.dev3", "APIs"] },
+  { name: "React",       icon: "https://cdn.simpleicons.org/react/61DAFB",       category: "Frontend", experience: "2+ yrs", usedIn: ["DegenSim", "CryptoVerse", "SafeChat"] },
+  { name: "Next.js",     icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF",   category: "Frontend", experience: "2+ yrs", usedIn: ["manny.dev3", "DegenSim", "CryptoVerse"] },
+  { name: "Python",      icon: "https://cdn.simpleicons.org/python/3776AB",      category: "Backend",  experience: "2+ yrs", usedIn: ["Automation", "Scripts", "Data Processing"] },
+  { name: "Node.js",     icon: "https://cdn.simpleicons.org/nodedotjs/5FA04E",   category: "Backend",  experience: "2+ yrs", usedIn: ["SafeChat API", "REST Services", "WebSockets"] },
+  { name: "MongoDB",     icon: "https://cdn.simpleicons.org/mongodb/47A248",     category: "Backend",  experience: "1+ yr",  usedIn: ["REST APIs", "Data Layer", "User Management"] },
+  { name: "Firebase",    icon: "https://cdn.simpleicons.org/firebase/DD2C00",    category: "Backend",  experience: "1+ yr",  usedIn: ["Auth", "Firestore", "Hosting"] },
+  { name: "Solidity",    icon: "https://cdn.simpleicons.org/solidity/22C55E",    category: "Web3",     experience: "1+ yr",  usedIn: ["Chainlink Functions", "CCIP Experiments", "DeFi Contracts"] },
+  { name: "Ethereum",    icon: "https://cdn.simpleicons.org/ethereum/9CA3AF",    category: "Web3",     experience: "1+ yr",  usedIn: ["Smart Contracts", "DApps", "Wallets"] },
+  { name: "Chainlink",   icon: "https://cdn.simpleicons.org/chainlink/375BD2",   category: "Web3",     experience: "1 yr",   usedIn: ["Price Feeds", "Functions", "CCIP"] },
   { name: "Hardhat",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hardhat/hardhat-original.svg", category: "Web3", experience: "1+ yr", usedIn: ["Contract Testing", "Deployment", "Scripts"] },
-  { name: "TailwindCSS", icon: "https://cdn.simpleicons.org/tailwindcss/38bdf8",category: "Frontend", experience: "2+ yrs", usedIn: ["All UI projects"] },
+  { name: "Smart Contracts", icon: "https://cdn.simpleicons.org/solidity/A855F7", category: "Web3",    experience: "1+ yr",  usedIn: ["Token Standards", "DeFi Protocols", "Governance"] },
+  { name: "Web3",        icon: "https://cdn.simpleicons.org/web3dotjs/F16822",   category: "Web3",     experience: "1+ yr",  usedIn: ["Wallet Integration", "Contract Calls", "DApps"] },
+  { name: "API Design",  icon: "https://cdn.simpleicons.org/swagger/85EA2D",     category: "Infra",    experience: "2+ yrs", usedIn: ["REST APIs", "GraphQL", "Microservices"] },
+  { name: "CI/CD",       icon: "https://cdn.simpleicons.org/githubactions/2088FF", category: "Infra",  experience: "1+ yr",  usedIn: ["GitHub Actions", "Auto Deploy", "Testing Pipelines"] },
+  { name: "System Architecture", icon: "https://cdn.simpleicons.org/diagramsdotnet/F08705", category: "Infra", experience: "2+ yrs", usedIn: ["Scalable Systems", "Cloud Design", "Infrastructure"] },
 ];
 
-const categoryColor: Record<string,string> = {
+const categoryColor: Record<string, string> = {
   Web3:     'text-primary border-primary/25 bg-primary/8',
   Frontend: 'text-secondary border-secondary/25 bg-secondary/8',
   Backend:  'text-yellow-400 border-yellow-400/25 bg-yellow-400/8',
+  Infra:    'text-sky-400 border-sky-400/25 bg-sky-400/8',
 };
 
 export const TechStackGrid = () => {
@@ -61,7 +69,7 @@ export const TechStackGrid = () => {
             <img
               src={tech.icon}
               alt={tech.name}
-              className={`w-7 h-7 object-contain ${tech.needsInvert ? 'dark:invert-0 invert' : ''}`}
+              className="w-7 h-7 object-contain"
             />
             <span className="text-[9px] font-semibold font-heading text-muted text-center uppercase tracking-wide leading-tight">
               {tech.name}
@@ -86,7 +94,7 @@ export const TechStackGrid = () => {
               <div className="glass-card p-6 flex flex-col sm:flex-row gap-6 items-start"
                 style={{ borderColor: 'rgba(34,197,94,0.2)', background: 'rgba(34,197,94,0.03)' }}>
                 <img src={tech.icon} alt={tech.name}
-                  className={`w-12 h-12 object-contain flex-shrink-0 ${tech.needsInvert ? 'dark:invert-0 invert' : ''}`} />
+                  className="w-12 h-12 object-contain flex-shrink-0" />
                 <div className="flex flex-col gap-3 flex-1">
                   <div className="flex items-center gap-3">
                     <h3 className="text-lg font-bold font-heading text-foreground">{tech.name}</h3>

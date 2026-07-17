@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Poppins, Press_Start_2P } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/ui/Navbar";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
@@ -49,19 +48,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <body
         className={`${bricolage.variable} ${poppins.variable} ${pressStart2P.variable} font-sans antialiased`}
         style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif" }}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="manny-theme">
-          <SmoothScrollProvider>
-            <CustomCursor />
-            <StarsBackground />
-            <Navbar />
-            {children}
-          </SmoothScrollProvider>
-        </ThemeProvider>
+        <SmoothScrollProvider>
+          <CustomCursor />
+          <StarsBackground />
+          <Navbar />
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );

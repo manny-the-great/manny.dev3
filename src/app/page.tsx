@@ -32,67 +32,67 @@ export default function Home() {
         <TechTicker />
 
         {/* ─── All other sections flow naturally downward ─── */}
-        <div className="flex flex-col gap-0 w-full max-w-7xl mx-auto px-4 md:px-6 pb-20">
+        <div className="flex flex-col gap-0 w-full max-w-7xl mx-auto px-4 md:px-6 pb-12 md:pb-16">
 
           {/* Profile Identity */}
           <StackedCard>
-            <div className="w-full max-w-6xl mx-auto py-10">
+            <div className="w-full max-w-6xl mx-auto py-6 md:py-8">
               <ProfileIdentityPanel />
             </div>
           </StackedCard>
 
           {/* Contribution Graph */}
           <StackedCard>
-            <div className="w-full max-w-6xl mx-auto py-10 px-2">
+            <div className="w-full max-w-6xl mx-auto py-6 md:py-8 px-2">
               <ContributionGraph />
             </div>
           </StackedCard>
 
           {/* Featured Projects */}
           <StackedCard>
-            <div className="w-full py-10">
+            <div className="w-full py-6 md:py-8">
               <FeaturedProjects />
             </div>
           </StackedCard>
 
           {/* Activity Timeline */}
           <StackedCard>
-            <div className="w-full py-10">
+            <div className="w-full py-6 md:py-8">
               <ActivityTimeline />
             </div>
           </StackedCard>
 
           {/* Built Projects / Case Studies */}
           <StackedCard>
-            <div className="w-full py-10">
+            <div className="w-full py-6 md:py-8">
               <BuiltProjects />
             </div>
           </StackedCard>
 
           {/* Stars Dashboard */}
           <StackedCard>
-            <div className="w-full py-10">
+            <div className="w-full py-6 md:py-8">
               <StarsDashboard />
             </div>
           </StackedCard>
 
           {/* About */}
           <StackedCard>
-            <div className="w-full py-10">
+            <div className="w-full py-6 md:py-8">
               <AboutSection />
             </div>
           </StackedCard>
 
           {/* Tech Stack */}
           <StackedCard>
-            <div className="w-full py-10">
+            <div className="w-full py-6 md:py-8">
               <TechStackGrid />
             </div>
           </StackedCard>
 
           {/* Terminal Contact */}
           <StackedCard>
-            <div className="w-full py-10">
+            <div className="w-full py-6 md:py-8">
               <TerminalContact />
             </div>
           </StackedCard>

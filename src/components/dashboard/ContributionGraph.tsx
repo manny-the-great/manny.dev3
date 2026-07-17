@@ -2,17 +2,12 @@
 
 import React from 'react';
 import { GitHubCalendar } from 'react-github-calendar';
-import { useTheme } from "next-themes";
 
 const explicitTheme = {
-  light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
   dark: ['#1a1a1a', '#0e4429', '#006d32', '#26a641', '#39d353'],
 };
 
 export const ContributionGraph = () => {
-  const { resolvedTheme } = useTheme();
-  const isLight = resolvedTheme === "light";
-
   return (
     <div className="flex flex-col gap-6 w-full">
       {/* Header */}
@@ -38,7 +33,7 @@ export const ContributionGraph = () => {
         <div className="min-w-[700px] p-6 rounded-2xl border border-foreground/5 bg-background/50 backdrop-blur-sm">
           <GitHubCalendar 
             username="manny-the-great" 
-            colorScheme={isLight ? "light" : "dark"}
+            colorScheme="dark"
             theme={explicitTheme}
             blockSize={11}
             blockMargin={4}
@@ -49,4 +44,3 @@ export const ContributionGraph = () => {
     </div>
   );
 };
-

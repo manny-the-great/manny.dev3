@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { useTheme } from "next-themes";
 
 export function StarsBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -25,7 +23,7 @@ export function StarsBackground() {
 
     const initStars = () => {
       stars = [];
-      const numStars = Math.floor((canvas.width * canvas.height) / 10000); // adjust density
+      const numStars = Math.floor((canvas.width * canvas.height) / 10000);
       for (let i = 0; i < numStars; i++) {
         stars.push({
           x: Math.random() * canvas.width,
@@ -41,8 +39,8 @@ export function StarsBackground() {
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const isLight = resolvedTheme === "light";
-      const rgb = isLight ? "10, 10, 10" : "255, 255, 255";
+      // Permanent dark mode — white stars
+      const rgb = "255, 255, 255";
 
       stars.forEach((star) => {
         // Twinkle effect
@@ -55,7 +53,7 @@ export function StarsBackground() {
           star.fadeDir = -1;
         }
 
-        // Slight drift upwards (optional, like dust/snow)
+        // Slight drift upwards
         star.y -= star.speed * 10;
         if (star.y < 0) {
           star.y = canvas.height;
@@ -79,7 +77,7 @@ export function StarsBackground() {
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [resolvedTheme]);
+  }, []);
 
   return (
     <canvas

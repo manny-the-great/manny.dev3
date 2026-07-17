@@ -58,7 +58,7 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-28 pb-20 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 md:pt-24 pb-8 md:pb-12 overflow-hidden"
     >
       {/* Ambient glows */}
       <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px] pointer-events-none animate-pulse-glow" />
