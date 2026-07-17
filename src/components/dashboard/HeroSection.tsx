@@ -52,7 +52,14 @@ export const HeroSection = () => {
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(id);
+    if (el) {
+      if ((window as any).lenis) {
+        (window as any).lenis.scrollTo(el);
+      } else {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (

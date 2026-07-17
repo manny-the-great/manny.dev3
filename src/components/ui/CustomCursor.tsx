@@ -8,6 +8,11 @@ export function CustomCursor() {
   const raf = useRef<number>(0);
 
   useEffect(() => {
+    // Only initialize and animate custom cursor if device has a fine pointer (mouse/trackpad)
+    if (!window.matchMedia("(pointer: fine)").matches) {
+      return;
+    }
+
     const onMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY };
     };

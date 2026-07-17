@@ -12,7 +12,13 @@ export function Navbar() {
   const handleNavClick = (href: string) => {
     const id = href.replace("#", "");
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) {
+      if ((window as any).lenis) {
+        (window as any).lenis.scrollTo(el);
+      } else {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
   };
 
   return (

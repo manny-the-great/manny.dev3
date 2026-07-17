@@ -15,10 +15,18 @@ export function StarsBackground() {
     let animationFrameId: number;
     let stars: { x: number; y: number; radius: number; opacity: number; fadeDir: number; speed: number }[] = [];
 
+    let lastWidth = 0;
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initStars();
+      const currentWidth = window.innerWidth;
+      const currentHeight = window.innerHeight;
+      
+      canvas.width = currentWidth;
+      canvas.height = currentHeight;
+      
+      if (currentWidth !== lastWidth) {
+        initStars();
+        lastWidth = currentWidth;
+      }
     };
 
     const initStars = () => {
