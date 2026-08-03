@@ -8,7 +8,7 @@ const infoCards = [
   {
     category: "EDUCATION",
     title: "Software & Web3 Engineering",
-    subtitle: "B.Tech — Computer Science & Software Development",
+    subtitle: "B.Sc. — Computer Science & Software Development",
   },
   {
     category: "ROLE",
@@ -65,7 +65,7 @@ export const AboutSection = () => {
           </div>
           <div className="flex items-center gap-2.5">
             <GraduationCap size={14} className="text-zinc-500 shrink-0" />
-            <span>Graduating <strong className="text-white font-semibold">2026</strong> — Web3 &amp; Computer Engineering</span>
+            <span>Graduate <strong className="text-white font-semibold">2026</strong> — Computer Science</span>
           </div>
           <div className="flex items-center gap-2.5">
             <Clock size={14} className="text-zinc-500 shrink-0" />
