@@ -3,24 +3,24 @@
 @tailwind utilities;
 
 @layer base {
-  /* ── PERMANENT DARK THEME ─── */
+  /* ── PERMANENT PITCH DARK THEME ─── */
   :root {
     --background: 5, 5, 5;
     --foreground: 255, 255, 255;
     --primary: 255, 255, 255;
     --primary-foreground: 0, 0, 0;
-    --secondary: 255, 255, 255;
-    --secondary-foreground: 0, 0, 0;
-    --card: rgba(255, 255, 255, 0.03);
-    --card-hover: rgba(255, 255, 255, 0.08);
-    --border: rgba(255, 255, 255, 0.1);
-    --border-hover: rgba(255, 255, 255, 0.3);
+    --secondary: 161, 161, 170;
+    --secondary-foreground: 255, 255, 255;
+    --card: #0e0e11;
+    --card-border: #1e1e24;
+    --card-hover: #15151a;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.2);
     --muted: 161, 161, 170;
-    --glow-green: 255, 255, 255;
-    --glow-blue: 255, 255, 255;
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.04);
-    --section-divider: rgba(255, 255, 255, 0.08);
-    --input-bg: rgba(255, 255, 255, 0.05);
+    --glow-green: 34, 197, 94;
+    --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    --section-divider: #1f1f26;
+    --input-bg: #121216;
   }
 }
 
@@ -51,7 +51,7 @@ html.lenis, html.lenis body {
 
 body {
   color: rgb(var(--foreground));
-  background: rgb(var(--background));
+  background: #050505;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -64,63 +64,52 @@ body {
 @layer components {
   .glass-card {
     background-color: var(--card);
-    backdrop-filter: blur(16px);
-    border: 1px solid var(--border);
+    border: 1px solid var(--card-border);
     box-shadow: var(--glass-shadow);
-    @apply rounded-2xl transition-all duration-300;
+    @apply rounded-xl transition-all duration-300;
   }
 
   .glass-card-hover:hover {
-    border-color: var(--border-hover);
-    box-shadow: var(--glass-shadow), 0 0 40px rgba(var(--glow-green), 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+    background-color: var(--card-hover);
     transform: translateY(-2px);
   }
 
   .glass-nav {
-    @apply backdrop-blur-2xl border border-foreground/10 rounded-full bg-background/80;
+    @apply backdrop-blur-2xl border border-white/10 rounded-full bg-black/80;
+  }
+
+  .section-label-container {
+    @apply flex items-center gap-4 text-xs tracking-wider uppercase font-semibold text-zinc-400 mb-6;
+  }
+
+  .section-label-line {
+    @apply flex-1 h-[1px] bg-zinc-800/80;
   }
 
   .section-label {
-    @apply text-xs font-semibold tracking-[0.2em] uppercase;
-    color: var(--primary);
-  }
-
-  .gradient-text {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, rgb(var(--primary)) 0%, rgb(var(--secondary)) 100%);
-  }
-
-  .section-divider {
-    width: 100%;
-    height: 1px;
-    background: var(--section-divider);
-    margin: 0 auto;
+    @apply text-xs font-medium tracking-widest uppercase text-zinc-400;
   }
 
   .hero-heading {
     font-family: var(--font-bricolage), var(--font-poppins), system-ui, sans-serif;
-    @apply font-black leading-[0.92] tracking-[-0.03em];
+    @apply font-bold leading-[1.05] tracking-tight;
   }
 
   .pill-tag {
-    @apply text-xs font-medium px-3 py-1 rounded-full border;
-    background: rgba(var(--glow-green), 0.08);
-    border-color: rgba(var(--glow-green), 0.2);
-    color: var(--primary);
-  }
-
-  .pill-tag-blue {
-    @apply text-xs font-medium px-3 py-1 rounded-full border;
-    background: rgba(var(--glow-blue), 0.08);
-    border-color: rgba(var(--glow-blue), 0.2);
-    color: var(--secondary);
+    @apply text-[11px] font-medium px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/80 text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-white;
   }
 
   .tech-tag {
-    @apply text-[10px] font-medium px-2 py-0.5 rounded-full border;
-    background: rgb(var(--foreground) / 0.04);
-    border-color: rgb(var(--foreground) / 0.08);
-    color: var(--muted);
+    @apply text-[11px] font-medium px-2.5 py-1 rounded-lg border border-zinc-800/80 bg-[#121216] text-zinc-300;
+  }
+
+  .btn-white-pill {
+    @apply px-5 py-2.5 rounded-full bg-white text-black font-semibold text-xs transition-all duration-200 hover:bg-zinc-200 active:scale-95 flex items-center gap-2 shadow-lg;
+  }
+
+  .btn-dark-pill {
+    @apply px-5 py-2.5 rounded-full bg-[#121216] border border-zinc-800 text-zinc-300 font-medium text-xs transition-all duration-200 hover:bg-zinc-800 hover:text-white hover:border-zinc-700 active:scale-95 flex items-center gap-2;
   }
 }
 

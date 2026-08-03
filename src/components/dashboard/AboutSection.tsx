@@ -2,98 +2,101 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { MapPin, GraduationCap, Clock } from 'lucide-react';
 
-const expertise = [
-  "Solidity", "Smart Contracts", "EVM", "Chainlink Oracles", "CCIP",
-  "JavaScript", "TypeScript", "Node.js", "Next.js", "REST APIs",
-  "TailwindCSS", "Framer Motion", "Git", "Hardhat", "Web3.js",
+const infoCards = [
+  {
+    category: "EDUCATION",
+    title: "Software & Web3 Engineering",
+    subtitle: "B.Tech — Computer Science & Software Development",
+  },
+  {
+    category: "ROLE",
+    title: "Blockchain Engineer + FullStack Developer",
+    subtitle: "Open to high-leverage roles & contract opportunities",
+  },
+  {
+    category: "INTERESTS",
+    title: "Web3 Architecture · Smart Contracts · Minimal UI",
+    subtitle: "DeFi Protocols · Developer Tools · Clean Systems",
+  },
+  {
+    category: "LANGUAGES (HUMAN)",
+    title: "English · Yoruba",
+    subtitle: "Professional fluency across global teams",
+  },
 ];
 
-export const AboutSection = () => (
-  <section className="w-full max-w-6xl mx-auto px-6 flex flex-col gap-8">
-    <div>
-      <div className="section-label mb-2">About Me</div>
-      <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground tracking-tight">
-        The Engineer Behind the Code
-      </h2>
-    </div>
-
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {/* Left — narrative */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="glass-card p-8 flex flex-col gap-6 justify-between"
-      >
-        <div className="flex flex-col gap-5">
-          <p className="text-foreground/90 text-base leading-[1.8]">
-            I&apos;m <span className="text-primary font-semibold">Emmanuel Johnson</span> — a Software Engineering student focused on Backend Development, Blockchain systems, and Web3 technologies.
-          </p>
-          <p className="text-muted text-base leading-[1.8]">
-            My journey is driven by understanding how systems communicate, leading me to explore backend architectures, smart contracts, and decentralized networks. I dedicate my time to building personal projects, tackling problem-solving challenges, and continuous self-directed learning.
-          </p>
-          <p className="text-muted text-base leading-[1.8]">
-            I believe in the <span className="text-foreground font-medium">proof of work</span> philosophy: learning in public, contributing to open source, and showing capability through the software I create.
-          </p>
-        </div>
-
-        <div className="flex items-center gap-3 pt-4 border-t border-foreground/8">
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm text-muted font-heading">
-            Open to full-time roles &amp; freelance contracts
-          </span>
-        </div>
-      </motion.div>
-
-      {/* Right — expertise tags + quote */}
-      <div className="flex flex-col gap-5">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="glass-card p-8 flex flex-col gap-4 flex-1"
-        >
-          <h3 className="text-sm font-semibold font-heading text-foreground uppercase tracking-widest">
-            Skills &amp; Expertise
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {expertise.map((skill, i) => (
-              <motion.span
-                key={skill}
-                initial={{ opacity: 0, scale: 0.85 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.05 * i, duration: 0.3 }}
-                className="pill-tag cursor-default"
-              >
-                {skill}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Editorial quote card */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="glass-card p-8 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, rgba(var(--glow-green), 0.06) 0%, rgba(var(--glow-blue), 0.04) 100%)' }}
-        >
-          <div className="absolute top-4 left-6 text-6xl font-black text-primary/15 leading-none font-heading select-none">
-            &ldquo;
-          </div>
-          <blockquote className="text-foreground/80 text-base leading-relaxed mt-6 font-light italic">
-            The Web3 stack is the most exciting engineering surface in a
-            generation. I want to be one of the people who shapes what it becomes.
-          </blockquote>
-          <p className="text-xs text-muted font-heading mt-4">— Manny D&apos; Great</p>
-        </motion.div>
+export const AboutSection = () => {
+  return (
+    <section id="about" className="w-full max-w-6xl mx-auto px-6 pt-16 pb-12 flex flex-col gap-8">
+      {/* Section Header with Line */}
+      <div className="flex items-center gap-4 text-xs tracking-wider uppercase font-semibold text-zinc-500">
+        <span className="flex items-center gap-1 font-mono text-zinc-400">
+          &lt;&gt; ABOUT ME
+        </span>
+        <div className="flex-1 h-[1px] bg-zinc-800/80" />
       </div>
-    </div>
-  </section>
-);
+
+      <div className="flex flex-col gap-6">
+        {/* Main Heading */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight font-heading leading-tight max-w-3xl">
+          Blockchain &amp; FullStack Engineer <span className="text-zinc-400 font-normal">who ships clean interfaces.</span>
+        </h2>
+
+        {/* Bio Paragraphs */}
+        <div className="flex flex-col gap-4 text-zinc-400 text-sm sm:text-base leading-relaxed max-w-4xl font-normal">
+          <p>
+            I specialize in Web3 engineering and full-stack systems — writing Solidity smart contracts that execute on EVM chains, deploying scalable backend infrastructure, and building responsive developer applications.
+          </p>
+          <p>
+            On the frontend, I bring that same precision-engineering mindset to building interfaces and AI-powered Web3 tools. Clean code, tight typography, minimal dependencies. No bloat.
+          </p>
+          <p className="text-white font-medium">
+            My goal is always the same: automate the complex, build the beautiful.
+          </p>
+        </div>
+
+        {/* Quick Info Metadata List */}
+        <div className="flex flex-col gap-3 pt-2 text-xs font-medium text-zinc-400">
+          <div className="flex items-center gap-2.5">
+            <MapPin size={14} className="text-zinc-500 shrink-0" />
+            <span>Lagos, Nigeria</span>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <GraduationCap size={14} className="text-zinc-500 shrink-0" />
+            <span>Graduating <strong className="text-white font-semibold">2026</strong> — Web3 &amp; Computer Engineering</span>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <Clock size={14} className="text-zinc-500 shrink-0" />
+            <span>Currently building: <strong className="text-white font-semibold">CryptoVerse &amp; Web3 Developer Tools</strong></span>
+          </div>
+        </div>
+
+        {/* Info Cards Grid (2x2 matching Image 2) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6">
+          {infoCards.map((card, i) => (
+            <motion.div
+              key={card.category}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.4 }}
+              className="p-6 rounded-xl bg-[#0e0e11] border border-[#1e1e24] flex flex-col gap-2 shadow-lg"
+            >
+              <span className="text-[10px] font-semibold tracking-wider text-zinc-500 uppercase font-mono">
+                {card.category}
+              </span>
+              <h3 className="text-base font-bold text-white font-heading">
+                {card.title}
+              </h3>
+              <p className="text-xs text-zinc-400 font-normal">
+                {card.subtitle}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
