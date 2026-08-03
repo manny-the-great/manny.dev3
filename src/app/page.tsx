@@ -45,7 +45,7 @@ export default function Home() {
             </span>
             <span className="hidden sm:inline text-zinc-600">•</span>
             <span className="text-xs text-zinc-500">
-              © {new Date().getFullYear()} — Built with Next.js
+              © {new Date().getFullYear()}
             </span>
           </div>
 

@@ -49,13 +49,13 @@ export const HeroSection = () => {
           <circle cx="200" cy="200" r="130" />
           <circle cx="200" cy="200" r="80" strokeDasharray="2 2" />
           <circle cx="200" cy="200" r="30" />
-          
+
           {/* Crosshairs & Radial Lines */}
           <line x1="20" y1="200" x2="380" y2="200" />
           <line x1="200" y1="20" x2="200" y2="380" />
           <line x1="72" y1="72" x2="328" y2="328" strokeDasharray="4 4" />
           <line x1="72" y1="328" x2="328" y2="72" strokeDasharray="4 4" />
-          
+
           {/* Outer compass marks */}
           <circle cx="200" cy="200" r="195" />
         </svg>
@@ -93,7 +93,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-zinc-400 text-base sm:text-lg max-w-2xl font-normal leading-relaxed"
         >
-          I build scalable Web3 infrastructure and interfaces that make it beautiful — from Solidity smart contracts on EVM chains to production-grade web applications.
+          I build scalable Web3 infrastructure and interfaces that make it beautiful, from Solidity smart contracts on EVM chains to production-grade web applications.
         </motion.p>
 
         {/* Action Buttons */}

@@ -26,10 +26,10 @@ const contactLinks = [
 ];
 
 export const TerminalContact = () => {
-  const [name, setName]       = useState('');
-  const [email, setEmail]     = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [sent, setSent]       = useState(false);
+  const [sent, setSent] = useState(false);
 
   const handleSend = () => {
     if (email && message) {
@@ -54,7 +54,7 @@ export const TerminalContact = () => {
             Let&apos;s build something together.
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-normal">
-            I&apos;m open to Web3 engineering roles, smart contract development, and high-impact full-stack projects. Drop a message — I respond fast.
+            I&apos;m open to Web3 engineering roles, smart contract development, and high-impact full-stack projects. Drop a message, I&apos;ll respond fast.
           </p>
         </div>
 

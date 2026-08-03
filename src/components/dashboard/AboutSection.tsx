@@ -47,7 +47,7 @@ export const AboutSection = () => {
         {/* Bio Paragraphs */}
         <div className="flex flex-col gap-4 text-zinc-400 text-sm sm:text-base leading-relaxed max-w-4xl font-normal">
           <p>
-            I specialize in Web3 engineering and full-stack systems — writing Solidity smart contracts that execute on EVM chains, deploying scalable backend infrastructure, and building responsive developer applications.
+            I specialize in Web3 engineering and full-stack systems, writing Solidity smart contracts that execute on EVM chains, deploying scalable backend infrastructure, and building responsive developer applications.
           </p>
           <p>
             On the frontend, I bring that same precision-engineering mindset to building interfaces and AI-powered Web3 tools. Clean code, tight typography, minimal dependencies. No bloat.
@@ -69,7 +69,7 @@ export const AboutSection = () => {
           </div>
           <div className="flex items-center gap-2.5">
             <Clock size={14} className="text-zinc-500 shrink-0" />
-            <span>Currently building: <strong className="text-white font-semibold">CryptoVerse &amp; Web3 Developer Tools</strong></span>
+            <span>Currently building: <strong className="text-white font-semibold">AutoChain &amp; Streamly</strong></span>
           </div>
         </div>
 
