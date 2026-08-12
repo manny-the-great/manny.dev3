@@ -24,7 +24,7 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-  title: "Manny D' Great | Blockchain & FullStack Engineer",
+  title: "Manny D' Great | Blockchain & AI Product Builder",
   description:
     "Premium Web3 developer portfolio — Blockchain, Solidity, JavaScript, and full-stack engineering by Manny D' Great.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "manny the great",
   ],
   openGraph: {
-    title: "Manny D' Great | Blockchain & FullStack Engineer",
+    title: "Manny D' Great | Blockchain & AI Product Builder",
     description: "Building scalable Web3 infrastructure and developer tools.",
     type: "website",
   },

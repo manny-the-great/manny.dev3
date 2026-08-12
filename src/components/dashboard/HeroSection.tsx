@@ -82,7 +82,7 @@ export const HeroSection = () => {
         >
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.08] font-heading">
             Blockchain Developer. <br />
-            <span className="text-zinc-400">FullStack Developer.</span>
+            <span className="text-zinc-400">AI Product Builder.</span>
           </h1>
         </motion.div>
 

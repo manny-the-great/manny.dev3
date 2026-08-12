@@ -12,7 +12,7 @@ const infoCards = [
   },
   {
     category: "ROLE",
-    title: "Blockchain Engineer + FullStack Developer",
+    title: "Blockchain Engineer + AI Product Builder",
     subtitle: "Open to high-leverage roles & contract opportunities",
   },
   {
@@ -41,7 +41,7 @@ export const AboutSection = () => {
       <div className="flex flex-col gap-6">
         {/* Main Heading */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight font-heading leading-tight max-w-3xl">
-          Blockchain &amp; FullStack Engineer <span className="text-zinc-400 font-normal">who ships clean interfaces.</span>
+          Blockchain &amp; AI Product Builder <span className="text-zinc-400 font-normal">who ships clean interfaces.</span>
         </h2>
 
         {/* Bio Paragraphs */}
