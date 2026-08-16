@@ -71,7 +71,7 @@ export const HeroProfileCard = () => {
           <span className="text-sm font-mono text-zinc-400">@manny-the-great</span>
 
           <div className="flex items-center gap-2 text-xs sm:text-sm text-zinc-300 pt-0.5">
-            <span>DevOps Engineer at <strong className="text-white font-medium">DFW-LLC</strong></span>
+            <span>Software Developer at <strong className="text-white font-medium">DFW-LLC</strong></span>
             <span className="text-zinc-600">⚙️</span>
           </div>
 
@@ -94,13 +94,13 @@ export const HeroProfileCard = () => {
         <div className="flex items-start gap-2.5">
           <span className="text-zinc-500 text-xs mt-1">•</span>
           <p>
-            Hi, I am a <strong className="text-white font-semibold">Blockchain Engineer</strong> &amp; <strong className="text-white font-semibold">AI-Full Stack Developer</strong>.
+            Hi, I am a <strong className="text-white font-semibold">Blockchain Engineer</strong> &amp; <strong className="text-white font-semibold">AI-Software Developer</strong>.
           </p>
         </div>
         <div className="flex items-start gap-2.5">
           <span className="text-zinc-500 text-xs mt-1">•</span>
           <p>
-            DevOps at <strong className="text-white font-semibold">DFW-LLC</strong>, architecting automated CI/CD pipelines, container orchestration, and cloud reliability.
+            Software Developer at <strong className="text-white font-semibold">DFW-LLC</strong>, building scalable backend services, automated workflows, and modern web applications.
           </p>
         </div>
         <div className="flex items-start gap-2.5">
