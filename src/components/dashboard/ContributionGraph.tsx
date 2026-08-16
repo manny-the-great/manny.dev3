@@ -9,35 +9,32 @@ const darkTheme = {
 
 export const ContributionGraph = () => {
   return (
-    <section id="activity" className="w-full max-w-6xl mx-auto px-6 py-8 flex flex-col gap-6">
-      {/* Section Header with Line */}
-      <div className="flex items-center gap-4 text-xs tracking-wider uppercase font-semibold text-zinc-500">
-        <span className="flex items-center gap-1 font-mono text-zinc-400">
-          &lt;&gt; ACTIVITY
-        </span>
-        <div className="flex-1 h-[1px] bg-zinc-800/80" />
+    <section id="activity" className="w-full max-w-2xl mx-auto px-4 sm:px-6 pt-6 pb-6 flex flex-col gap-4">
+      {/* Corner Bracket Title */}
+      <div className="flex items-center text-xs font-mono text-zinc-400 font-semibold tracking-wider">
+        <span>⌜ GitHub Activity ⌝</span>
       </div>
 
       {/* Graph Card Wrapper */}
-      <div className="p-6 md:p-8 rounded-xl bg-[#0e0e11] border border-[#1e1e24] flex flex-col gap-6 shadow-xl overflow-hidden">
-        <div className="flex flex-col gap-1">
-          <h3 className="text-xl font-bold text-white font-heading">
-            GitHub Contributions
+      <div className="p-4 sm:p-5 rounded-xl border border-dashed border-zinc-800 bg-[#0c0c10]/40 flex flex-col gap-4 overflow-hidden">
+        <div className="flex flex-col gap-0.5">
+          <h3 className="text-sm sm:text-base font-bold text-white font-heading">
+            Contributions Heatmap
           </h3>
-          <p className="text-xs text-zinc-400">
-            Real-time activity heatmap for @manny-the-great
+          <p className="text-xs text-zinc-400 font-mono">
+            @manny-the-great on GitHub
           </p>
         </div>
 
-        <div className="w-full overflow-x-auto pb-2">
-          <div className="min-w-[700px] flex items-center justify-center py-2">
+        <div className="w-full overflow-x-auto pb-2 scrollbar-thin">
+          <div className="min-w-[650px] flex items-center justify-center py-2">
             <GitHubCalendar 
               username="manny-the-great" 
               colorScheme="dark"
               theme={darkTheme}
-              blockSize={12}
-              blockMargin={4}
-              fontSize={12}
+              blockSize={11}
+              blockMargin={3.5}
+              fontSize={11}
             />
           </div>
         </div>

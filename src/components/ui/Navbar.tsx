@@ -1,72 +1,80 @@
 "use client";
 
-import React from "react";
-import { Github } from "lucide-react";
+import React, { useState } from "react";
+import { Star } from "lucide-react";
 
 const navLinks = [
-  { href: "#home", label: "Home", isActive: true },
+  { href: "#home", label: "Home" },
   { href: "#projects", label: "Projects" },
+  { href: "/cv.pdf", label: "Resume", isExternal: true },
+  { href: "#skills", label: "Skills" },
+  { href: "#experience", label: "Experience" },
 ];
 
 export function Navbar() {
-  const handleNavClick = (href: string) => {
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
-      if ((window as any).lenis) {
-        (window as any).lenis.scrollTo(el);
-      } else {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+  const [activeLink, setActiveLink] = useState("Home");
+  const [starred, setStarred] = useState(false);
+
+  const handleNavClick = (href: string, label: string) => {
+    setActiveLink(label);
+    if (href.startsWith("#")) {
+      const id = href.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        if ((window as any).lenis) {
+          (window as any).lenis.scrollTo(el);
+        } else {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     }
   };
 
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[600]">
-      <div className="flex items-center gap-2 sm:gap-6 px-4 sm:px-6 py-2.5 rounded-full border border-foreground/10 bg-background/90 backdrop-blur-xl shadow-2xl">
-        
+    <header className="fixed top-0 left-0 right-0 z-[600] bg-[#050505]/85 backdrop-blur-md border-b border-zinc-800/40">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Navigation Links */}
-        <div className="flex items-center gap-1 sm:gap-2">
-          {navLinks.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-                link.isActive
-                  ? "bg-foreground/10 text-foreground"
-                  : "text-foreground/60 hover:text-foreground hover:bg-foreground/5"
-              }`}
-            >
-              {link.label}
-            </button>
-          ))}
-          
-          {/* Resume Download Link */}
-          <a
-            href="/cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-colors"
-          >
-            Resume
-          </a>
-        </div>
+        <nav className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-medium">
+          {navLinks.map((link) =>
+            link.isExternal ? (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-400 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <button
+                key={link.label}
+                onClick={() => handleNavClick(link.href, link.label)}
+                className={`transition-colors ${
+                  activeLink === link.label
+                    ? "text-white font-semibold"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                {link.label}
+              </button>
+            )
+          )}
+        </nav>
 
-        {/* Divider */}
-        <div className="w-[1px] h-4 bg-foreground/10 hidden sm:block"></div>
-
-        {/* GitHub Link (replaces theme toggle) */}
-        <a
-          href="https://github.com/manny-the-great"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ml-2 sm:ml-0 p-1.5 rounded-full text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-colors"
-          aria-label="GitHub Profile"
+        {/* Right Star Button */}
+        <button
+          onClick={() => setStarred(!starred)}
+          aria-label="Star Portfolio"
+          className={`w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-300 ${
+            starred
+              ? "bg-amber-500/20 border-amber-400 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+              : "bg-[#121216] border-zinc-800 text-amber-400 hover:border-amber-500/50 hover:bg-[#1a1a22]"
+          }`}
         >
-          <Github size={16} />
-        </a>
-
+          <Star size={16} className={starred ? "fill-amber-400" : "fill-amber-400/80"} />
+        </button>
       </div>
-    </div>
+    </header>
   );
 }
