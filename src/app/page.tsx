@@ -73,9 +73,10 @@ export default function Home() {
               <Mail size={14} />
             </a>
             <a
-              href="/cv.pdf"
+              href="/Emmanuel-Johnson-CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              download="Emmanuel-Johnson-CV.pdf"
               className="p-1.5 rounded-lg bg-[#121216] border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
               aria-label="Resume"
             >

@@ -198,9 +198,10 @@ export const HeroProfileCard = () => {
           </a>
 
           <a
-            href="/cv.pdf"
+            href="/Emmanuel-Johnson-CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            download="Emmanuel-Johnson-CV.pdf"
             className="w-8 h-8 rounded-lg bg-[#141418] border border-zinc-800 hover:border-zinc-700 text-zinc-400 hover:text-white flex items-center justify-center transition-colors"
             aria-label="Download Resume"
           >

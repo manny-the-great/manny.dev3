@@ -6,7 +6,7 @@ import { Star } from "lucide-react";
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#projects", label: "Projects" },
-  { href: "/cv.pdf", label: "Resume", isExternal: true },
+  { href: "/Emmanuel-Johnson-CV.pdf", label: "Resume", isExternal: true },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
 ];

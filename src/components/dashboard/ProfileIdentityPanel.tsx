@@ -136,7 +136,7 @@ export const ProfileIdentityPanel = () => {
           <div className="flex gap-3">
             {/* Resume Capsule */}
             <div className="p-1 rounded-full border border-foreground/15 bg-background/40 flex items-center justify-center">
-              <a href="/cv.pdf" download="Emmanuel_Johnson_CV.pdf"
+              <a href="/Emmanuel-Johnson-CV.pdf" download="Emmanuel-Johnson-CV.pdf"
                 className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-foreground/80 hover:text-foreground hover:bg-foreground/5 transition-all font-heading">
                 <FileText size={13} />
                 Resume

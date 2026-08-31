@@ -114,9 +114,10 @@ export const HeroSection = () => {
           </a>
 
           <a
-            href="/cv.pdf"
+            href="/Emmanuel-Johnson-CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            download="Emmanuel-Johnson-CV.pdf"
             className="btn-dark-pill"
           >
             <Download size={15} />
