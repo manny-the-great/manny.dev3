@@ -12,7 +12,7 @@ const infoCards = [
   },
   {
     category: "ROLE",
-    title: "Blockchain Engineer + AI Product Builder",
+    title: "Blockchain Engineer & AI-Powered Software Dev",
     subtitle: "Open to high-leverage roles & contract opportunities",
   },
   {

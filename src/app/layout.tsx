@@ -24,20 +24,25 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-  title: "Manny D' Great | Blockchain & AI Product Builder",
+  title: "Emmanuel Johnson | Blockchain Engineer & AI-Powered Software Dev.",
+  applicationName: "Emmanuel Johnson",
   description:
-    "Premium Web3 developer portfolio — Blockchain, Solidity, JavaScript, and full-stack engineering by Manny D' Great.",
+    "Portfolio of Emmanuel Johnson — Blockchain Engineer & AI-Powered Software Dev.",
   keywords: [
     "blockchain developer",
     "web3 engineer",
     "solidity",
     "smart contracts",
     "fullstack developer",
+    "emmanuel johnson",
     "manny the great",
   ],
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
-    title: "Manny D' Great | Blockchain & AI Product Builder",
-    description: "Building scalable Web3 infrastructure and developer tools.",
+    title: "Emmanuel Johnson | Blockchain Engineer & AI-Powered Software Dev.",
+    description: "Blockchain Engineer & AI-Powered Software Dev.",
     type: "website",
   },
 };

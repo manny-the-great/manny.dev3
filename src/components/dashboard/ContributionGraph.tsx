@@ -4,7 +4,8 @@ import React from 'react';
 import { GitHubCalendar } from 'react-github-calendar';
 
 const darkTheme = {
-  dark: ['#141418', '#0e4429', '#006d32', '#26a641', '#39d353'],
+  light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+  dark: ['#202024', '#3f3f46', '#71717a', '#d4d4d8', '#ffffff'],
 };
 
 export const ContributionGraph = () => {
