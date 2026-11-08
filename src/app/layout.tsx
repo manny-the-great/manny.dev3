@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Poppins, Press_Start_2P } from "next/font/google";
+import { Bricolage_Grotesque, Poppins, Press_Start_2P, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
@@ -21,6 +21,12 @@ const pressStart2P = Press_Start_2P({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-press-start",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -55,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${bricolage.variable} ${poppins.variable} ${pressStart2P.variable} font-sans antialiased`}
+        className={`${bricolage.variable} ${poppins.variable} ${pressStart2P.variable} ${instrumentSerif.variable} font-sans antialiased`}
         style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif" }}
       >
         <SmoothScrollProvider>

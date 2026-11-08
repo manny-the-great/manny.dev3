@@ -31,6 +31,7 @@ const config: Config = {
         sans: ["var(--font-poppins)", "system-ui", "sans-serif"],
         heading: ["var(--font-bricolage)", "system-ui", "sans-serif"],
         header: ["var(--font-bricolage)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
         pixel: ["var(--font-press-start)", "monospace"],
         mono: ["'JetBrains Mono'", "Menlo", "monospace"],
       },
