@@ -28,8 +28,8 @@ const row1Skills: SkillItem[] = [
   { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
   { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
   { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-  { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26" },
-  { name: "CSS3", icon: "https://cdn.simpleicons.org/css3/1572B6" },
+  { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
 ];
 
 const row2Skills: SkillItem[] = [
