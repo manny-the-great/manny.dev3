@@ -76,7 +76,6 @@ export const HeroProfileCard = () => {
           <div className="flex items-center gap-2">
             <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-1.5">
               Emmanuel Johnson
-              <span className="text-base sm:text-lg">🚀</span>
             </h1>
           </div>
 
@@ -86,7 +85,6 @@ export const HeroProfileCard = () => {
             <span className="font-medium text-white">Blockchain Engineer &amp; AI-Powered Software Dev</span>
             <span className="text-zinc-600">•</span>
             <span>Software Developer at <strong className="text-white font-medium">DFW-LLC</strong></span>
-            <span className="text-zinc-600">⚙️</span>
           </div>
 
           <div className="flex items-center gap-2 text-xs text-zinc-400 pt-0.5 font-mono">
@@ -107,26 +105,26 @@ export const HeroProfileCard = () => {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
         <div className="p-2.5 rounded-xl border border-zinc-800/80 bg-[#0c0c10]/40 flex flex-col gap-0.5">
           <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">FOCUS</span>
-          <span className="text-xs font-semibold text-zinc-200">⛓️ EVM Architecture</span>
+          <span className="text-xs font-semibold text-zinc-200"> EVM Architecture</span>
         </div>
         <div className="p-2.5 rounded-xl border border-zinc-800/80 bg-[#0c0c10]/40 flex flex-col gap-0.5">
           <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">BACKEND</span>
-          <span className="text-xs font-semibold text-zinc-200">⚡ Scalable APIs</span>
+          <span className="text-xs font-semibold text-zinc-200"> Scalable APIs</span>
         </div>
         <div className="p-2.5 rounded-xl border border-zinc-800/80 bg-[#0c0c10]/40 flex flex-col gap-0.5">
           <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">FRONTEND</span>
-          <span className="text-xs font-semibold text-zinc-200">🎨 Modern Reactive UI</span>
+          <span className="text-xs font-semibold text-zinc-200"> Modern Reactive UI</span>
         </div>
         <div className="p-2.5 rounded-xl border border-zinc-800/80 bg-[#0c0c10]/40 flex flex-col gap-0.5">
           <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">MISSION</span>
-          <span className="text-xs font-semibold text-zinc-200">🚀 Always Shipping</span>
+          <span className="text-xs font-semibold text-zinc-200"> Always Shipping</span>
         </div>
       </div>
 
       {/* Bio Statement */}
       <div className="p-4 rounded-xl border border-dashed border-zinc-800/90 bg-[#0c0c10]/30 text-xs sm:text-sm text-zinc-300 leading-relaxed flex flex-col gap-2">
         <p>
-          Specializing in <strong className="text-white font-semibold">decentralized protocols</strong>, smart contract engineering, and high-concurrency full-stack systems. 
+          Specializing in <strong className="text-white font-semibold">decentralized protocols</strong>, smart contract engineering, and high-concurrency full-stack systems.
         </p>
         <p className="text-zinc-400">
           Software Developer at <strong className="text-white font-medium">DFW-LLC</strong>, turning complex infrastructure into scalable, resilient software with clean code and minimal bloat.

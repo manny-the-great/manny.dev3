@@ -24,10 +24,10 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-  title: "Emmanuel Johnson | Blockchain Engineer & AI-Powered Software Dev.",
+  title: "Emmanuel Johnson | Blockchain & Full Stack Software Engineer.",
   applicationName: "Emmanuel Johnson",
   description:
-    "Portfolio of Emmanuel Johnson — Blockchain Engineer & AI-Powered Software Dev.",
+    "Portfolio of Emmanuel Johnson — Blockchain & Full Stack Software Engineer.",
   keywords: [
     "blockchain developer",
     "web3 engineer",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Emmanuel Johnson | Blockchain Engineer & AI-Powered Software Dev.",
-    description: "Blockchain Engineer & AI-Powered Software Dev.",
+    title: "Emmanuel Johnson | Blockchain & Full Stack Software Engineer.",
+    description: "Blockchain & Full Stack Software Engineer.",
     type: "website",
   },
 };
