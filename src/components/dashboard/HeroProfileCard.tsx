@@ -82,7 +82,7 @@ export const HeroProfileCard = () => {
           <span className="text-sm font-mono text-zinc-400">@manny-the-great</span>
 
           <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-zinc-300">
-            <span className="font-medium text-white">Blockchain Engineer &amp; AI-Powered Software Dev</span>
+            <span className="font-medium text-white">Blockchain &amp; Full Stack Software Engineer</span>
             <span className="text-zinc-600">•</span>
             <span>Software Developer at <strong className="text-white font-medium">DFW-LLC</strong></span>
           </div>
