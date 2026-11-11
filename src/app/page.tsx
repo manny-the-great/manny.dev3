@@ -3,7 +3,6 @@
 import React from 'react';
 import { HeroProfileCard } from '@/components/dashboard/HeroProfileCard';
 import { TechStackGrid } from '@/components/dashboard/TechStackGrid';
-import { Web3Telemetry } from '@/components/dashboard/Web3Telemetry';
 import { WorkExperienceSection } from '@/components/dashboard/WorkExperienceSection';
 import { BuiltProjects } from '@/components/dashboard/BuiltProjects';
 import { ContributionGraph } from '@/components/dashboard/ContributionGraph';
@@ -23,9 +22,6 @@ export default function Home() {
 
         {/* My Skills Section */}
         <TechStackGrid />
-
-        {/* Web3 Telemetry & Live Node Pulse */}
-        <Web3Telemetry />
 
         {/* Work Experience Section */}
         <WorkExperienceSection />
