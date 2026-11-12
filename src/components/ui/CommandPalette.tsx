@@ -123,7 +123,7 @@ export const CommandPalette = () => {
     {
       id: "nav-projects",
       title: "Featured Projects",
-      subtitle: "CryptoVerse, SafeChat AI & Camaro Showcase",
+      subtitle: "CryptoVerse, AutoChain & Camaro Showcase",
       category: "Navigation",
       icon: <Layers size={15} className="text-zinc-400" />,
       onSelect: () => scrollToSection("projects"),
