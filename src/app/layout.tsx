@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Poppins, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
+import { CommandPalette } from "@/components/ui/CommandPalette";
+import { BackToTop } from "@/components/ui/BackToTop";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { StarsBackground } from "@/components/ui/StarsBackground";
@@ -62,6 +64,8 @@ export default function RootLayout({
           <CustomCursor />
           <StarsBackground />
           <Navbar />
+          <CommandPalette />
+          <BackToTop />
           {children}
         </SmoothScrollProvider>
       </body>
