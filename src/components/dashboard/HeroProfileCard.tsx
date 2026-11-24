@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { HeroOrbit } from "@/components/dashboard/HeroOrbit";
 import {
   MapPin,
   Clock,
@@ -52,8 +51,6 @@ export const HeroProfileCard = () => {
           <span className="tracking-wide">Available for High-Leverage Roles &amp; Web3 Contracts</span>
         </div>
       </div>
-
-      <HeroOrbit />
 
       {/* Profile Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
