@@ -3,8 +3,9 @@
 A premium, GitHub-style developer portfolio dashboard built with Next.js 15, TypeScript, TailwindCSS, and Framer Motion.
 
 ## Features
-- **GitHub Aesthetics**: Dark mode, grid layout, and contribution heatmap.
+- **Theme Options**: Persistent light and dark modes, grid layout, and contribution heatmap.
 - **Glassmorphism UI**: Premium visual effects with backdrop blurs and subtle glows.
+- **Motion Design**: A rotating technology orbit, scroll-triggered reveals, and smooth scrolling with reduced-motion support.
 - **Live Data**: Integated with GitHub REST API for profile, repositories, and activity timeline.
 - **Interactive Components**: 
   - Dynamic Contribution Graph

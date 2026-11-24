@@ -1,7 +1,15 @@
 "use client";
 
 import React from "react";
-import { GitHubCalendar } from "react-github-calendar";
+import dynamic from "next/dynamic";
+
+const GitHubCalendar = dynamic(
+  () => import("react-github-calendar").then((module) => module.GitHubCalendar),
+  {
+    ssr: false,
+    loading: () => <div className="h-36 w-full animate-pulse rounded-lg bg-zinc-900/40" />,
+  }
+);
 
 // Monochrome grayscale theme matching the reference image exactly
 const monoTheme = {

@@ -1,6 +1,8 @@
 "use client";
 
 import React from 'react';
+import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 import { HeroProfileCard } from '@/components/dashboard/HeroProfileCard';
 import { TechStackGrid } from '@/components/dashboard/TechStackGrid';
 import { WorkExperienceSection } from '@/components/dashboard/WorkExperienceSection';
@@ -9,31 +11,65 @@ import { ContributionGraph } from '@/components/dashboard/ContributionGraph';
 import { TerminalContact } from '@/components/dashboard/TerminalContact';
 import { Github, Linkedin, Mail, Download } from 'lucide-react';
 
+function SectionReveal({
+  children,
+  delay = 0,
+  intro = false,
+}: {
+  children: ReactNode;
+  delay?: number;
+  intro?: boolean;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: intro ? 24 : 26 }}
+      animate={intro ? { opacity: 1, y: 0 } : undefined}
+      whileInView={intro ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white flex flex-col selection:bg-zinc-800 selection:text-white">
+    <div className="min-h-screen bg-background text-white flex flex-col selection:bg-zinc-800 selection:text-white">
       {/* Subtle background overlay */}
       <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900/15 via-transparent to-transparent" />
 
       {/* Main Content Feed matching the screenshot */}
       <main className="relative z-10 flex flex-col w-full">
         {/* Hero / Profile Section */}
-        <HeroProfileCard />
+        <SectionReveal intro>
+          <HeroProfileCard />
+        </SectionReveal>
 
         {/* My Skills Section */}
-        <TechStackGrid />
+        <SectionReveal>
+          <TechStackGrid />
+        </SectionReveal>
 
         {/* Work Experience Section */}
-        <WorkExperienceSection />
+        <SectionReveal delay={0.06}>
+          <WorkExperienceSection />
+        </SectionReveal>
 
         {/* Built Projects */}
-        <BuiltProjects />
+        <SectionReveal delay={0.08}>
+          <BuiltProjects />
+        </SectionReveal>
 
         {/* GitHub Activity Heatmap */}
-        <ContributionGraph />
+        <SectionReveal delay={0.06}>
+          <ContributionGraph />
+        </SectionReveal>
 
         {/* Contact Section */}
-        <TerminalContact />
+        <SectionReveal delay={0.04}>
+          <TerminalContact />
+        </SectionReveal>
       </main>
 
       {/* Footer */}

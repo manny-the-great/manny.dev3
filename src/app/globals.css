@@ -22,6 +22,26 @@
     --section-divider: #1f1f26;
     --input-bg: #121216;
   }
+
+  .light {
+    color-scheme: light;
+    --background: 247, 248, 251;
+    --foreground: 27, 30, 36;
+    --primary: 27, 30, 36;
+    --primary-foreground: 255, 255, 255;
+    --secondary: 88, 94, 105;
+    --secondary-foreground: 27, 30, 36;
+    --card: #ffffff;
+    --card-border: #e4e7ed;
+    --card-hover: #f2f4f8;
+    --border: rgba(25, 30, 40, 0.1);
+    --border-hover: rgba(25, 30, 40, 0.22);
+    --muted: 104, 110, 122;
+    --glow-green: 16, 145, 92;
+    --glass-shadow: 0 10px 30px rgba(34, 45, 70, 0.08);
+    --section-divider: #e4e7ed;
+    --input-bg: #f1f3f7;
+  }
 }
 
 html {
@@ -51,9 +71,10 @@ html.lenis, html.lenis body {
 
 body {
   color: rgb(var(--foreground));
-  background: #050505;
+  background: rgb(var(--background));
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: color 250ms ease, background-color 250ms ease;
 }
 
 /* Hide native cursor on desktop for custom cursor */
@@ -197,4 +218,126 @@ body {
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+html.light {
+  background: rgb(var(--background));
+  color-scheme: light;
+}
+
+.light body {
+  color: rgb(var(--foreground));
+}
+
+.light .text-white,
+.light .text-zinc-100 {
+  color: #1b1e24 !important;
+}
+
+.light .text-zinc-200 {
+  color: #343944 !important;
+}
+
+.light .text-zinc-300 {
+  color: #454b57 !important;
+}
+
+.light .text-zinc-400 {
+  color: #626977 !important;
+}
+
+.light .text-zinc-500 {
+  color: #777e8b !important;
+}
+
+.light .text-zinc-600 {
+  color: #8d94a0 !important;
+}
+
+.light .text-zinc-700 {
+  color: #a4aab4 !important;
+}
+
+.light .border-zinc-800,
+.light .border-zinc-800\/40,
+.light .border-zinc-800\/50,
+.light .border-zinc-800\/60,
+.light .border-zinc-800\/70,
+.light .border-zinc-800\/80,
+.light .border-zinc-800\/90,
+.light .border-zinc-850,
+.light .border-zinc-900,
+.light .border-zinc-900\/80 {
+  border-color: #e0e4eb !important;
+}
+
+.light [class*="border-[#1e1e24]"] {
+  border-color: #e0e4eb !important;
+}
+
+.light [class*="bg-[#050505]"],
+.light [class*="bg-[#08080a]"],
+.light [class*="bg-[#09090c]"] {
+  background-color: #f7f8fb !important;
+}
+
+.light [class*="bg-[#0c0c10]"] {
+  background-color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.light [class*="bg-[#0e0e11]"],
+.light [class*="bg-[#0e0e12]"],
+.light [class*="bg-[#101014]"],
+.light [class*="bg-[#0a0a0d]"] {
+  background-color: #ffffff !important;
+}
+
+.light [class*="bg-[#121216]"],
+.light [class*="bg-[#141418]"],
+.light [class*="bg-[#15151c]"],
+.light [class*="bg-[#16161c]"],
+.light [class*="bg-[#18181f]"],
+.light [class*="bg-[#181820]"],
+.light [class*="bg-[#1a1a22]"] {
+  background-color: #eff1f5 !important;
+}
+
+.light .bg-zinc-900,
+.light .bg-zinc-900\/80,
+.light .bg-zinc-850 {
+  background-color: #eff1f5 !important;
+}
+
+.light .bg-white {
+  background-color: #1b1e24 !important;
+}
+
+.light .text-black {
+  color: #ffffff !important;
+}
+
+.light .bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(24, 35, 44, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 35, 44, 0.035) 1px, transparent 1px);
+}
+
+.light .glass-nav {
+  background-color: rgba(255, 255, 255, 0.88);
+  border-color: rgba(25, 30, 40, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

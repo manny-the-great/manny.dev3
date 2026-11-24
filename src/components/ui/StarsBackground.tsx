@@ -12,7 +12,14 @@ export function StarsBackground() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let animationFrameId: number;
+    let starColor = "255, 255, 255";
+    const updateStarColor = () => {
+      starColor = document.documentElement.classList.contains("light")
+        ? "24, 35, 44"
+        : "255, 255, 255";
+    };
     let stars: { x: number; y: number; radius: number; opacity: number; fadeDir: number; speed: number }[] = [];
 
     let lastWidth = 0;
@@ -47,9 +54,6 @@ export function StarsBackground() {
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Permanent dark mode — white stars
-      const rgb = "255, 255, 255";
-
       stars.forEach((star) => {
         // Twinkle effect
         star.opacity += star.speed * star.fadeDir;
@@ -70,19 +74,30 @@ export function StarsBackground() {
 
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${rgb}, ${star.opacity})`;
+        ctx.fillStyle = `rgba(${starColor}, ${star.opacity * 0.45})`;
         ctx.fill();
       });
 
-      animationFrameId = requestAnimationFrame(render);
+      if (!reducedMotion) {
+        animationFrameId = requestAnimationFrame(render);
+      }
     };
 
-    window.addEventListener("resize", resizeCanvas);
+    const handleResize = () => {
+      resizeCanvas();
+      if (reducedMotion) render();
+    };
+
+    window.addEventListener("resize", handleResize);
+    const themeObserver = new MutationObserver(updateStarColor);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    updateStarColor();
     resizeCanvas();
     render();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("resize", handleResize);
+      themeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

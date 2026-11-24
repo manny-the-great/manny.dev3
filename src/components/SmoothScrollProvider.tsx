@@ -7,6 +7,7 @@ export const SmoothScrollProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     // Only run on client side
     if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
       duration: 1.2,

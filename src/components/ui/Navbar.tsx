@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Star, Search, Command } from "lucide-react";
+import { Star, Search, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   { href: "#home", label: "Home", id: "home" },
@@ -15,8 +16,12 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
   const [starred, setStarred] = useState(false);
   const [isMac, setIsMac] = useState(true);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const isDark = theme !== "light";
 
   useEffect(() => {
+    setMounted(true);
     // Detect OS for keyboard shortcut label (⌘K vs Ctrl+K)
     if (typeof window !== "undefined") {
       setIsMac(navigator.userAgent.toLowerCase().includes("mac"));
@@ -95,6 +100,17 @@ export function Navbar() {
 
         {/* Right Action Controls: ⌘K Search Pill + Star Button */}
         <div className="flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+            disabled={!mounted}
+            aria-label={mounted ? `Switch to ${isDark ? "light" : "dark"} mode` : "Toggle color theme"}
+            title={mounted ? `Switch to ${isDark ? "light" : "dark"} mode` : "Toggle color theme"}
+            className="w-8 h-8 rounded-lg flex items-center justify-center border border-zinc-800 bg-[#121216] text-zinc-400 transition-colors hover:border-zinc-700 hover:text-white disabled:cursor-default"
+          >
+            {isDark ? <Sun size={14} /> : <Moon size={14} />}
+          </button>
+
           {/* Command Palette Trigger Button */}
           <button
             onClick={openCommandPalette}

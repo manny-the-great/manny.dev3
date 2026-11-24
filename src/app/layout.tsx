@@ -7,6 +7,8 @@ import { BackToTop } from "@/components/ui/BackToTop";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { StarsBackground } from "@/components/ui/StarsBackground";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import { MotionConfig } from "framer-motion";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -55,19 +57,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${bricolage.variable} ${poppins.variable} ${pressStart2P.variable} font-sans antialiased`}
         style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif" }}
       >
-        <SmoothScrollProvider>
-          <CustomCursor />
-          <StarsBackground />
-          <Navbar />
-          <CommandPalette />
-          <BackToTop />
-          {children}
-        </SmoothScrollProvider>
+        <ThemeProvider>
+          <MotionConfig reducedMotion="user">
+            <SmoothScrollProvider>
+              <CustomCursor />
+              <StarsBackground />
+              <Navbar />
+              <CommandPalette />
+              <BackToTop />
+              {children}
+            </SmoothScrollProvider>
+          </MotionConfig>
+        </ThemeProvider>
       </body>
     </html>
   );
